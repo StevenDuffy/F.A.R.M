@@ -11,16 +11,16 @@
 
             <TabItem Header="Calender">
                 <StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <Calendar SelectionMode="SingleRange" HorizontalAlignment="Left" Margin="10"/>
-                    <StackPanel>
-                        <Label Content="Start Date:" FontWeight="Bold" Margin="10,0"></Label>
-                        <TextBox Width="120"  HorizontalAlignment="Left" Margin="10,0"></TextBox>
-                        <Label Content="End Date:" FontWeight="Bold" Margin="10,0"></Label>
-                        <TextBox Width="120"  HorizontalAlignment="Left" Margin="10,0"></TextBox>
+                    <StackPanel Orientation="Horizontal">
+                        <Calendar SelectionMode="SingleRange" HorizontalAlignment="Left" Margin="10"/>
+                        <StackPanel>
+                            <Label Content="Start Date:" FontWeight="Bold" Margin="10,0"></Label>
+                            <TextBox Width="120"  HorizontalAlignment="Left" Margin="10,0"></TextBox>
+                            <Label Content="End Date:" FontWeight="Bold" Margin="10,0"></Label>
+                            <TextBox Width="120"  HorizontalAlignment="Left" Margin="10,0"></TextBox>
                             <Button Content="Submit" Width="50" HorizontalAlignment="Right" Margin="10"></Button>
+                        </StackPanel>
                     </StackPanel>
-                </StackPanel>
                     <DataGrid Margin="10"></DataGrid>
                 </StackPanel>
 
@@ -31,9 +31,57 @@
 
             <TabItem Header="Stock Control">
                 <TabControl>
-                    <TabItem Header="Crops"></TabItem>
-                    <TabItem Header="Fertiliser"></TabItem>
-                    <TabItem Header="Containers"></TabItem>
+                    <TabItem Header="Crops">
+                        <StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="7,10,0,0">
+                                <Label Content="Crop Type:"></Label>
+                                <Label Content="None selected"></Label>
+                            </StackPanel>
+                            <StackPanel Margin="10">
+                                <ProgressBar Height="20" Width="400" HorizontalAlignment="Left" />
+                                <StackPanel Orientation="Horizontal">
+                                    <ComboBox HorizontalAlignment="Left" Margin="0,10"  Width="150"></ComboBox>
+                                    <TextBox  Margin="10" Width="50"></TextBox>
+                                    <Button Content=" Add " Margin="0,10"></Button>
+                                    <Button Content=" Remove " Margin="10"></Button>
+                                </StackPanel>
+                            </StackPanel>
+                        </StackPanel>
+                    </TabItem>
+                    <TabItem Header="Fertiliser">
+                        <StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="7,10,0,0">
+                                <Label Content="Fertiliser Type:"></Label>
+                                <Label Content="None selected"></Label>
+                            </StackPanel>
+                            <StackPanel Margin="10">
+                                <ProgressBar Height="20" Width="400" HorizontalAlignment="Left" />
+                                <StackPanel Orientation="Horizontal">
+                                    <ComboBox HorizontalAlignment="Left" Margin="0,10"  Width="150"></ComboBox>
+                                    <TextBox  Margin="10" Width="50"></TextBox>
+                                    <Button Content=" Add " Margin="0,10"></Button>
+                                    <Button Content=" Remove " Margin="10"></Button>
+                                </StackPanel>
+                            </StackPanel>
+                        </StackPanel>
+                    </TabItem>
+                    <TabItem Header="Containers">
+                        <StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="7,10,0,0">
+                                <Label Content="Container Type:"></Label>
+                                <Label Content="None selected"></Label>
+                            </StackPanel>
+                            <StackPanel Margin="10">
+                                <ProgressBar Height="20" Width="400" HorizontalAlignment="Left" />
+                                <StackPanel Orientation="Horizontal">
+                                    <ComboBox HorizontalAlignment="Left" Margin="0,10"  Width="150"></ComboBox>
+                                    <TextBox  Margin="10" Width="50"></TextBox>
+                                    <Button Content=" Add " Margin="0,10"></Button>
+                                    <Button Content=" Remove " Margin="10"></Button>
+                                </StackPanel>
+                            </StackPanel>
+                        </StackPanel>
+                    </TabItem>
                 </TabControl>
             </TabItem>
 
