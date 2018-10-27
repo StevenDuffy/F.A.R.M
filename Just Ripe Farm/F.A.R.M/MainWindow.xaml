@@ -8,9 +8,7 @@
         Title="Farming and Agricultural Resource Management" Height="350" Width="525" Icon="Icon.png">
     <Grid>
         <TabControl TabStripPlacement="Left">
-            <TabItem Header="Calender">
-                
-            </TabItem>
+            <TabItem Header="Calender"></TabItem>
             <TabItem Header="Stock Control">
                 <TabControl>
                     <TabItem Header="Crops"></TabItem>
@@ -18,8 +16,12 @@
                     <TabItem Header="Containers"></TabItem>
                 </TabControl>
             </TabItem>
+            <TabItem Header="Create Job"></TabItem>
             <TabItem Header="Logout">
-                
+                <StackPanel>
+                <Label Content="Are you sure you wish to log out?" HorizontalAlignment="Center" Margin="0,50,0,10" FontSize="16"></Label>
+                    <Button x:Name="logout" Content="Log out" Width="70" FontSize="16"></Button>
+                </StackPanel>
             </TabItem>
             
         </TabControl>

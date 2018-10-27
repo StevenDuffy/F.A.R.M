@@ -13,3 +13,5 @@ C:\Users\David Duffy\Desktop\F.A.R.M\Just Ripe Farm\F.A.R.M\obj\Debug\F.A.R.M.cs
 C:\Users\David Duffy\Desktop\F.A.R.M\Just Ripe Farm\F.A.R.M\obj\Debug\F.A.R.M.csproj.CoreCompileInputs.cache
 C:\Users\David Duffy\Desktop\F.A.R.M\Just Ripe Farm\F.A.R.M\obj\Debug\F.A.R.M.exe
 C:\Users\David Duffy\Desktop\F.A.R.M\Just Ripe Farm\F.A.R.M\obj\Debug\F.A.R.M.pdb
+C:\Users\David Duffy\Desktop\F.A.R.M\Just Ripe Farm\F.A.R.M\obj\Debug\Login.g.cs
+C:\Users\David Duffy\Desktop\F.A.R.M\Just Ripe Farm\F.A.R.M\obj\Debug\Login.baml
