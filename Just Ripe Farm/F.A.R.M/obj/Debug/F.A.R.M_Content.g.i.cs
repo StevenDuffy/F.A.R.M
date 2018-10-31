@@ -8,6 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("icon.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("farmdb.mdf")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("farmdb_log.ldf")]
 
 
