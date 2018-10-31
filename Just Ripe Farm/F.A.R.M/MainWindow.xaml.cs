@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using F.A.R.M.Properties;
 
 namespace F.A.R.M
 {
@@ -20,9 +21,30 @@ namespace F.A.R.M
     /// </summary>
     public partial class MainWindow : Window
     {
+        DatabaseConnection connectionToDB;
+
         public MainWindow()
         {
             InitializeComponent();
+
+            // Get the connection string for the database
+            string connectionString = Settings.Default.ConnectFarmDB;
+
+            // create a new object to manipulate data 
+            connectionToDB = new DatabaseConnection(connectionString);
+
+            // Open the connection to the database
+            connectionToDB.Open();
+        }
+
+        /// <summary>
+        /// Close the database connection when window is closed.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            connectionToDB.Close();
         }
     }
 }

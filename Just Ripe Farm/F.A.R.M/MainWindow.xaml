@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:F.A.R.M"
         mc:Ignorable="d"
-        Title="Farming and Agricultural Resource Management" Height="350" Width="525" Icon="Icon.png">
+        Title="Farming and Agricultural Resource Management" Height="350" Width="525" Icon="Icon.png"
+        Closed="Window_Closed">
     <Grid>
         <TabControl TabStripPlacement="Left">
 
