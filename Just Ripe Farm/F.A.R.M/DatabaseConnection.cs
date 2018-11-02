@@ -54,5 +54,15 @@ namespace F.A.R.M
             adapter.Fill(Data);
             return Data;
         }
+
+        /// <summary>
+        /// Generic method to execute Update, Insert, Delete from the database.
+        /// </summary>
+        /// <param name="query"></param>
+        public void NonQuery(string query)
+        {            
+            SqlCommand command = new SqlCommand(query, dBconnection);
+            command.ExecuteNonQuery();            
+        } 
     }
 }
