@@ -23,9 +23,9 @@ namespace F.A.R.M
     /// </summary>
     public partial class MainWindow : Window
     {
-        DatabaseConnection connectionToDB;
+        private readonly DatabaseConnection connectionToDB;
 
-        public MainWindow(DatabaseConnection connectionToDB)
+        public MainWindow(DatabaseConnection connectionToDB, Employee user)
         {
             InitializeComponent();
 
@@ -38,9 +38,8 @@ namespace F.A.R.M
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void Window_Closed(object sender, EventArgs e)
-        {
-            connectionToDB.Close();
-            Application.Current.Shutdown();
+        {            
+            
         }
     }
 }

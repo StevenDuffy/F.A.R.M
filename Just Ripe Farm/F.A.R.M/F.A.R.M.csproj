@@ -68,6 +68,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Employee.cs" />
+    <Compile Include="Manager.cs" />
     <Compile Include="SQLConstant.cs" />
     <Page Include="Login.xaml">
       <SubType>Designer</SubType>

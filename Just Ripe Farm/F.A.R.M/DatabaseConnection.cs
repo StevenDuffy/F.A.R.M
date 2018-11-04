@@ -10,9 +10,7 @@ namespace F.A.R.M
 {
     public class DatabaseConnection
     {
-       private SqlConnection dBconnection;
-
-        private string connectionStr;
+        private readonly SqlConnection dBconnection;
 
         private SqlDataAdapter adapter;
 
@@ -20,13 +18,19 @@ namespace F.A.R.M
 
         private DataTable dataTable;
 
+        public SqlDataAdapter Adapter { get; set; } //?
+
+        public DataSet DataSet { get; set; }
+
+        public DataTable DataTable { get; set; }
+
         /// <summary>
-        /// Constructs object that offers services to manipulate the chosen database.
+        /// Constructs an object that offers services to manipulate the chosen database.
         /// </summary>
-        /// <param name="connectionStr">Contains the selected connection string</param>
+        /// <param name="connectionStr"> Contains the selected connection string. </param>
         public DatabaseConnection(string connectionStr)
         {
-            this.connectionStr = connectionStr;
+            this.dBconnection = new SqlConnection(connectionStr);
         }
 
         /// <summary>
@@ -34,8 +38,7 @@ namespace F.A.R.M
         /// </summary>
         public void Open()
         {
-            dBconnection = new SqlConnection(connectionStr);
-            dBconnection.Open();
+            this.dBconnection.Open();
         }
 
         /// <summary>
@@ -43,7 +46,21 @@ namespace F.A.R.M
         /// </summary>
         public void Close()
         {
-            dBconnection.Close();
+            this.dBconnection.Close();
+        }
+
+        /// <summary>
+        /// Get a single users username, password and privilege level for the login credentials.
+        /// </summary>
+        /// <param name="username"></param>
+        /// <returns></returns>
+        public DataTable GetUserDetail(string username)
+        {
+            dataTable = new DataTable();
+            adapter = new SqlDataAdapter(SQLConstant.getUserDetails, dBconnection);
+            adapter.SelectCommand.Parameters.Add("@username", SqlDbType.NVarChar).Value = username;
+            adapter.Fill(dataTable);
+            return dataTable;
         }
 
         /// <summary>
@@ -69,14 +86,7 @@ namespace F.A.R.M
             command.ExecuteNonQuery();
         }
 
-        public DataTable GetUserDetail(string username)
-        {
-            dataTable = new DataTable();
-            adapter = new SqlDataAdapter(SQLConstant.getUserDetails, dBconnection);
-            adapter.SelectCommand.Parameters.Add("@username", SqlDbType.NVarChar).Value = username;
-            adapter.Fill(dataTable);
-            return dataTable;
-        }
+
 
     }
 }
