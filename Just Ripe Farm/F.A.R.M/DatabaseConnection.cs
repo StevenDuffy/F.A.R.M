@@ -8,13 +8,17 @@ using System.Data;
 
 namespace F.A.R.M
 {
-    class DatabaseConnection
+    public class DatabaseConnection
     {
-        SqlConnection dBconnection;
+       private SqlConnection dBconnection;
 
-        string connectionStr;
-        
-        SqlDataAdapter adapter;
+        private string connectionStr;
+
+        private SqlDataAdapter adapter;
+
+        private DataSet dataSet;
+
+        private DataTable dataTable;
 
         /// <summary>
         /// Constructs object that offers services to manipulate the chosen database.
@@ -47,12 +51,12 @@ namespace F.A.R.M
         /// </summary>
         /// <param name="readStatement"></param>
         /// <returns></returns>
-        public DataSet Read(string readStatement)
+        public DataSet GetData(string readStatement)
         {
-            DataSet Data = new DataSet();
+            dataSet = new DataSet();
             adapter = new SqlDataAdapter(readStatement, dBconnection);
-            adapter.Fill(Data);
-            return Data;
+            adapter.Fill(dataSet);
+            return dataSet;
         }
 
         /// <summary>
@@ -60,9 +64,19 @@ namespace F.A.R.M
         /// </summary>
         /// <param name="query"></param>
         public void NonQuery(string query)
-        {            
+        {
             SqlCommand command = new SqlCommand(query, dBconnection);
-            command.ExecuteNonQuery();            
-        } 
+            command.ExecuteNonQuery();
+        }
+
+        public DataTable GetUserDetail(string username)
+        {
+            dataTable = new DataTable();
+            adapter = new SqlDataAdapter(SQLConstant.getUserDetails, dBconnection);
+            adapter.SelectCommand.Parameters.Add("@username", SqlDbType.NVarChar).Value = username;
+            adapter.Fill(dataTable);
+            return dataTable;
+        }
+
     }
 }

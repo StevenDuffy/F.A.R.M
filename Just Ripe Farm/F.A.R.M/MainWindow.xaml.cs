@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using F.A.R.M.Properties;
+using System.Data.SqlClient;
+using System.Data;
 
 namespace F.A.R.M
 {
@@ -23,28 +25,22 @@ namespace F.A.R.M
     {
         DatabaseConnection connectionToDB;
 
-        public MainWindow()
+        public MainWindow(DatabaseConnection connectionToDB)
         {
             InitializeComponent();
 
-            // Get the connection string for the database
-            string connectionString = Settings.Default.ConnectFarmDB;
-
-            // create a new object to manipulate data 
-            connectionToDB = new DatabaseConnection(connectionString);
-
-            // Open the connection to the database
-            connectionToDB.Open();
+            this.connectionToDB = connectionToDB;
         }
 
         /// <summary>
-        /// Close the database connection when window is closed.
+        /// Close the database connection when window is closed. 
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void Window_Closed(object sender, EventArgs e)
         {
             connectionToDB.Close();
+            Application.Current.Shutdown();
         }
     }
 }
