@@ -1,0 +1,42 @@
+C:\Users\David Duffy\Desktop\F.A.R.M\Just Ripe Farm\F.A.R.M\bin\Debug\F.A.R.M.exe.config
+C:\Users\David Duffy\Desktop\F.A.R.M\Just Ripe Farm\F.A.R.M\bin\Debug\F.A.R.M.exe
+C:\Users\David Duffy\Desktop\F.A.R.M\Just Ripe Farm\F.A.R.M\bin\Debug\F.A.R.M.pdb
+C:\Users\David Duffy\Desktop\F.A.R.M\Just Ripe Farm\F.A.R.M\obj\Debug\F.A.R.M.csprojResolveAssemblyReference.cache
+C:\Users\David Duffy\Desktop\F.A.R.M\Just Ripe Farm\F.A.R.M\obj\Debug\MainWindow.g.cs
+C:\Users\David Duffy\Desktop\F.A.R.M\Just Ripe Farm\F.A.R.M\obj\Debug\App.g.cs
+C:\Users\David Duffy\Desktop\F.A.R.M\Just Ripe Farm\F.A.R.M\obj\Debug\F.A.R.M_MarkupCompile.cache
+C:\Users\David Duffy\Desktop\F.A.R.M\Just Ripe Farm\F.A.R.M\obj\Debug\F.A.R.M_MarkupCompile.lref
+C:\Users\David Duffy\Desktop\F.A.R.M\Just Ripe Farm\F.A.R.M\obj\Debug\MainWindow.baml
+C:\Users\David Duffy\Desktop\F.A.R.M\Just Ripe Farm\F.A.R.M\obj\Debug\F.A.R.M.g.resources
+C:\Users\David Duffy\Desktop\F.A.R.M\Just Ripe Farm\F.A.R.M\obj\Debug\F.A.R.M.Properties.Resources.resources
+C:\Users\David Duffy\Desktop\F.A.R.M\Just Ripe Farm\F.A.R.M\obj\Debug\F.A.R.M.csproj.GenerateResource.Cache
+C:\Users\David Duffy\Desktop\F.A.R.M\Just Ripe Farm\F.A.R.M\obj\Debug\F.A.R.M.csproj.CoreCompileInputs.cache
+C:\Users\David Duffy\Desktop\F.A.R.M\Just Ripe Farm\F.A.R.M\obj\Debug\F.A.R.M.exe
+C:\Users\David Duffy\Desktop\F.A.R.M\Just Ripe Farm\F.A.R.M\obj\Debug\F.A.R.M.pdb
+C:\Users\David Duffy\Desktop\F.A.R.M\Just Ripe Farm\F.A.R.M\obj\Debug\Login.g.cs
+C:\Users\David Duffy\Desktop\F.A.R.M\Just Ripe Farm\F.A.R.M\obj\Debug\Login.baml
+C:\Users\David Duffy\Desktop\F.A.R.M\Just Ripe Farm\F.A.R.M\bin\Debug\FarmDB.mdf
+C:\Users\David Duffy\Desktop\F.A.R.M\Just Ripe Farm\F.A.R.M\bin\Debug\FarmDB_log.ldf
+C:\Users\David Duffy\Desktop\F.A.R.M\Just Ripe Farm\F.A.R.M\obj\Debug\F.A.R.M_Content.g.cs
+C:\Users\David Duffy\Desktop\F.A.R.M\Just Ripe Farm\F.A.R.M\obj\Debug\App.baml
+C:\Users\Kyle\Desktop\F.A.R.M\F.A.R.M\Just Ripe Farm\F.A.R.M\bin\Debug\FarmDB.mdf
+C:\Users\Kyle\Desktop\F.A.R.M\F.A.R.M\Just Ripe Farm\F.A.R.M\bin\Debug\FarmDB_log.ldf
+C:\Users\Kyle\Desktop\F.A.R.M\F.A.R.M\Just Ripe Farm\F.A.R.M\bin\Debug\F.A.R.M.exe.config
+C:\Users\Kyle\Desktop\F.A.R.M\F.A.R.M\Just Ripe Farm\F.A.R.M\bin\Debug\F.A.R.M.exe
+C:\Users\Kyle\Desktop\F.A.R.M\F.A.R.M\Just Ripe Farm\F.A.R.M\bin\Debug\F.A.R.M.pdb
+C:\Users\Kyle\Desktop\F.A.R.M\F.A.R.M\Just Ripe Farm\F.A.R.M\obj\Debug\F.A.R.M.csprojResolveAssemblyReference.cache
+C:\Users\Kyle\Desktop\F.A.R.M\F.A.R.M\Just Ripe Farm\F.A.R.M\obj\Debug\Login.g.cs
+C:\Users\Kyle\Desktop\F.A.R.M\F.A.R.M\Just Ripe Farm\F.A.R.M\obj\Debug\MainWindow.g.cs
+C:\Users\Kyle\Desktop\F.A.R.M\F.A.R.M\Just Ripe Farm\F.A.R.M\obj\Debug\App.g.cs
+C:\Users\Kyle\Desktop\F.A.R.M\F.A.R.M\Just Ripe Farm\F.A.R.M\obj\Debug\F.A.R.M_Content.g.cs
+C:\Users\Kyle\Desktop\F.A.R.M\F.A.R.M\Just Ripe Farm\F.A.R.M\obj\Debug\F.A.R.M_MarkupCompile.cache
+C:\Users\Kyle\Desktop\F.A.R.M\F.A.R.M\Just Ripe Farm\F.A.R.M\obj\Debug\F.A.R.M_MarkupCompile.lref
+C:\Users\Kyle\Desktop\F.A.R.M\F.A.R.M\Just Ripe Farm\F.A.R.M\obj\Debug\App.baml
+C:\Users\Kyle\Desktop\F.A.R.M\F.A.R.M\Just Ripe Farm\F.A.R.M\obj\Debug\Login.baml
+C:\Users\Kyle\Desktop\F.A.R.M\F.A.R.M\Just Ripe Farm\F.A.R.M\obj\Debug\MainWindow.baml
+C:\Users\Kyle\Desktop\F.A.R.M\F.A.R.M\Just Ripe Farm\F.A.R.M\obj\Debug\F.A.R.M.g.resources
+C:\Users\Kyle\Desktop\F.A.R.M\F.A.R.M\Just Ripe Farm\F.A.R.M\obj\Debug\F.A.R.M.Properties.Resources.resources
+C:\Users\Kyle\Desktop\F.A.R.M\F.A.R.M\Just Ripe Farm\F.A.R.M\obj\Debug\F.A.R.M.csproj.GenerateResource.Cache
+C:\Users\Kyle\Desktop\F.A.R.M\F.A.R.M\Just Ripe Farm\F.A.R.M\obj\Debug\F.A.R.M.csproj.CoreCompileInputs.cache
+C:\Users\Kyle\Desktop\F.A.R.M\F.A.R.M\Just Ripe Farm\F.A.R.M\obj\Debug\F.A.R.M.exe
+C:\Users\Kyle\Desktop\F.A.R.M\F.A.R.M\Just Ripe Farm\F.A.R.M\obj\Debug\F.A.R.M.pdb
