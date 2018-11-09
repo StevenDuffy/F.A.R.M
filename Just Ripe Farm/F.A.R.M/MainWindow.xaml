@@ -86,7 +86,27 @@
                 </TabControl>
             </TabItem>
 
-            <TabItem Header="Create Job"></TabItem>
+            <TabItem Header="Create Job">
+                <Grid>
+                    <Label Content="Create job" HorizontalAlignment="Left" Margin="374,29,0,0" VerticalAlignment="Top"/>
+                    <ComboBox HorizontalAlignment="Left" Margin="98,99,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="ComboBox_SelectionChanged"/>
+                    <Label Content="Job reference" HorizontalAlignment="Left" Margin="111,68,0,0" VerticalAlignment="Top"/>
+                    <Button Content="Add" HorizontalAlignment="Left" Margin="10,99,0,0" VerticalAlignment="Top" Width="75"/>
+                    <ComboBox HorizontalAlignment="Left" Margin="358,99,0,0" VerticalAlignment="Top" Width="120"/>
+                    <Label Content="Job type" HorizontalAlignment="Left" Margin="385,68,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.154,0.539"/>
+                    <Button Content="Add" HorizontalAlignment="Left" Margin="278,99,0,0" VerticalAlignment="Top" Width="75"/>
+                    <ComboBox HorizontalAlignment="Left" Margin="608,99,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="1.555,0.438"/>
+                    <Label Content="Crop type" HorizontalAlignment="Left" Margin="635,68,0,0" VerticalAlignment="Top"/>
+                    <Button Content="Add" HorizontalAlignment="Left" Margin="528,99,0,0" VerticalAlignment="Top" Width="75"/>
+                    <ComboBox HorizontalAlignment="Left" Margin="98,224,0,0" VerticalAlignment="Top" Width="120"/>
+                    <Label Content="Vehicles required" HorizontalAlignment="Left" Margin="111,188,0,0" VerticalAlignment="Top" Width="107"/>
+                    <Button Content="Add" HorizontalAlignment="Left" Margin="10,224,0,0" VerticalAlignment="Top" Width="75"/>
+                    <ComboBox HorizontalAlignment="Left" Margin="358,224,0,0" VerticalAlignment="Top" Width="120"/>
+                    <Label Content="Staff required" HorizontalAlignment="Left" Margin="374,193,0,0" VerticalAlignment="Top"/>
+                    <Button Content="Add" HorizontalAlignment="Left" Margin="278,224,0,0" VerticalAlignment="Top" Width="75"/>
+                    <Button Content="Create Job" HorizontalAlignment="Left" Margin="575,224,0,0" VerticalAlignment="Top" Width="110" Height="32"/>
+                </Grid>
+            </TabItem>
             <TabItem Header="Data Management"></TabItem>
 
             <TabItem Header="Logout" >
