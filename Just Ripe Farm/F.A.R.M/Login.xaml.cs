@@ -30,74 +30,49 @@ namespace F.A.R.M
         private readonly string connectionString = Settings.Default.ConnectFarmDB;
 
         /// <summary>
-        /// Connection to Farm database.
+        /// Stores connection to Farm database.
         /// </summary>
-        private readonly DatabaseConnection connectionToDB;         
+        private readonly DatabaseConnection connectionToDB;
+
+        /// <summary>
+        /// Stores object that offers verification methods.
+        /// </summary>
+        private readonly LoginVerifier loginVerifier;
 
         /// <summary>
         /// Creates new Login form.
         /// </summary>
         public Login()
         {
-            Thread.Sleep(3000);
-
             InitializeComponent();
 
-            // create a new object to manipulate data 
+            // create a new object to manipulate data from the 
             connectionToDB = new DatabaseConnection(connectionString);
+
+            // create object that offers verification methods
+            loginVerifier = new LoginVerifier(connectionToDB);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Employee user;
 
-            // Open the connection to the database
-            connectionToDB.Open();
-
-            DataTable data = new DataTable();
-
-            data = connectionToDB.GetUserDetail(usernameBox.Text);
-
-            connectionToDB.Close();
-
-            if (data.Rows.Count == 0)
+            if (!loginVerifier.VerifyUser(usernameBox.Text, passwordBox.Password, out Employee user))
             {
-                MessageBox.Show("Please enter a valid username.", "Incorrect Username", MessageBoxButton.OK);
+                MessageBox.Show("Invalid credentials entered. Please try again.", "Invalid Credentials", MessageBoxButton.OK, MessageBoxImage.Information);
                 usernameBox.Text = null;
                 passwordBox.Password = null;
             }
             else
             {
-                if (passwordBox.Password.ToString() != data.Rows[0]["password"].ToString())
-                {
-                    MessageBox.Show("The password is incorrect. Please try again.", "Incorrect Password", MessageBoxButton.OK);
-                    usernameBox.Text = null;
-                    passwordBox.Password = null;
-
-                }
-                else
-                {
-                    switch (Convert.ToInt32(data.Rows[0]["privilege_Level"].ToString()))
-                    {
-                        case 1:
-                            user = new Manager();
-                            break;
-                        default:
-                            user = new Employee();
-                            break;
-                    }
-
-                    MainWindow mainWindow = new MainWindow(connectionToDB, user);
-                    mainWindow.Show();
-                    this.Close();
-
-                }
+                MainWindow mainWindow = new MainWindow(connectionToDB, user);
+                mainWindow.Show();
+                this.Close();
             }
         }
 
         private void Window_Closed(object sender, EventArgs e)
         {
-          
+
         }
     }
 }

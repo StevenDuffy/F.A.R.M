@@ -19,3 +19,5 @@ C:\Users\David Duffy\Desktop\F.A.R.M\Just Ripe Farm\F.A.R.M\bin\Debug\FarmDB.mdf
 C:\Users\David Duffy\Desktop\F.A.R.M\Just Ripe Farm\F.A.R.M\bin\Debug\FarmDB_log.ldf
 C:\Users\David Duffy\Desktop\F.A.R.M\Just Ripe Farm\F.A.R.M\obj\Debug\F.A.R.M_Content.g.cs
 C:\Users\David Duffy\Desktop\F.A.R.M\Just Ripe Farm\F.A.R.M\obj\Debug\App.baml
+C:\Users\David Duffy\Desktop\F.A.R.M\Just Ripe Farm\F.A.R.M\bin\Debug\FarmControl.dll
+C:\Users\David Duffy\Desktop\F.A.R.M\Just Ripe Farm\F.A.R.M\bin\Debug\FarmControl.pdb
