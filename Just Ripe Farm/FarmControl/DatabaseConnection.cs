@@ -5,11 +5,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
+using System.Configuration;
+using FarmControl.Properties;
 
 namespace F.A.R.M
 {
     public class DatabaseConnection
     {
+        /// <summary>
+        /// String for used for the connection to the database.
+        /// </summary>
+        private readonly string connectionString;
+
         private readonly SqlConnection dBconnection;
 
         private SqlDataAdapter adapter;
@@ -18,19 +25,21 @@ namespace F.A.R.M
 
         private DataTable dataTable;
 
-        public SqlDataAdapter Adapter { get; set; } //?
+        // public SqlDataAdapter Adapter { get; set; } ?
 
-        public DataSet DataSet { get; set; }
+        // public DataSet DataSet { get; set; } ?
 
-        public DataTable DataTable { get; set; }
+        // public DataTable DataTable { get; set; } ?
 
         /// <summary>
         /// Constructs an object that offers services to manipulate the chosen database.
         /// </summary>
         /// <param name="connectionStr"> Contains the selected connection string. </param>
-        public DatabaseConnection(string connectionStr)
+        public DatabaseConnection()
         {
-            this.dBconnection = new SqlConnection(connectionStr);
+            connectionString = FarmControl.Properties.Settings.Default.FarmDBConnStr;  //System.Configuration.ConfigurationManager.ConnectionStrings["FarmControl.Properties.Settings.FarmDBConnStr"].ToString();
+
+            this.dBconnection = new SqlConnection(connectionString);
         }
 
         /// <summary>
@@ -85,8 +94,5 @@ namespace F.A.R.M
             SqlCommand command = new SqlCommand(query, dBconnection);
             command.ExecuteNonQuery();
         }
-
-
-
     }
 }

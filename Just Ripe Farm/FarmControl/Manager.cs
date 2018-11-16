@@ -8,5 +8,11 @@ namespace F.A.R.M
 {
     public class Manager : Employee
     {
+
+        public Manager() :
+            base()
+        {
+
+        }
     }
 }

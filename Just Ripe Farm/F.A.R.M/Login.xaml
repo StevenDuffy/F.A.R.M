@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:F.A.R.M"
         mc:Ignorable="d"
-        Title="Login" Height="300" Width="300" Closed="Window_Closed">
+        Title="Login" Height="300" Width="300">
     <Grid>
         <Image Source="Logo.png"></Image>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Width="200">

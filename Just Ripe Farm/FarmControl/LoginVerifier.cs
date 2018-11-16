@@ -13,14 +13,16 @@ namespace F.A.R.M
 
     public class LoginVerifier
     {
+
         /// <summary>
-        /// Connection to Farm database.
+        /// Stores connection to Farm database.
         /// </summary>
         private readonly DatabaseConnection connectionToDB;
 
-        public LoginVerifier(DatabaseConnection connectionToDB)
+        public LoginVerifier()
         {
-            this.connectionToDB = connectionToDB;
+            // Create a new object to read/manipulate data from the database.
+            connectionToDB = new DatabaseConnection();
         }
 
 
@@ -30,12 +32,7 @@ namespace F.A.R.M
 
             user = null;
 
-            // Open the connection to the database
-            connectionToDB.Open();
-
             data = connectionToDB.GetUserDetail(username);
-
-            connectionToDB.Close();
 
             if (data.Rows.Count == 0)
             {

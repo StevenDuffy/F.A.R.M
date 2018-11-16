@@ -23,13 +23,10 @@ namespace F.A.R.M
     /// </summary>
     public partial class MainWindow : Window
     {
-        private readonly DatabaseConnection connectionToDB;
 
-        public MainWindow(DatabaseConnection connectionToDB, Employee user)
+        public MainWindow(Employee user)
         {
             InitializeComponent();
-
-            this.connectionToDB = connectionToDB;
         }
 
         /// <summary>

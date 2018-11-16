@@ -8,6 +8,6 @@ namespace F.A.R.M
 {
     class SQLConstant
     {
-        public static string getUserDetails = "SELECT password, privilege_Level FROM dbo.Employee WHERE user_Name = @username"; 
+        public static string getUserDetails = "SELECT password, privilege_Level FROM dbo.Employee WHERE user_name = @username"; 
     }
 }

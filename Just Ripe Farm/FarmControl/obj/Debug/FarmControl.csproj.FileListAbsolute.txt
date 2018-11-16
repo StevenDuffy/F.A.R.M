@@ -1,3 +1,4 @@
+C:\Users\David Duffy\Desktop\F.A.R.M\Just Ripe Farm\FarmControl\bin\Debug\FarmControl.dll.config
 C:\Users\David Duffy\Desktop\F.A.R.M\Just Ripe Farm\FarmControl\bin\Debug\FarmControl.dll
 C:\Users\David Duffy\Desktop\F.A.R.M\Just Ripe Farm\FarmControl\bin\Debug\FarmControl.pdb
 C:\Users\David Duffy\Desktop\F.A.R.M\Just Ripe Farm\FarmControl\obj\Debug\FarmControl.csprojResolveAssemblyReference.cache

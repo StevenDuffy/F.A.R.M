@@ -25,16 +25,6 @@ namespace F.A.R.M
     public partial class Login : Window
     {
         /// <summary>
-        /// String for used for the connection to the database.
-        /// </summary>
-        private readonly string connectionString = Settings.Default.ConnectFarmDB;
-
-        /// <summary>
-        /// Stores connection to Farm database.
-        /// </summary>
-        private readonly DatabaseConnection connectionToDB;
-
-        /// <summary>
         /// Stores object that offers verification methods.
         /// </summary>
         private readonly LoginVerifier loginVerifier;
@@ -45,17 +35,13 @@ namespace F.A.R.M
         public Login()
         {
             InitializeComponent();
-
-            // create a new object to manipulate data from the 
-            connectionToDB = new DatabaseConnection(connectionString);
-
+        
             // create object that offers verification methods
-            loginVerifier = new LoginVerifier(connectionToDB);
+            loginVerifier = new LoginVerifier();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
             if (!loginVerifier.VerifyUser(usernameBox.Text, passwordBox.Password, out Employee user))
             {
                 MessageBox.Show("Invalid credentials entered. Please try again.", "Invalid Credentials", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -64,16 +50,11 @@ namespace F.A.R.M
             }
             else
             {
-                MainWindow mainWindow = new MainWindow(connectionToDB, user);
+                MainWindow mainWindow = new MainWindow(user);
                 mainWindow.Show();
                 this.Close();
             }
-        }
-
-        private void Window_Closed(object sender, EventArgs e)
-        {
-
-        }
+        }       
     }
 }
 
