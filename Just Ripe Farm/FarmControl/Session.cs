@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.SqlClient;
+using System.Data;
 
 namespace FarmControl
 {
-   public class Session
+    public class Session
     {
         private int privilege_Level;
 
@@ -20,6 +22,6 @@ namespace FarmControl
             {
                 privilege_Level = value;
             }
-
-        }
+        }        
+    }
 }

@@ -36,9 +36,13 @@ namespace F.A.R.M
             else
             {
                 // remove features unsuitable for Manager here i.e. Your Jobs.
-                //user = user as Manager;
-
             }
-        }        
+
+        }
+
+        private void CalendarSubmit_Click(object sender, RoutedEventArgs e)
+        {
+           ///// calendarData.ItemsSource = DatabaseConnection.DataConn.GetFutureHarvests().DefaultView;
+        }
     }
 }

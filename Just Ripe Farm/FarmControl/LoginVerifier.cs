@@ -14,32 +14,20 @@ namespace FarmControl
 
     public class LoginVerifier
     {
-
-        /// <summary>
-        /// Stores connection to Farm database.
-        /// </summary>
-        private readonly DatabaseConnection connectionToDB;
-
-        public LoginVerifier()
-        {
-            // Create a new object to read/manipulate data from the database.
-            connectionToDB = new DatabaseConnection();
-        }
-
         /// <summary>
         /// Checks username and password against database to verify user and privilege level.
         /// </summary>
         /// <param name="username">User entered Username</param>
         /// <param name="password">User entered Password</param>
-        /// <param name="user"></param>
-        /// <returns></returns>
+        /// <param name="session">session instance to be used for the login session</param>
+        /// <returns>True or false and a Session</returns>
         public bool VerifyUser(string username, string password, out Session session)
         {
             DataTable data = new DataTable();
 
             session = null;
 
-            data = connectionToDB.GetUserDetail(username);
+            data = DatabaseConnection.DataConn.GetUserDetail(username);
 
             if (data.Rows.Count == 0)
             {

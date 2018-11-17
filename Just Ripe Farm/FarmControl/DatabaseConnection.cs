@@ -12,6 +12,7 @@ namespace FarmControl
 {
     public class DatabaseConnection
     {
+        private static DatabaseConnection dataConn;
         /// <summary>
         /// String for used for the connection to the database.
         /// </summary>
@@ -31,11 +32,24 @@ namespace FarmControl
 
         // public DataTable DataTable { get; set; } ?
 
+        public static DatabaseConnection DataConn
+        {
+            get
+            {
+                if (dataConn == null)
+                {
+                   dataConn = new DatabaseConnection();
+                }
+
+                return dataConn;
+            }
+        }
+
         /// <summary>
         /// Constructs an object that offers services to manipulate the chosen database.
         /// </summary>
         /// <param name="connectionStr"> Contains the selected connection string. </param>
-        public DatabaseConnection()
+        private DatabaseConnection()
         {
             connectionString = FarmControl.Properties.Settings.Default.FarmDBConnStr;  //System.Configuration.ConfigurationManager.ConnectionStrings["FarmControl.Properties.Settings.FarmDBConnStr"].ToString();
 
@@ -72,6 +86,16 @@ namespace FarmControl
             return dataTable;
         }
 
+        public DataTable GetFutureHarvests(string startDate, string endDate)
+        {
+            dataTable = new DataTable();
+            adapter = new SqlDataAdapter(SQLConstant.getFutureHarvests, dBconnection);
+            adapter.SelectCommand.Parameters.Add("@startDate", SqlDbType.Date).Value = startDate;
+            adapter.SelectCommand.Parameters.Add("@endDate", SqlDbType.Date).Value = endDate;
+            adapter.Fill(dataTable);
+            return dataTable;
+        }
+        /*
         /// <summary>
         /// Read/get data from the database.
         /// </summary>
@@ -93,6 +117,6 @@ namespace FarmControl
         {
             SqlCommand command = new SqlCommand(query, dBconnection);
             command.ExecuteNonQuery();
-        }
+        } */
     }
 }
