@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace F.A.R.M
+namespace FarmControl
 {
     class SQLConstant
     {

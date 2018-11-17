@@ -15,6 +15,7 @@ using F.A.R.M.Properties;
 using System.Data.SqlClient;
 using System.Threading;
 using System.Data;
+using FarmControl;
 
 
 namespace F.A.R.M
@@ -42,7 +43,7 @@ namespace F.A.R.M
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if (!loginVerifier.VerifyUser(usernameBox.Text, passwordBox.Password, out Employee user))
+            if (!loginVerifier.VerifyUser(usernameBox.Text, passwordBox.Password, out Session session))
             {
                 MessageBox.Show("Invalid credentials entered. Please try again.", "Invalid Credentials", MessageBoxButton.OK, MessageBoxImage.Information);
                 usernameBox.Text = null;
@@ -50,7 +51,7 @@ namespace F.A.R.M
             }
             else
             {
-                MainWindow mainWindow = new MainWindow(user);
+                MainWindow mainWindow = new MainWindow(session);
                 mainWindow.Show();
                 this.Close();
             }

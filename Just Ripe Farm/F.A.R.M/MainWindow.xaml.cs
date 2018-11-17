@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using F.A.R.M.Properties;
 using System.Data.SqlClient;
 using System.Data;
+using FarmControl;
 
 namespace F.A.R.M
 {
@@ -24,19 +25,20 @@ namespace F.A.R.M
     public partial class MainWindow : Window
     {
 
-        public MainWindow(Employee user)
+        public MainWindow(Session session)
         {
             InitializeComponent();
-        }
 
-        /// <summary>
-        /// Close the database connection when window is closed. 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void Window_Closed(object sender, EventArgs e)
-        {            
-            
-        }
+            if (session.Privilege_Level == 0)
+            {
+                MainMenu.Items.Remove(DataManagement);
+            }
+            else
+            {
+                // remove features unsuitable for Manager here i.e. Your Jobs.
+                //user = user as Manager;
+
+            }
+        }        
     }
 }

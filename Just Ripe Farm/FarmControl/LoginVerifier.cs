@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
 using System.Windows;
+using FarmControl;
 
-namespace F.A.R.M
+namespace FarmControl
 {
 
 
@@ -25,12 +26,18 @@ namespace F.A.R.M
             connectionToDB = new DatabaseConnection();
         }
 
-
-        public bool VerifyUser(string username, string password, out Employee user)
+        /// <summary>
+        /// Checks username and password against database to verify user and privilege level.
+        /// </summary>
+        /// <param name="username">User entered Username</param>
+        /// <param name="password">User entered Password</param>
+        /// <param name="user"></param>
+        /// <returns></returns>
+        public bool VerifyUser(string username, string password, out Session session)
         {
             DataTable data = new DataTable();
 
-            user = null;
+            session = null;
 
             data = connectionToDB.GetUserDetail(username);
 
@@ -47,15 +54,14 @@ namespace F.A.R.M
                 switch (Convert.ToInt32(data.Rows[0]["privilege_Level"].ToString()))
                 {
                     case 1:
-                        user = new Manager();
+                        session = new Session() { Privilege_Level = 1 };
                         break;
                     default:
-                        user = new Employee();
+                        session = new Session() { Privilege_Level = 0 };
                         break;
                 }
 
                 return true;
-
             }
         }
 

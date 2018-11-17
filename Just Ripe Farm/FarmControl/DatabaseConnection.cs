@@ -8,7 +8,7 @@ using System.Data;
 using System.Configuration;
 using FarmControl.Properties;
 
-namespace F.A.R.M
+namespace FarmControl
 {
     public class DatabaseConnection
     {
