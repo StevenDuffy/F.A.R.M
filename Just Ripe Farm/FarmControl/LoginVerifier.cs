@@ -15,6 +15,24 @@ namespace FarmControl
     public class LoginVerifier
     {
         /// <summary>
+        /// Stores object that offers verification methods.
+        /// </summary>
+        private static LoginVerifier verifier;
+
+
+        public static LoginVerifier Verifier
+        {
+            get
+            {
+                if (verifier == null)
+                {
+                    verifier = new LoginVerifier();
+                }
+                return verifier;
+            }            
+        }
+
+        /// <summary>
         /// Checks username and password against database to verify user and privilege level.
         /// </summary>
         /// <param name="username">User entered Username</param>

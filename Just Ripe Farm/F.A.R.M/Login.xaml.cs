@@ -25,25 +25,19 @@ namespace F.A.R.M
     /// </summary>
     public partial class Login : Window
     {
-        /// <summary>
-        /// Stores object that offers verification methods.
-        /// </summary>
-        private readonly LoginVerifier loginVerifier;
+        
 
         /// <summary>
         /// Creates new Login form.
         /// </summary>
         public Login()
         {
-            InitializeComponent();
-        
-            // create object that offers verification methods
-            loginVerifier = new LoginVerifier();
+            InitializeComponent();     
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if (!loginVerifier.VerifyUser(usernameBox.Text, passwordBox.Password, out Session session))
+            if (!LoginVerifier.Verifier.VerifyUser(usernameBox.Text, passwordBox.Password, out Session session))
             {
                 MessageBox.Show("Invalid credentials entered. Please try again.", "Invalid Credentials", MessageBoxButton.OK, MessageBoxImage.Information);
                 usernameBox.Text = null;

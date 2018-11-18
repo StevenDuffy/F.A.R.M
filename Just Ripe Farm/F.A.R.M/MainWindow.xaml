@@ -14,10 +14,10 @@
                     <StackPanel Orientation="Horizontal">
                         <Calendar SelectionMode="SingleRange" HorizontalAlignment="Left" Margin="10"/>
                         <StackPanel>
-                            <Label Content="Start Date:" FontWeight="Bold" Margin="10,0"></Label>
-                            <TextBox Width="120"  HorizontalAlignment="Left" Margin="10,0"></TextBox>
-                            <Label Content="End Date:" FontWeight="Bold" Margin="10,0"></Label>
-                            <TextBox Width="120"  HorizontalAlignment="Left" Margin="10,0"></TextBox>
+                            <Label Content="Start Date:" FontWeight="Bold" Margin="5,0"></Label>
+                            <DatePicker  SelectedDateFormat="Short" Width="120"  HorizontalAlignment="Left" Margin="10,0" x:Name="datePickerStartDate" DisplayDate="2018-11-18"></DatePicker>  
+                            <Label Content="End Date:" FontWeight="Bold" Margin="5,0"></Label>
+                            <DatePicker Width="120"  HorizontalAlignment="Left" Margin="10,0" x:Name="datePickerEndDate"></DatePicker>
                             <Button Content="Submit" x:Name="calendarSubmit" Width="50" HorizontalAlignment="Right" Margin="10" Click="CalendarSubmit_Click"></Button>
                         </StackPanel>
                     </StackPanel>

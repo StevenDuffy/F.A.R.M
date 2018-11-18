@@ -90,8 +90,8 @@ namespace FarmControl
         {
             dataTable = new DataTable();
             adapter = new SqlDataAdapter(SQLConstant.getFutureHarvests, dBconnection);
-            adapter.SelectCommand.Parameters.Add("@startDate", SqlDbType.Date).Value = startDate;
-            adapter.SelectCommand.Parameters.Add("@endDate", SqlDbType.Date).Value = endDate;
+            adapter.SelectCommand.Parameters.Add("@startDate", SqlDbType.VarChar).Value = startDate;
+            adapter.SelectCommand.Parameters.Add("@endDate", SqlDbType.VarChar).Value = endDate;
             adapter.Fill(dataTable);
             return dataTable;
         }

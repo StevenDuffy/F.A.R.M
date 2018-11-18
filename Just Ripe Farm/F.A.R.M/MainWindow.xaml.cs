@@ -42,7 +42,8 @@ namespace F.A.R.M
 
         private void CalendarSubmit_Click(object sender, RoutedEventArgs e)
         {
-           ///// calendarData.ItemsSource = DatabaseConnection.DataConn.GetFutureHarvests().DefaultView;
+          //   (datePickerStartDate.SelectedDate.Value.ToString("yyyy-MM-dd"));
+            calendarData.ItemsSource = DatabaseConnection.DataConn.GetFutureHarvests(datePickerStartDate.SelectedDate.Value.ToString("yyyy-MM-dd"), datePickerEndDate.SelectedDate.Value.ToString("yyyy-MM-dd")).DefaultView;
         }
     }
 }
