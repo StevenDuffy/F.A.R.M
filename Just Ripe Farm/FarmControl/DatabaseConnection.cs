@@ -92,9 +92,10 @@ namespace FarmControl
             adapter = new SqlDataAdapter(SQLConstant.getFutureHarvests, dBconnection);
             adapter.SelectCommand.Parameters.Add("@startDate", SqlDbType.VarChar).Value = startDate;
             adapter.SelectCommand.Parameters.Add("@endDate", SqlDbType.VarChar).Value = endDate;
-            adapter.Fill(dataTable);
+            adapter.Fill(dataTable);            
             return dataTable;
         }
+
         /*
         /// <summary>
         /// Read/get data from the database.
