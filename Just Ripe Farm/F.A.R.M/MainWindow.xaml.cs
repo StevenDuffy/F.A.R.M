@@ -43,23 +43,15 @@ namespace F.A.R.M
         private void CalendarSubmit_Click(object sender, RoutedEventArgs e)
         {
 
-            if (datePickerStartDate.SelectedDate != null && datePickerEndDate != null)
+            if (datePickerStartDate.SelectedDate != null && datePickerEndDate != null) // Log a test this will fail.
             {
                 string startDate = datePickerStartDate.SelectedDate.Value.ToString("yyyy-MM-dd");
                 string endDate = datePickerEndDate.SelectedDate.Value.ToString("yyyy-MM-dd");
                 
-                calendarData.ItemsSource = DatabaseConnection.DataConn.GetFutureHarvests(startDate, endDate).DefaultView;
-                
-                //for(int i = 0;i < calendarData.Items. ;))
-               // DateTime.ParseExact(calendarData.Columns[3].ToString(), "dd-MM-yyyy", System.Globalization.CultureInfo.InvariantCulture);
-
-
-                // calendarData.AutoGenerateColumns = true;//calendarData.Visibility = Visibility.Visible;
-
+                calendarData.ItemsSource = DatabaseConnection.DataConn.GetFutureHarvests(startDate, endDate).DefaultView;            
             }
             else
-            {
-                //This will be changed to validate on if null
+            {                
                 MessageBox.Show("Please enter a valid date.", "Invalid Dates Entered", MessageBoxButton.OK);
             }
 

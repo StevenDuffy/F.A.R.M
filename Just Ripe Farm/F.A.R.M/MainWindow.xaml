@@ -27,7 +27,7 @@
                                 <DataGridTextColumn Binding="{Binding field_number}"  Header="Field Number" ></DataGridTextColumn>
                                 <DataGridTextColumn Binding="{Binding current_crop}"  Header="Crop" ></DataGridTextColumn>
                                 <DataGridTextColumn Binding="{Binding quantity_held}"  Header="Quantity(kgs)" ></DataGridTextColumn>
-                                <DataGridTextColumn Binding="{Binding harvest_date}"  Header="Harvest Date" ></DataGridTextColumn>
+                                <DataGridTextColumn Binding="{Binding harvest_date, StringFormat=\{0: dd-MM-yyyy\}}"  Header="Harvest Date" ></DataGridTextColumn>
                             </DataGrid.Columns>
                         </DataGrid>
                     </StackPanel>
