@@ -38,6 +38,7 @@ namespace F.A.R.M
                 // remove features unsuitable for Manager here i.e. Your Jobs.
             }
 
+            FillUserList();
         }
 
         private void CalendarSubmit_Click(object sender, RoutedEventArgs e)
@@ -57,6 +58,12 @@ namespace F.A.R.M
 
             
 
+        }
+
+        private void FillUserList()
+        {
+            //Bind each row as a source
+            _dmListGridUser.SetBinding(ItemsControl.ItemsSourceProperty, new Binding { Source = DatabaseConnection.DataConn.GetUserList() });
         }
 
 

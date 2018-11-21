@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:F.A.R.M"
         mc:Ignorable="d"
-        Title="Farming and Agricultural Resource Management" Height="350" Width="525" Icon="Icon.png">
+        Title="Farming and Agricultural Resource Management" Height="350" Width="693.148" Icon="Icon.png">
     <Grid>
         <TabControl TabStripPlacement="Left" Name="MainMenu">
 
@@ -115,8 +115,48 @@
                     <Button Content="Create Job" HorizontalAlignment="Left" Margin="575,224,0,0" VerticalAlignment="Top" Width="110" Height="32"/>
                 </Grid>
             </TabItem>
-            <TabItem Header="Data Management" Name="DataManagement"></TabItem>
-
+            <TabItem Header="Data Management" Name="DataManagement">
+                <TabControl>
+                    <TabItem Header="Users" Name="_dmTabUsers">
+                    <StackPanel Orientation="Horizontal">
+                        <StackPanel Grid.Column="0" Name="_dmListGridUserPanel">
+                            <DataGrid Name="_dmListGridUser" Height="230" Width="500"/>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Name="_dmSearchBlockUser" Text="Search:" Height="20" Margin="0,0,5,0"></TextBlock>
+                                <TextBox Name="_dmSearchBarUser" Width="250" Height="18"></TextBox>
+                            </StackPanel>
+                        </StackPanel>
+                        <StackPanel Grid.Column="1" Name="_dmButtonsPanelUser">
+                            <Button Name="_dmButtonOneUser" Content="Add"></Button>
+                            <Button Name="_dmButtonTwoUser" Content="Modify"></Button>
+                            <Button Name="_dmButtonThreeUser" Content="Delete"></Button>
+                        </StackPanel>
+                    </StackPanel>
+                    </TabItem>
+                    <TabItem Header="Vehicles" Name="_dmTabVehicle">
+                        <StackPanel Orientation="Horizontal">
+                            <StackPanel Grid.Column="0" Name="_dmListBoxPanelVehicle">
+                                <DataGrid Name="_dmListGridVehicle" Height="230" Width="500"/>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Name="_dmSearchBlockVehicle" Text="Search:" Height="20" Margin="0,0,5,0"></TextBlock>
+                                    <TextBox Name="_dmSearchBarVehicle" Width="250" Height="18"></TextBox>
+                                </StackPanel>
+                            </StackPanel>
+                            <StackPanel Grid.Column="1" Name="_dmButtonsPanelVehicle">
+                                <Button Name="_dmButtonOneVehicle" Content="Add"></Button>
+                                <Button Name="_dmButtonTwoVehicle" Content="Modify"></Button>
+                                <Button Name="_dmButtonThreeVehicle" Content="Delete"></Button>
+                            </StackPanel>
+                        </StackPanel>
+                    </TabItem>
+                    <TabItem Header="Crops" Name="_dmTabCrops">
+                        
+                    </TabItem>
+                    <TabItem Header="Storage" Name="_dmTabStorage">
+                        
+                    </TabItem>
+                </TabControl>
+            </TabItem>
             <TabItem Header="Logout" >
                 <StackPanel>
                     <Label Content="Are you sure you wish to log out?" HorizontalAlignment="Center" Margin="0,50,0,10" FontSize="16"></Label>

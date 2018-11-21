@@ -86,6 +86,19 @@ namespace FarmControl
             return dataTable;
         }
 
+        public DataTable GetUserList()
+        {
+            DataTable userList = new DataTable();
+            using (this.dBconnection)
+            {
+                SqlDataAdapter adapter = new SqlDataAdapter(SQLConstant.getUserList, dBconnection);
+                dBconnection.Open();
+                adapter.Fill(userList);
+                return userList;
+            }
+
+        }
+
         public DataTable GetFutureHarvests(string startDate, string endDate)
         {
             dataTable = new DataTable();
