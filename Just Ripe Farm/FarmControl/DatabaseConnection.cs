@@ -14,7 +14,7 @@ namespace FarmControl
     {
         private static DatabaseConnection dataConn;
         /// <summary>
-        /// String for used for the connection to the database.
+        /// String used for the connection to the database.
         /// </summary>
         private readonly string connectionString;
 
