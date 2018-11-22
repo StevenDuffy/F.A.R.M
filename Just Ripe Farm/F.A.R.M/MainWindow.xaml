@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Farming and Agricultural Resource Management" Height="350" Width="780.652" Icon="Icon.png">
     <Grid>
-        <TabControl TabStripPlacement="Left" Name="MainMenu">
+        <TabControl TabStripPlacement="Left" Name="MainMenu" Margin="0,3,0.4,-3.2">
 
             <TabItem Header="Calender">
                 <StackPanel>
@@ -95,43 +95,64 @@
             </TabItem>
 
             <TabItem Header="Create Job">
-                <Grid>
-                    <Label Content="Create job" HorizontalAlignment="Left" Margin="374,29,0,0" VerticalAlignment="Top"/>
-                    <ComboBox HorizontalAlignment="Left" Margin="98,99,0,0" VerticalAlignment="Top" Width="120" />
-                    <Label Content="Job reference" HorizontalAlignment="Left" Margin="111,68,0,0" VerticalAlignment="Top"/>
-                    <Button Content="Add" HorizontalAlignment="Left" Margin="10,99,0,0" VerticalAlignment="Top" Width="75"/>
-                    <ComboBox HorizontalAlignment="Left" Margin="358,99,0,0" VerticalAlignment="Top" Width="120"/>
-                    <Label Content="Job type" HorizontalAlignment="Left" Margin="385,68,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.154,0.539"/>
-                    <Button Content="Add" HorizontalAlignment="Left" Margin="278,99,0,0" VerticalAlignment="Top" Width="75"/>
-                    <ComboBox HorizontalAlignment="Left" Margin="608,99,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="1.555,0.438"/>
-                    <Label Content="Crop type" HorizontalAlignment="Left" Margin="635,68,0,0" VerticalAlignment="Top"/>
-                    <Button Content="Add" HorizontalAlignment="Left" Margin="528,99,0,0" VerticalAlignment="Top" Width="75"/>
-                    <ComboBox HorizontalAlignment="Left" Margin="98,224,0,0" VerticalAlignment="Top" Width="120"/>
-                    <Label Content="Vehicles required" HorizontalAlignment="Left" Margin="111,188,0,0" VerticalAlignment="Top" Width="107"/>
-                    <Button Content="Add" HorizontalAlignment="Left" Margin="10,224,0,0" VerticalAlignment="Top" Width="75"/>
-                    <ComboBox HorizontalAlignment="Left" Margin="358,224,0,0" VerticalAlignment="Top" Width="120"/>
-                    <Label Content="Staff required" HorizontalAlignment="Left" Margin="374,193,0,0" VerticalAlignment="Top"/>
-                    <Button Content="Add" HorizontalAlignment="Left" Margin="278,224,0,0" VerticalAlignment="Top" Width="75"/>
-                    <Button Content="Create Job" HorizontalAlignment="Left" Margin="575,224,0,0" VerticalAlignment="Top" Width="110" Height="32"/>
-                </Grid>
+                <StackPanel Orientation="Horizontal">
+                    <StackPanel Grid.Column="1">
+                        <Label Content="Select Crop" Margin="0,0,0,5" HorizontalAlignment="Center"/>
+                        <Button Content="New Crop" Width="75"/>
+                        <ComboBox></ComboBox>
+                    </StackPanel>
+                    
+                    <StackPanel Grid.Column="2">
+                        <Label Content="Select Crop Quantity" Margin="0,0,0,5" HorizontalAlignment="Center"/>
+                        <Button Content="New quantity" Width="75"/>
+                        <ComboBox></ComboBox>
+                    </StackPanel>
+                    
+                    <StackPanel Grid.Column="3">
+                        <Label Content="Create storage" Margin="0,0,0,5" HorizontalAlignment="Center"/>
+                        <Button Content="New storage" Width="75"/>
+                        <ComboBox></ComboBox>
+                    </StackPanel>
+                    
+                    <StackPanel Grid.Column="4">
+                        <Label Content="Create Staff Job" Margin="0,0,0,5" HorizontalAlignment="Center"/>
+                        <Button Content="New Staff" Width="75"/>
+                        <ComboBox></ComboBox>
+                    </StackPanel>
+                    
+                    <StackPanel Grid.Column="5">
+                        <Label Content="Create Field Location" Margin="0,0,0,5" HorizontalAlignment="Center"/>
+                        <Button Content="New Field" Width="75"/>
+                        <ComboBox></ComboBox>
+                    </StackPanel>
+
+
+                    <StackPanel Grid.Column="1">
+                        <Label Content="Add all" Margin="0,0,0,5" HorizontalAlignment="Center"/>
+                        <Button Content="Create" Width="75"/>
+                        </StackPanel>
+
+
+                </StackPanel>
             </TabItem>
+            
             <TabItem Header="Data Management" Name="DataManagement">
                 <TabControl>
                     <TabItem Header="Users" Name="_dmTabUsers">
-                    <StackPanel Orientation="Horizontal">
-                        <StackPanel Grid.Column="0" Name="_dmListGridUserPanel">
-                            <DataGrid Name="_dmListGridUser" Height="230" Width="500"/>
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Name="_dmSearchBlockUser" Text="Search:" Height="20" Margin="0,0,5,0"></TextBlock>
-                                <TextBox Name="_dmSearchBarUser" Width="250" Height="18"></TextBox>
+                        <StackPanel Orientation="Horizontal">
+                            <StackPanel Grid.Column="0" Name="_dmListGridUserPanel">
+                                <DataGrid Name="_dmListGridUser" Height="230" Width="500"/>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Name="_dmSearchBlockUser" Text="Search:" Height="20" Margin="0,0,5,0"></TextBlock>
+                                    <TextBox Name="_dmSearchBarUser" Width="250" Height="18"></TextBox>
+                                </StackPanel>
+                            </StackPanel>
+                            <StackPanel Grid.Column="1" Name="_dmButtonsPanelUser">
+                                <Button Name="_dmButtonOneUser" Content="Add"></Button>
+                                <Button Name="_dmButtonTwoUser" Content="Modify"></Button>
+                                <Button Name="_dmButtonThreeUser" Content="Delete"></Button>
                             </StackPanel>
                         </StackPanel>
-                        <StackPanel Grid.Column="1" Name="_dmButtonsPanelUser" Margin="10,0,0,0">
-                            <Button Name="_dmButtonOneUser" Content="Add" Width="100" Margin="0,0,0,2.5"></Button>
-                                <Button Name="_dmButtonTwoUser" Content="Modify" Margin="0,2.5,0,2.5"></Button>
-                                <Button Name="_dmButtonThreeUser" Content="Delete" Margin="0,2.5,0,0"></Button>
-                        </StackPanel>
-                    </StackPanel>
                     </TabItem>
                     <TabItem Header="Vehicles" Name="_dmTabVehicle">
                         <StackPanel Orientation="Horizontal">
@@ -150,10 +171,10 @@
                         </StackPanel>
                     </TabItem>
                     <TabItem Header="Crops" Name="_dmTabCrops">
-                        
+
                     </TabItem>
                     <TabItem Header="Storage" Name="_dmTabStorage">
-                        
+
                     </TabItem>
                 </TabControl>
             </TabItem>
