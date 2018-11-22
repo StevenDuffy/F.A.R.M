@@ -89,13 +89,9 @@ namespace FarmControl
         public DataTable GetUserList()
         {
             DataTable userList = new DataTable();
-            using (this.dBconnection)
-            {
-                SqlDataAdapter adapter = new SqlDataAdapter(SQLConstant.getUserList, dBconnection);
-                dBconnection.Open();
-                adapter.Fill(userList);
-                return userList;
-            }
+            SqlDataAdapter adapter = new SqlDataAdapter(SQLConstant.getUserList, dBconnection);
+            adapter.Fill(userList);
+            return userList;
 
         }
 

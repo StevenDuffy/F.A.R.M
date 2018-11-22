@@ -64,6 +64,7 @@ namespace F.A.R.M
         {
             //Bind each row as a source
             _dmListGridUser.SetBinding(ItemsControl.ItemsSourceProperty, new Binding { Source = DatabaseConnection.DataConn.GetUserList() });
+            //_dmListGridUser.ItemsSource = DatabaseConnection.DataConn.GetUserList().DefaultView;
         }
 
 

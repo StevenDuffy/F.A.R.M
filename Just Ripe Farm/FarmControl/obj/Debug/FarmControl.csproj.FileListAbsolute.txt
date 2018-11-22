@@ -12,3 +12,17 @@ C:\Users\Kyle\Desktop\SoftwareEngineeringGroup\F.A.R.M\Just Ripe Farm\FarmContro
 C:\Users\Kyle\Desktop\SoftwareEngineeringGroup\F.A.R.M\Just Ripe Farm\FarmControl\obj\Debug\FarmControl.csproj.CoreCompileInputs.cache
 C:\Users\Kyle\Desktop\SoftwareEngineeringGroup\F.A.R.M\Just Ripe Farm\FarmControl\obj\Debug\FarmControl.dll
 C:\Users\Kyle\Desktop\SoftwareEngineeringGroup\F.A.R.M\Just Ripe Farm\FarmControl\obj\Debug\FarmControl.pdb
+H:\F.A.R.M\Just Ripe Farm\FarmControl\bin\Debug\FarmControl.dll.config
+H:\F.A.R.M\Just Ripe Farm\FarmControl\bin\Debug\FarmControl.dll
+H:\F.A.R.M\Just Ripe Farm\FarmControl\bin\Debug\FarmControl.pdb
+H:\F.A.R.M\Just Ripe Farm\FarmControl\obj\Debug\FarmControl.csprojAssemblyReference.cache
+H:\F.A.R.M\Just Ripe Farm\FarmControl\obj\Debug\FarmControl.csproj.CoreCompileInputs.cache
+H:\F.A.R.M\Just Ripe Farm\FarmControl\obj\Debug\FarmControl.dll
+H:\F.A.R.M\Just Ripe Farm\FarmControl\obj\Debug\FarmControl.pdb
+K:\F.A.R.M\Just Ripe Farm\FarmControl\bin\Debug\FarmControl.dll.config
+K:\F.A.R.M\Just Ripe Farm\FarmControl\bin\Debug\FarmControl.dll
+K:\F.A.R.M\Just Ripe Farm\FarmControl\bin\Debug\FarmControl.pdb
+K:\F.A.R.M\Just Ripe Farm\FarmControl\obj\Debug\FarmControl.csprojAssemblyReference.cache
+K:\F.A.R.M\Just Ripe Farm\FarmControl\obj\Debug\FarmControl.csproj.CoreCompileInputs.cache
+K:\F.A.R.M\Just Ripe Farm\FarmControl\obj\Debug\FarmControl.dll
+K:\F.A.R.M\Just Ripe Farm\FarmControl\obj\Debug\FarmControl.pdb
