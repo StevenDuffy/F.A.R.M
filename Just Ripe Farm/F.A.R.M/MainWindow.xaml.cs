@@ -67,7 +67,12 @@ namespace F.A.R.M
             //_dmListGridUser.ItemsSource = DatabaseConnection.DataConn.GetUserList().DefaultView;
         }
 
-
+        private void logout_Click(object sender, RoutedEventArgs e)
+        {
+            Login loginWindow = new Login();
+            loginWindow.Show();
+            this.Close();
+        }
     }
 }
 

@@ -191,8 +191,8 @@
             </TabItem>
             <TabItem Header="Logout" >
                 <StackPanel>
-                    <Label Content="Are you sure you wish to log out?" HorizontalAlignment="Center" Margin="0,50,0,10" FontSize="16"></Label>
-                    <Button x:Name="logout" Content="Log out" Width="70"></Button>
+                    <Label Content="Are you sure you wish to log out?" HorizontalAlignment="Center" Margin="0,50,0,10"></Label>
+                    <Button x:Name="logout" Content="Log out" Width="50" Click="logout_Click"></Button>
                 </StackPanel>
             </TabItem>
 
