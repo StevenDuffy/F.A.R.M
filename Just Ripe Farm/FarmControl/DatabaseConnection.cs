@@ -13,6 +13,7 @@ namespace FarmControl
     public class DatabaseConnection
     {
         private static DatabaseConnection dataConn;
+
         /// <summary>
         /// String used for the connection to the database.
         /// </summary>
@@ -22,15 +23,15 @@ namespace FarmControl
 
         private SqlDataAdapter adapter;
 
-        private DataSet dataSet;
+        //  private DataSet dataSet;
 
         private DataTable dataTable;
 
-        // public SqlDataAdapter Adapter { get; set; } ?
+        private SqlDataAdapter Adapter { get { return adapter; } set { adapter = value; } }
 
-        // public DataSet DataSet { get; set; } ?
+        //  private DataSet DataSet { get { return dataSet; } set { dataSet = value; } }
 
-        // public DataTable DataTable { get; set; } ?
+        private DataTable DataTable { get { return dataTable; } set { dataTable = value; } }
 
         public static DatabaseConnection DataConn
         {
@@ -38,7 +39,7 @@ namespace FarmControl
             {
                 if (dataConn == null)
                 {
-                   dataConn = new DatabaseConnection();
+                    dataConn = new DatabaseConnection();
                 }
 
                 return dataConn;
@@ -48,7 +49,7 @@ namespace FarmControl
         /// <summary>
         /// Constructs an object that offers services to manipulate the chosen database.
         /// </summary>
-        /// <param name="connectionStr"> Contains the selected connection string. </param>
+        /// <param name="connectionStr"> Contains the selected connection string.</param>
         private DatabaseConnection()
         {
             connectionString = FarmControl.Properties.Settings.Default.FarmDBConnStr;  //System.Configuration.ConfigurationManager.ConnectionStrings["FarmControl.Properties.Settings.FarmDBConnStr"].ToString();
@@ -79,11 +80,11 @@ namespace FarmControl
         /// <returns></returns>
         public DataTable GetUserDetail(string username)
         {
-            dataTable = new DataTable();
-            adapter = new SqlDataAdapter(SQLConstant.getUserDetails, dBconnection);
-            adapter.SelectCommand.Parameters.Add("@username", SqlDbType.NVarChar).Value = username;
-            adapter.Fill(dataTable);
-            return dataTable;
+            DataTable = new DataTable();
+            Adapter = new SqlDataAdapter(SQLConstant.getUserDetails, dBconnection);
+            Adapter.SelectCommand.Parameters.Add("@username", SqlDbType.NVarChar).Value = username;
+            Adapter.Fill(DataTable);
+            return DataTable;
         }
 
         public DataTable GetUserList()
@@ -95,14 +96,23 @@ namespace FarmControl
 
         }
 
-        public DataTable GetFutureHarvests(string startDate, string endDate)
+        public DataTable GetUpcomingHarvests(string startDate, string endDate)
         {
-            dataTable = new DataTable();
-            adapter = new SqlDataAdapter(SQLConstant.getFutureHarvests, dBconnection);
-            adapter.SelectCommand.Parameters.Add("@startDate", SqlDbType.VarChar).Value = startDate;
-            adapter.SelectCommand.Parameters.Add("@endDate", SqlDbType.VarChar).Value = endDate;
-            adapter.Fill(dataTable);            
-            return dataTable;
+            DataTable = new DataTable();
+            Adapter = new SqlDataAdapter(SQLConstant.getUpcomingHarvests, dBconnection);
+            Adapter.SelectCommand.Parameters.Add("@startDate", SqlDbType.VarChar).Value = startDate;
+            Adapter.SelectCommand.Parameters.Add("@endDate", SqlDbType.VarChar).Value = endDate;
+            Adapter.Fill(DataTable);
+            return DataTable;
+        }
+        public DataTable GetPlannedHarvests(string startDate, string endDate)
+        {
+            DataTable = new DataTable();
+            Adapter = new SqlDataAdapter(SQLConstant.getPlannedHarvests, dBconnection);
+            Adapter.SelectCommand.Parameters.Add("@startDate", SqlDbType.VarChar).Value = startDate;
+            Adapter.SelectCommand.Parameters.Add("@endDate", SqlDbType.VarChar).Value = endDate;
+            Adapter.Fill(DataTable);
+            return DataTable;
         }
 
         /*

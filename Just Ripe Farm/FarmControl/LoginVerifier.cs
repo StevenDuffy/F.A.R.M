@@ -39,11 +39,11 @@ namespace FarmControl
         /// <param name="password">User entered Password</param>
         /// <param name="session">session instance to be used for the login session</param>
         /// <returns>True or false and a Session</returns>
-        public bool VerifyUser(string username, string password, out Session session)
+        public bool VerifyUser(string username, string password, out Employee user)
         {
             DataTable data = new DataTable();
 
-            session = null;
+            user = null;
 
             data = DatabaseConnection.DataConn.GetUserDetail(username);
 
@@ -60,10 +60,10 @@ namespace FarmControl
                 switch (Convert.ToInt32(data.Rows[0]["privilege_Level"].ToString()))
                 {
                     case 1:
-                        session = new Session() { Privilege_Level = 1 };
+                        user = new Manager() { Privilege_Level = 1 };
                         break;
                     default:
-                        session = new Session() { Privilege_Level = 0 };
+                        user = new Employee() { Privilege_Level = 0 };
                         break;
                 }
 

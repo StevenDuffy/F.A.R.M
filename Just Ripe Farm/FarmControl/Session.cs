@@ -10,6 +10,8 @@ namespace FarmControl
 {
     public class Session
     {
+        //This class may now be unneccesary.
+
         private int privilege_Level;
 
         public int Privilege_Level

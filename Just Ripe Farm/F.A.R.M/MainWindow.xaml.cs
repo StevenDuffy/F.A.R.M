@@ -24,18 +24,21 @@ namespace F.A.R.M
     /// </summary>
     public partial class MainWindow : Window
     {
+        Employee user;
 
-        public MainWindow(Session session)
+        public MainWindow(Employee user)
         {
             InitializeComponent();
 
-            if (session.Privilege_Level == 0)
+            if (user is Manager)
             {
-                MainMenu.Items.Remove(DataManagement);
+                // Remove features unsuitable for a manager here.                
             }
             else
             {
-                // remove features unsuitable for Manager here i.e. Your Jobs.
+                // Remove features unsuitable for an Employee here.
+                MainMenu.Items.Remove(DataManagement);
+                this.user = user as Manager;
             }
 
             FillUserList();
@@ -48,15 +51,17 @@ namespace F.A.R.M
             {
                 string startDate = datePickerStartDate.SelectedDate.Value.ToString("yyyy-MM-dd");
                 string endDate = datePickerEndDate.SelectedDate.Value.ToString("yyyy-MM-dd");
-                
-                calendarData.ItemsSource = DatabaseConnection.DataConn.GetFutureHarvests(startDate, endDate).DefaultView;            
+
+                upcomingHarvestGrid.ItemsSource = DatabaseConnection.DataConn.GetUpcomingHarvests(startDate, endDate).DefaultView;
+                plannedHarvestGrid.ItemsSource = DatabaseConnection.DataConn.GetPlannedHarvests(startDate, endDate).DefaultView;
+
             }
             else
-            {                
+            {
                 MessageBox.Show("Please enter a valid date.", "Invalid Dates Entered", MessageBoxButton.OK);
             }
 
-            
+
 
         }
 

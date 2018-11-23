@@ -22,9 +22,9 @@
                     </StackPanel>
                     <StackPanel>
                         <StackPanel>
-                        <Label Margin="10,0" Content="Upcoming Harvests"></Label>
+                        <Label Margin="10,0" Content="Upcoming Harvests:" FontWeight="Bold"></Label>
                         </StackPanel>
-                        <DataGrid  ItemsSource ="{Binding}" AutoGenerateColumns="false" Margin="10,0" HorizontalAlignment="Left" Name="calendarData" IsReadOnly="True" VerticalScrollBarVisibility="Visible">
+                        <DataGrid  Name="upcomingHarvestGrid" ItemsSource ="{Binding}" AutoGenerateColumns="false" Margin="10,0" HorizontalAlignment="Left"  IsReadOnly="True" VerticalScrollBarVisibility="Visible">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Binding="{Binding field_number}"  Header="Field Number" ></DataGridTextColumn>
                                 <DataGridTextColumn Binding="{Binding current_crop}"  Header="Crop" ></DataGridTextColumn>
@@ -35,14 +35,17 @@
                     </StackPanel>
                     <StackPanel>
                         <StackPanel>
-                            <Label Margin="10,0" Content="Planned Harvests"></Label>
+                            <Label Margin="10,0" Content="Planned Harvests:" FontWeight="Bold"></Label>
                         </StackPanel>
-                        <DataGrid  ItemsSource ="{Binding}" AutoGenerateColumns="false" Margin="10,0" HorizontalAlignment="Left" IsReadOnly="True" VerticalScrollBarVisibility="Visible">
+                        <DataGrid Name="plannedHarvestGrid" ItemsSource ="{Binding}" AutoGenerateColumns="false" Margin="10,0" HorizontalAlignment="Left" IsReadOnly="True" VerticalScrollBarVisibility="Visible">
                             <DataGrid.Columns>
-                                <DataGridTextColumn Binding="{Binding field_number}"  Header="Field Number" ></DataGridTextColumn>
-                                <DataGridTextColumn Binding="{Binding current_crop}"  Header="Crop" ></DataGridTextColumn>
-                                <DataGridTextColumn Binding="{Binding quantity_held}"  Header="Quantity(kgs)" ></DataGridTextColumn>
-                                <DataGridTextColumn Binding="{Binding harvest_date, StringFormat=\{0: dd-MM-yyyy\}}"  Header="Harvest Date" ></DataGridTextColumn>
+                                <DataGridTextColumn Binding="{Binding job_ID}"  Header="Job ID" ></DataGridTextColumn>
+                                <DataGridTextColumn Binding="{Binding assigned_field_number}"  Header="Field Number" ></DataGridTextColumn>
+                                <DataGridTextColumn Binding="{Binding assigned_storage_number}"  Header="Storage Number"></DataGridTextColumn>
+                                <DataGridTextColumn Binding="{Binding assigned_field_number}"  Header="Field Number" ></DataGridTextColumn>
+                                <DataGridTextColumn Binding="{Binding start_date, StringFormat=\{0: dd-MM-yyyy\}}"  Header="Start Date" ></DataGridTextColumn>
+                                <DataGridTextColumn Binding="{Binding status}"  Header="Status" ></DataGridTextColumn>                            
+
                             </DataGrid.Columns>
                         </DataGrid>
                     </StackPanel>
