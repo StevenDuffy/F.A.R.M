@@ -5,14 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:F.A.R.M"
         mc:Ignorable="d"
-        Title="Farming and Agricultural Resource Management" Height="350" Width="780.652" Icon="Icon.png">
+        Title="Farming and Agricultural Resource Management" Height="400" Width="780" MinHeight="400" MinWidth="780" Icon="Icon.png">
     <Grid>
         <TabControl TabStripPlacement="Left" Name="MainMenu" Margin="0,3,0.4,-3.2">
 
             <TabItem Header="Calender">
                 <StackPanel>
                     <StackPanel Orientation="Horizontal">
-                        <Calendar SelectionMode="SingleRange" HorizontalAlignment="Left" Margin="10"/>
                         <StackPanel>
                             <Label Content="Start Date:" FontWeight="Bold" Margin="5,0"></Label>
                             <DatePicker  SelectedDateFormat="Short" Width="120"  HorizontalAlignment="Left" Margin="10,0" x:Name="datePickerStartDate" DisplayDate="2018-11-18"></DatePicker>
@@ -22,7 +21,23 @@
                         </StackPanel>
                     </StackPanel>
                     <StackPanel>
-                        <DataGrid  ItemsSource ="{Binding}" AutoGenerateColumns="false" Margin="10" HorizontalAlignment="Left" Name="calendarData" IsReadOnly="True">
+                        <StackPanel>
+                        <Label Margin="10,0" Content="Upcoming Harvests"></Label>
+                        </StackPanel>
+                        <DataGrid  ItemsSource ="{Binding}" AutoGenerateColumns="false" Margin="10,0" HorizontalAlignment="Left" Name="calendarData" IsReadOnly="True" VerticalScrollBarVisibility="Visible">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Binding="{Binding field_number}"  Header="Field Number" ></DataGridTextColumn>
+                                <DataGridTextColumn Binding="{Binding current_crop}"  Header="Crop" ></DataGridTextColumn>
+                                <DataGridTextColumn Binding="{Binding quantity_held}"  Header="Quantity(kgs)" ></DataGridTextColumn>
+                                <DataGridTextColumn Binding="{Binding harvest_date, StringFormat=\{0: dd-MM-yyyy\}}"  Header="Harvest Date" ></DataGridTextColumn>
+                            </DataGrid.Columns>
+                        </DataGrid>                        
+                    </StackPanel>
+                    <StackPanel>
+                        <StackPanel>
+                            <Label Margin="10,0" Content="Planned Harvests"></Label>
+                        </StackPanel>
+                        <DataGrid  ItemsSource ="{Binding}" AutoGenerateColumns="false" Margin="10,0" HorizontalAlignment="Left" IsReadOnly="True" VerticalScrollBarVisibility="Visible">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Binding="{Binding field_number}"  Header="Field Number" ></DataGridTextColumn>
                                 <DataGridTextColumn Binding="{Binding current_crop}"  Header="Crop" ></DataGridTextColumn>
@@ -33,11 +48,7 @@
                     </StackPanel>
                 </StackPanel>
 
-
-
-
             </TabItem>
-
             <TabItem Header="Stock Control">
                 <TabControl>
                     <TabItem Header="Crops">
