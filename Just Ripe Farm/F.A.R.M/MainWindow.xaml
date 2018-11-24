@@ -113,31 +113,31 @@
                     <StackPanel Grid.Column="1">
                         <Label Content="Select Crop" Margin="0,0,0,5" HorizontalAlignment="Center"/>
                         <Button Content="New Crop" Width="75"/>
-                        <ComboBox></ComboBox>
+                        <ComboBox x:Name="SelectCrop"></ComboBox>
                     </StackPanel>
                     
                     <StackPanel Grid.Column="2">
                         <Label Content="Select Crop Quantity" Margin="0,0,0,5" HorizontalAlignment="Center"/>
                         <Button Content="New quantity" Width="75"/>
-                        <ComboBox></ComboBox>
+                        <ComboBox x:Name="CropQuantity"></ComboBox>
                     </StackPanel>
                     
                     <StackPanel Grid.Column="3">
                         <Label Content="Create storage" Margin="0,0,0,5" HorizontalAlignment="Center"/>
                         <Button Content="New storage" Width="75"/>
-                        <ComboBox></ComboBox>
+                        <ComboBox x:Name="SelectStorage"></ComboBox>
                     </StackPanel>
                     
                     <StackPanel Grid.Column="4">
                         <Label Content="Create Staff Job" Margin="0,0,0,5" HorizontalAlignment="Center"/>
                         <Button Content="New Staff" Width="75"/>
-                        <ComboBox></ComboBox>
+                        <ComboBox x:Name="SelectStaffJob"></ComboBox>
                     </StackPanel>
                     
                     <StackPanel Grid.Column="5">
                         <Label Content="Create Field Location" Margin="0,0,0,5" HorizontalAlignment="Center"/>
                         <Button Content="New Field" Width="75"/>
-                        <ComboBox></ComboBox>
+                        <ComboBox x:Name="SelectFieldLocation"></ComboBox>
                     </StackPanel>
 
 
