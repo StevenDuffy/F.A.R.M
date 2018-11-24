@@ -107,114 +107,114 @@ namespace F.A.R.M
             string ID = SelectCrop.SelectedValue.ToString();
         }
 
-        private void CreateJob_Load(object sender, EventArgs e)
-        {
+      //  private void CreateJob_Load(object sender, EventArgs e)
+       // {
 
-            SqlConnection conn = new SqlConnection(@"Data Source=LAPTOP-381U2JOA\sqlexpress;Initial Catalog=Northwind;User ID=sa;Password=xyz");
-            conn.Open();
-            SqlCommand sc = new SqlCommand("quantity", conn);
-            SqlDataReader reader;
+          //  SqlConnection conn = new SqlConnection(@"Data Source=LAPTOP-381U2JOA\sqlexpress;Initial Catalog=Northwind;User ID=sa;Password=xyz");
+          //  conn.Open();
+          //  SqlCommand sc = new SqlCommand("quantity", conn);
+          //  SqlDataReader reader;
 
-            reader = sc.ExecuteReader();
-            DataTable dt = new DataTable();
-            dt.Columns.Add("CropQuantity", typeof(string));
-            dt.Columns.Add("CropQuantity", typeof(string));
-            dt.Load(reader);
+          //  reader = sc.ExecuteReader();
+          //  DataTable dt = new DataTable();
+          //  dt.Columns.Add("CropQuantity", typeof(string));
+          //  dt.Columns.Add("CropQuantity", typeof(string));
+          //  dt.Load(reader);
 
           //  CropQuantity.ValueMember = "customerid";
            // CropQuantity.DisplayMember = "contactname";
            // CropQuantity.DataSource = dt;
 
-            conn.Close();
+           // conn.Close();
 
 
-        }
-        private void CropQuantity_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string ID = CropQuantity.SelectedValue.ToString();
-        }
+        //}
+        //private void CropQuantity_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    string ID = CropQuantity.SelectedValue.ToString();
+        //}
 
-        private void CreateJob_Load(object sender, EventArgs e)
-        {
+      //  private void CreateJob_Load(object sender, EventArgs e)
+       // {
 
             SqlConnection conn = new SqlConnection(@"Data Source=LAPTOP-381U2JOA\sqlexpress;Initial Catalog=Northwind;User ID=sa;Password=xyz");
-            conn.Open();
-            SqlCommand sc = new SqlCommand("storage_type", conn);
+           // conn.Open();
+            //SqlCommand sc = new SqlCommand("storage_type", conn);
             SqlDataReader reader;
 
-            reader = sc.ExecuteReader();
+           // reader = sc.ExecuteReader();
             DataTable dt = new DataTable();
-            dt.Columns.Add("SlectStorage", typeof(string));
-            dt.Columns.Add("SelectStorage", typeof(string));
-            dt.Load(reader);
+           // dt.Columns.Add("SlectStorage", typeof(string));
+           // dt.Columns.Add("SelectStorage", typeof(string));
+           // dt.Load(reader);
 
            // SelectStorage.ValueMember = "customerid";
           //  SelectStorage.DisplayMember = "contactname";
            // SelectStorage.DataSource = dt;
 
-            conn.Close();
+           // conn.Close();
 
 
         }
-        public void SlectStorage_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string ID = SelectStorage.SelectedValue.ToString();
+        //public void SlectStorage_SelectedIndexChanged(object sender, EventArgs e)
+       // {
+        //    string ID = SelectStorage.SelectedValue.ToString();
         }
-        public void CreateJob_Load(object sender, EventArgs e)
-        {
+      //  public void CreateJob_Load(object sender, EventArgs e)
+       // {
 
-            SqlConnection conn = new SqlConnection(@"Data Source=LAPTOP-381U2JOA\sqlexpress;Initial Catalog=Northwind;User ID=sa;Password=xyz");
-            conn.Open();
-            SqlCommand sc = new SqlCommand("employee-ID", conn);
-            SqlDataReader reader;
+           // SqlConnection conn = new SqlConnection(@"Data Source=LAPTOP-381U2JOA\sqlexpress;Initial Catalog=Northwind;User ID=sa;Password=xyz");
+           // conn.Open();
+           // SqlCommand sc = new SqlCommand("employee-ID", conn);
+           // SqlDataReader reader;
 
-            reader = sc.ExecuteReader();
-            DataTable dt = new DataTable();
-            dt.Columns.Add("SlectStaffJob", typeof(string));
-            dt.Columns.Add("SelectStaffJob", typeof(string));
-            dt.Load(reader);
+            //reader = sc.ExecuteReader();
+          //  DataTable dt = new DataTable();
+          //  dt.Columns.Add("SlectStaffJob", typeof(string));
+          //  dt.Columns.Add("SelectStaffJob", typeof(string));
+         //   dt.Load(reader);
 
            // SelectStaffJob.ValueMember = "customerid";
            // SelectStaffJob.DisplayMember = "contactname";
            // SelectStaffJob.DataSource = dt;
 
-            conn.Close();
+         //   conn.Close();
 
 
-        }
-        private void SlectStaffJob_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string ID = SelectStaffJob.SelectedValue.ToString();
-        }
+       // }
+       // private void SlectStaffJob_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    string ID = SelectStaffJob.SelectedValue.ToString();
+       // }
 
-        private void CreateJob_Load(object sender, EventArgs e)
-        {
+        //private void CreateJob_Load(object sender, EventArgs e)
+      //  {
 
-            SqlConnection conn = new SqlConnection(@"Data Source=LAPTOP-381U2JOA\sqlexpress;Initial Catalog=Northwind;User ID=sa;Password=xyz");
-            conn.Open();
-            SqlCommand sc = new SqlCommand("field_number", conn);
-            SqlDataReader reader;
+        //    SqlConnection conn = new SqlConnection(@"Data Source=LAPTOP-381U2JOA\sqlexpress;Initial Catalog=Northwind;User ID=sa;Password=xyz");
+        //    conn.Open();
+        //    SqlCommand sc = new SqlCommand("field_number", conn);
+        //    SqlDataReader reader;
 
-            reader = sc.ExecuteReader();
-            DataTable dt = new DataTable();
-            dt.Columns.Add("SlectFieldLocation", typeof(string));
-            dt.Columns.Add("SelectFieldLocation", typeof(string));
-            dt.Load(reader);
+        //    reader = sc.ExecuteReader();
+        //    DataTable dt = new DataTable();
+        //    dt.Columns.Add("SlectFieldLocation", typeof(string));
+        //    dt.Columns.Add("SelectFieldLocation", typeof(string));
+         //   dt.Load(reader);
 
           //  SelectFieldLocation.ValueMember = "customerid";
           //  SelectFieldLocation.DisplayMember = "contactname";
           //  SelectFieldLocation.DataSource = dt;
 
-            conn.Close();
+           // conn.Close();
 
 
-        }
-        private void SlectFieldLocation_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string ID = SelectFieldLocation.SelectedValue.ToString();
-        }
+        //}
+      //  private void SlectFieldLocation_SelectedIndexChanged(object sender, EventArgs e)
+     //   {
+       //     string ID = SelectFieldLocation.SelectedValue.ToString();
+      //  }
 
-    }
-}    
+   // }
+//}    
    
 
