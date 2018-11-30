@@ -43,6 +43,7 @@ namespace F.A.R.M
             }
             else
             {
+                
                 MainWindow mainWindow = new MainWindow(user);
                 mainWindow.Show();
                 this.Close();

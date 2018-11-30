@@ -137,7 +137,7 @@
                     <StackPanel Grid.Column="5">
                         <Label Content="Create Field Location" Margin="0,0,0,5" HorizontalAlignment="Center"/>
                         <Button x:Name="NewFieldButton" Content="New Field" Width="75"/>
-                        <ComboBox x:Name="SelectFieldLocation"></ComboBox>
+                        <ComboBox x:Name="SelectFieldLocation" SelectionChanged="SelectFieldLocation_SelectionChanged"></ComboBox>
                     </StackPanel>
 
 
@@ -195,7 +195,7 @@
             <TabItem Header="Logout" >
                 <StackPanel>
                     <Label Content="Are you sure you wish to log out?" HorizontalAlignment="Center" Margin="0,50,0,10"></Label>
-                    <Button x:Name="logout" Content="Log out" Width="50" Click="logout_Click"></Button>
+                    <Button x:Name="logout" Content="Log out" Width="50" Click="Logout_Click"></Button>
                 </StackPanel>
             </TabItem>
 

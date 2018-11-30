@@ -42,6 +42,13 @@ namespace F.A.R.M
             }
 
             FillUserList();
+            FillInCrops();
+            FillInCropQuantity();
+            FillInCropStorage();
+            FillInStaffJob();
+            FillInFieldLocation();
+
+            
         }
 
         private void CalendarSubmit_Click(object sender, RoutedEventArgs e)
@@ -72,66 +79,118 @@ namespace F.A.R.M
             //_dmListGridUser.ItemsSource = DatabaseConnection.DataConn.GetUserList().DefaultView;
         }
 
-        private void logout_Click(object sender, RoutedEventArgs e)
+        private void Logout_Click(object sender, RoutedEventArgs e)
         {
             Login loginWindow = new Login();
             loginWindow.Show();
             this.Close();
         }
 
+        public void FillInCrops()
+        {
+           DataTable dt = DatabaseConnection.DataConn.GetCrops();
+
+            //TO DO iterate through the datatable dt and get the items 
+            
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                SelectCrop.Items.Add(SelectCrop.Items.Add(dt.Rows[i].ItemArray[0]));
+
+            }
+                    
+                 
+
+        }
+
         public void SelectCrop_Load(object sender, EventArgs e)
         {
+
             // Create the connection to the database
             SqlConnection conn = new SqlConnection(@"Data Source=LAPTOP-381U2JOA\sqlexpress;Initial Catalog=Northwind;User ID=sa;Password=xyz");
 
             conn.Open();
             //Declare what you would like to be shown in the combo box
-            SqlCommand sc = new SqlCommand("select crop_name", conn);
+            SqlCommand sc = new SqlCommand("select crop_name", conn); // add the sql statement
             SqlDataReader reader;
+
+            
 
             reader = sc.ExecuteReader();
             DataTable dt = new DataTable();
             dt.Columns.Add("SelectCrop", typeof(string));
-            dt.Columns.Add("SelectCrop", typeof(string));
+            
             dt.Load(reader);
 
-            //SelectCrop.DataSource = dt;
-           // SelectCrop.ValueMember = "";
-           // SelectCrop.DisplayMember = "";
-
+            SelectCrop.Items.Add("aaa");
+            SelectCrop.Items.Add("bbb");
+           /* SelectCrop.DataSource = dt;
+            SelectCrop.ValueMember = "";
+            SelectCrop.DisplayMember = "";
+            */
             conn.Close();
-
         }
-        private void SelectCrop_SelectedIndexChanged(object sender, EventArgs e)
+
+        public void FillInCropQuantity()
         {
-            string ID = SelectCrop.SelectedValue.ToString();
+      //      DataTable dt = DatabaseConnection.DataConn.GetCropQuantity();
+
+            //TO DO iterate through the datatable dt and get the items 
+      //      for (int i = 0; i < dt.Rows.Count; i++)
+            {
+      //          SelectCrop.Items.Add(SelectCrop.Items.Add(dt.Rows[i].ItemArray[0]));
+
+            }
         }
 
-      private void CropQuantity_Load(object sender, EventArgs e)
+        private void SelectCropQuantiy_SelectedIndexChanged(object sender, EventArgs e)
+
+
+        {
+            string ID = CropQuantity.SelectedValue.ToString();
+        }
+
+      public void CropQuantity_Load(object sender, EventArgs e)
        {
 
             SqlConnection conn = new SqlConnection(@"Data Source=LAPTOP-381U2JOA\sqlexpress;Initial Catalog=Northwind;User ID=sa;Password=xyz");
             conn.Open();
-            SqlCommand sc = new SqlCommand("quantity", conn);
+            SqlCommand sc = new SqlCommand("Select Crop_Quantity", conn);
             SqlDataReader reader;
 
             reader = sc.ExecuteReader();
             DataTable dt = new DataTable();
             dt.Columns.Add("CropQuantity", typeof(string));
-            dt.Columns.Add("CropQuantity", typeof(string));
+            
             dt.Load(reader);
 
-          //  CropQuantity.ValueMember = "customerid";
-            //CropQuantity.DisplayMember = "contactname";
-            //CropQuantity.DataSource = dt;
+            CropQuantity.Items.Add("111");
+            CropQuantity.Items.Add("222");
 
+            /* CropQuantity.ValueMember = "customerid";
+             CropQuantity.DisplayMember = "contactname";
+             CropQuantity.DataSource = dt;
+             */
             conn.Close();
 
 
         }
-        private void CropQuantity_SelectedIndexChanged(object sender, EventArgs e)
+
+        public void FillInCropStorage()
         {
-            string ID = CropQuantity.SelectedValue.ToString();
+    //        DataTable dt = DatabaseConnection.DataConn.GetStorageType();
+
+            //TO DO iterate through the datatable dt and get the items 
+      //      for (int i = 0; i < dt.Rows.Count; i++)
+            {
+      //          SelectCrop.Items.Add(SelectCrop.Items.Add(dt.Rows[i].ItemArray[0]));
+
+            }
+
+        }
+
+        private void SelectStorage_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string ID = SelectStorage.SelectedValue.ToString();
         }
 
         private void SelectStorage_Load(object sender, EventArgs e)
@@ -139,27 +198,42 @@ namespace F.A.R.M
 
             SqlConnection conn = new SqlConnection(@"Data Source=LAPTOP-381U2JOA\sqlexpress;Initial Catalog=Northwind;User ID=sa;Password=xyz");
             conn.Open();
-            SqlCommand sc = new SqlCommand("storage_type", conn);
+            SqlCommand sc = new SqlCommand("Select storage_type", conn);
             SqlDataReader reader;
 
             reader = sc.ExecuteReader();
             DataTable dt = new DataTable();
             dt.Columns.Add("SlectStorage", typeof(string));
-            dt.Columns.Add("SelectStorage", typeof(string));
+            
             dt.Load(reader);
+            SelectStorage.Items.Add("ccc");
+            SelectStorage.Items.Add("ddd");
 
-           // SelectStorage.ValueMember = "customerid";
-           // SelectStorage.DisplayMember = "contactname";
-           // SelectStorage.DataSource = dt;
-
+            /*
+            SelectStorage.ValueMember = "customerid";
+            SelectStorage.DisplayMember = "contactname";
+            SelectStorage.DataSource = dt;
+            */
             conn.Close();
 
 
         }
-        public void SlectStorage_SelectedIndexChanged(object sender, EventArgs e)
+
+
+
+        public void FillInStaffJob()
         {
-            string ID = SelectStorage.SelectedValue.ToString();
+     //       DataTable dt = DatabaseConnection.DataConn.GetEmployeeID();
+
+            //TO DO iterate through the datatable dt and get the items 
+      //      for (int i = 0; i < dt.Rows.Count; i++)
+            {
+      //          SelectCrop.Items.Add(SelectCrop.Items.Add(dt.Rows[i].ItemArray[0]));
+
+            }
+
         }
+
         public void SelectStaffJob_Load(object sender, EventArgs e)
         {
 
@@ -171,20 +245,37 @@ namespace F.A.R.M
             reader = sc.ExecuteReader();
             DataTable dt = new DataTable();
             dt.Columns.Add("SlectStaffJob", typeof(string));
-            dt.Columns.Add("SelectStaffJob", typeof(string));
+            
             dt.Load(reader);
+            SelectStaffJob.Items.Add("ccc");
+            SelectStaffJob.Items.Add("ddd");
 
-          //  SelectStaffJob.ValueMember = "customerid";
-          //  SelectStaffJob.DisplayMember = "contactname";
-          //  SelectStaffJob.DataSource = dt;
-
+            /*
+            SelectStaffJob.ValueMember = "customerid";
+            SelectStaffJob.DisplayMember = "contactname";
+            SelectStaffJob.DataSource = dt;
+            */
             conn.Close();
 
 
         }
-        private void SlectStaffJob_SelectedIndexChanged(object sender, EventArgs e)
+        private void SelectStaffJob_SelectedIndexChanged(object sender, EventArgs e)
         {
             string ID = SelectStaffJob.SelectedValue.ToString();
+        }
+
+
+        public void FillInFieldLocation()
+        {
+           // DataTable dt = DatabaseConnection.DataConn.GetFieldNumber();
+
+            //TO DO iterate through the datatable dt and get the items 
+          //  for (int i = 0; i < dt.Rows.Count; i++)
+            {
+          //      SelectCrop.Items.Add(SelectCrop.Items.Add(dt.Rows[i].ItemArray[0]));
+
+            }
+
         }
 
         private void SelectFieldLocation_Load(object sender, EventArgs e)
@@ -192,19 +283,22 @@ namespace F.A.R.M
 
             SqlConnection conn = new SqlConnection(@"Data Source=LAPTOP-381U2JOA\sqlexpress;Initial Catalog=Northwind;User ID=sa;Password=xyz");
             conn.Open();
-            SqlCommand sc = new SqlCommand("field_number", conn);
+            SqlCommand sc = new SqlCommand("Field_number", conn);
             SqlDataReader reader;
 
             reader = sc.ExecuteReader();
             DataTable dt = new DataTable();
-            dt.Columns.Add("SlectFieldLocation", typeof(string));
             dt.Columns.Add("SelectFieldLocation", typeof(string));
+           
             dt.Load(reader);
+            SelectFieldLocation.Items.Add("ccc");
+            SelectFieldLocation.Items.Add("ddd");
 
-           // SelectFieldLocation.ValueMember = "customerid";
-           // SelectFieldLocation.DisplayMember = "contactname";
-          //  SelectFieldLocation.DataSource = dt;
-
+            /*
+            SelectFieldLocation.ValueMember = "customerid";
+            SelectFieldLocation.DisplayMember = "contactname";
+            SelectFieldLocation.DataSource = dt;
+            */
             conn.Close();
 
 

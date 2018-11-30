@@ -115,6 +115,15 @@ namespace FarmControl
             return DataTable;
         }
 
+
+        public DataTable GetCrops()
+        {
+            DataTable dtCrops= new DataTable();
+            SqlDataAdapter adapter = new SqlDataAdapter(SQLConstant.getCrops, dBconnection);
+            adapter.Fill(dtCrops);
+            return dtCrops;
+        }
+
         /*
         /// <summary>
         /// Read/get data from the database.
