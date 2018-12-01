@@ -137,7 +137,7 @@
                     <StackPanel Grid.Column="5">
                         <Label Content="Create Field Location" Margin="0,0,0,5" HorizontalAlignment="Center"/>
                         <Button x:Name="NewFieldButton" Content="New Field" Width="75"/>
-                        <ComboBox x:Name="SelectFieldLocation" SelectionChanged="SelectFieldLocation_SelectionChanged"></ComboBox>
+                        <ComboBox x:Name="SelectFieldLocation"/>
                     </StackPanel>
 
 

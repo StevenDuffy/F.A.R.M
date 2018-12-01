@@ -35,7 +35,7 @@ namespace F.A.R.M
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if (!LoginVerifier.Verifier.VerifyUser(usernameBox.Text, passwordBox.Password, out Employee user))
+            if (!LoginVerifier.Verifier.VerifyUser(usernameBox.Text, passwordBox.Password))
             {
                 MessageBox.Show("Invalid credentials entered. Please try again.", "Invalid Credentials", MessageBoxButton.OK, MessageBoxImage.Information);
                 usernameBox.Text = null;
@@ -44,7 +44,7 @@ namespace F.A.R.M
             else
             {
                 
-                MainWindow mainWindow = new MainWindow(user);
+                MainWindow mainWindow = new MainWindow();
                 mainWindow.Show();
                 this.Close();
             }

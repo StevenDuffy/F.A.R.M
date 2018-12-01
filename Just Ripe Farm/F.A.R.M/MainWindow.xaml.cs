@@ -24,21 +24,23 @@ namespace F.A.R.M
     /// </summary>
     public partial class MainWindow : Window
     {
-        Employee user;
 
-        public MainWindow(Employee user)
+        public MainWindow()
         {
             InitializeComponent();
 
-            if (user is Manager)
+
+            if (CurrentSession.CurrentUser.PrivilegeLevel == 1)
             {
-                // Remove features unsuitable for a manager here.                
+                // Remove features unsuitable for a manager here.
+                MessageBox.Show("You are logged in as a manager. Welcome back " + CurrentSession.CurrentUser.FirstName + " " + CurrentSession.CurrentUser.SecondName + ".");
             }
             else
             {
                 // Remove features unsuitable for an Employee here.
+                MessageBox.Show("You are logged in as a labourer. Welcome back " + CurrentSession.CurrentUser.FirstName + " " + CurrentSession.CurrentUser.SecondName + ".");
+
                 MainMenu.Items.Remove(DataManagement);
-                this.user = user as Manager;
             }
 
             FillUserList();
@@ -303,7 +305,7 @@ namespace F.A.R.M
 
 
         }
-        private void SlectFieldLocation_SelectedIndexChanged(object sender, EventArgs e)
+       private void SlectFieldLocation_SelectedIndexChanged(object sender, EventArgs e)
         {
             string ID = SelectFieldLocation.SelectedValue.ToString();
         }

@@ -7,6 +7,7 @@ using System.Data.SqlClient;
 using System.Data;
 using System.Windows;
 using FarmControl;
+using System.Security.Cryptography;
 
 namespace FarmControl
 {
@@ -28,8 +29,9 @@ namespace FarmControl
                 {
                     verifier = new LoginVerifier();
                 }
+
                 return verifier;
-            }            
+            }
         }
 
         /// <summary>
@@ -39,37 +41,44 @@ namespace FarmControl
         /// <param name="password">User entered Password</param>
         /// <param name="session">session instance to be used for the login session</param>
         /// <returns>True or false and a Session</returns>
-        public bool VerifyUser(string username, string password, out Employee user)
+        public bool VerifyUser(string username, string password)
         {
-            DataTable data = new DataTable();
 
-            user = null;
+            Employee user = DatabaseConnection.DataConn.GetUser(username);
+            CurrentSession.SetCurrentSession(user);
 
-            data = DatabaseConnection.DataConn.GetUserDetail(username);
-
-            if (data.Rows.Count == 0)
+            if (user.Password == null)
             {
                 return false;
             }
-            else if (password != data.Rows[0]["password"].ToString())
+            else if (username != user.Username)
+            {
+                return false;
+            }
+            else if (GetPasswordHashValue(password) != user.Password)
             {
                 return false;
             }
             else
             {
-                switch (Convert.ToInt32(data.Rows[0]["privilege_Level"].ToString()))
-                {
-                    case 1:
-                        user = new Manager() { Privilege_Level = 1 };
-                        break;
-                    default:
-                        user = new Employee() { Privilege_Level = 0 };
-                        break;
-                }
-
                 return true;
             }
         }
 
+        public string GetPasswordHashValue(string plainPassword)
+        {
+            byte[] password = Encoding.UTF8.GetBytes(plainPassword);
+            SHA256Managed sha = new SHA256Managed();
+            byte[] hashedPasword = sha.ComputeHash(password);
+            sha.Dispose();
+            StringBuilder stringBuilder = new StringBuilder();
+            for (int i = 0; i < hashedPasword.Length; i++)
+            {
+                stringBuilder.Append(hashedPasword[i].ToString("x2"));
+            }
+
+            return stringBuilder.ToString();
+
+        }
     }
 }

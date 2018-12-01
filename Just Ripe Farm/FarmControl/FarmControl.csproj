@@ -51,7 +51,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="Session.cs" />
+    <Compile Include="CurrentSession.cs" />
     <Compile Include="SQLConstant.cs" />
   </ItemGroup>
   <ItemGroup>

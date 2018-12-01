@@ -8,18 +8,17 @@ namespace FarmControl
 {
     public class Employee
     {
-        private int privilege_Level;
+        public int EmployeeID { get; set; }
 
-        public int Privilege_Level
-        {
-            get
-            {
-                return privilege_Level;
-            }
-            set
-            {
-                privilege_Level = value;
-            }
-        }
+        public string FirstName { get; set; }
+
+        public string SecondName { get; set; }
+
+        public string Username { get; set; }
+
+        public string Password { get; set; }
+
+        public int PrivilegeLevel { get; set; }
+
     }
 }

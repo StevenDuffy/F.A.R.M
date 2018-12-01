@@ -21,11 +21,17 @@ namespace FarmControl
 
         private readonly SqlConnection dBconnection;
 
+        private SqlCommand command;
+
         private SqlDataAdapter adapter;
 
         //  private DataSet dataSet;
 
         private DataTable dataTable;
+
+        private Employee user;
+
+        private SqlCommand Command { get { return command; } set { command = value; } } // Accessors?
 
         private SqlDataAdapter Adapter { get { return adapter; } set { adapter = value; } }
 
@@ -105,6 +111,7 @@ namespace FarmControl
             Adapter.Fill(DataTable);
             return DataTable;
         }
+
         public DataTable GetPlannedHarvests(string startDate, string endDate)
         {
             DataTable = new DataTable();
@@ -124,28 +131,35 @@ namespace FarmControl
             return dtCrops;
         }
 
-        /*
-        /// <summary>
-        /// Read/get data from the database.
-        /// </summary>
-        /// <param name="readStatement"></param>
-        /// <returns></returns>
-        public DataSet GetData(string readStatement)
+        public Employee GetUser(string username)
         {
-            dataSet = new DataSet();
-            adapter = new SqlDataAdapter(readStatement, dBconnection);
-            adapter.Fill(dataSet);
-            return dataSet;
+            user = new Employee();
+
+            Command = new SqlCommand(SQLConstant.getUser, dBconnection);
+            Command.Parameters.AddWithValue("@username", username);
+            this.Open();
+
+            {
+                {
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        user.EmployeeID = (int)reader["employee_ID"];
+                        user.FirstName = (string)reader["first_name"];
+                        user.SecondName = (string)reader["second_name"];
+                        user.Username = (string)reader["user_name"];
+                        user.Password = (string)reader["password"];
+                        user.PrivilegeLevel = (int)reader["privilege_level"];
+                    }
+                }
+            }
+
+            this.Close();
+
+            return user;
         }
 
-        /// <summary>
-        /// Generic method to execute Update, Insert, Delete from the database.
-        /// </summary>
-        /// <param name="query"></param>
-        public void NonQuery(string query)
-        {
-            SqlCommand command = new SqlCommand(query, dBconnection);
-            command.ExecuteNonQuery();
-        } */
+
     }
 }

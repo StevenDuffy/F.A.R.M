@@ -17,5 +17,7 @@ namespace FarmControl
         public static string getStorageType = "SELECT * FROM Storage";
         public static string getEmployeeID = "SELECT * FROM Employee";
         public static string getFieldNumber = "SELECT * FROM Field";
+        public static string getUser = "SELECT * FROM dbo.Employee WHERE user_name = @username";
+
     }
 }
