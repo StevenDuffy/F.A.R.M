@@ -47,15 +47,14 @@ namespace F.A.R.M
             FillInCrops();
             FillInCropQuantity();
             FillInCropStorage();
-            FillInStaffJob();
-            FillInFieldLocation();
+            // FillInStaffJob();
+            // FillInFieldLocation();
 
-            
+
         }
 
         private void CalendarSubmit_Click(object sender, RoutedEventArgs e)
         {
-
             if (datePickerStartDate.SelectedDate != null && datePickerEndDate != null) // Log a test this will fail.
             {
                 string startDate = datePickerStartDate.SelectedDate.Value.ToString("yyyy-MM-dd");
@@ -63,15 +62,11 @@ namespace F.A.R.M
 
                 upcomingHarvestGrid.ItemsSource = DatabaseConnection.DataConn.GetUpcomingHarvests(startDate, endDate).DefaultView;
                 plannedHarvestGrid.ItemsSource = DatabaseConnection.DataConn.GetPlannedHarvests(startDate, endDate).DefaultView;
-
             }
             else
             {
                 MessageBox.Show("Please enter a valid date.", "Invalid Dates Entered", MessageBoxButton.OK);
             }
-
-
-
         }
 
         private void FillUserList()
@@ -90,17 +85,17 @@ namespace F.A.R.M
 
         public void FillInCrops()
         {
-           DataTable dt = DatabaseConnection.DataConn.GetCrops();
+            DataTable dt = DatabaseConnection.DataConn.GetCrops();
 
             //TO DO iterate through the datatable dt and get the items 
-            
+
             for (int i = 0; i < dt.Rows.Count; i++)
             {
                 SelectCrop.Items.Add(SelectCrop.Items.Add(dt.Rows[i].ItemArray[0]));
 
             }
-                    
-                 
+
+
 
         }
 
@@ -115,31 +110,31 @@ namespace F.A.R.M
             SqlCommand sc = new SqlCommand("select crop_name", conn); // add the sql statement
             SqlDataReader reader;
 
-            
+
 
             reader = sc.ExecuteReader();
             DataTable dt = new DataTable();
             dt.Columns.Add("SelectCrop", typeof(string));
-            
+
             dt.Load(reader);
 
             SelectCrop.Items.Add("aaa");
             SelectCrop.Items.Add("bbb");
-           /* SelectCrop.DataSource = dt;
-            SelectCrop.ValueMember = "";
-            SelectCrop.DisplayMember = "";
-            */
+            /* SelectCrop.DataSource = dt;
+             SelectCrop.ValueMember = "";
+             SelectCrop.DisplayMember = "";
+             */
             conn.Close();
         }
 
         public void FillInCropQuantity()
         {
-      //      DataTable dt = DatabaseConnection.DataConn.GetCropQuantity();
+            //      DataTable dt = DatabaseConnection.DataConn.GetCropQuantity();
 
             //TO DO iterate through the datatable dt and get the items 
-      //      for (int i = 0; i < dt.Rows.Count; i++)
+            //      for (int i = 0; i < dt.Rows.Count; i++)
             {
-      //          SelectCrop.Items.Add(SelectCrop.Items.Add(dt.Rows[i].ItemArray[0]));
+                //          SelectCrop.Items.Add(SelectCrop.Items.Add(dt.Rows[i].ItemArray[0]));
 
             }
         }
@@ -151,8 +146,8 @@ namespace F.A.R.M
             string ID = CropQuantity.SelectedValue.ToString();
         }
 
-      public void CropQuantity_Load(object sender, EventArgs e)
-       {
+        public void CropQuantity_Load(object sender, EventArgs e)
+        {
 
             SqlConnection conn = new SqlConnection(@"Data Source=LAPTOP-381U2JOA\sqlexpress;Initial Catalog=Northwind;User ID=sa;Password=xyz");
             conn.Open();
@@ -162,7 +157,7 @@ namespace F.A.R.M
             reader = sc.ExecuteReader();
             DataTable dt = new DataTable();
             dt.Columns.Add("CropQuantity", typeof(string));
-            
+
             dt.Load(reader);
 
             CropQuantity.Items.Add("111");
@@ -179,21 +174,18 @@ namespace F.A.R.M
 
         public void FillInCropStorage()
         {
-    //        DataTable dt = DatabaseConnection.DataConn.GetStorageType();
+            //        DataTable dt = DatabaseConnection.DataConn.GetStorageType();
 
             //TO DO iterate through the datatable dt and get the items 
-      //      for (int i = 0; i < dt.Rows.Count; i++)
+            //      for (int i = 0; i < dt.Rows.Count; i++)
             {
-      //          SelectCrop.Items.Add(SelectCrop.Items.Add(dt.Rows[i].ItemArray[0]));
+                //          SelectCrop.Items.Add(SelectCrop.Items.Add(dt.Rows[i].ItemArray[0]));
 
             }
 
         }
 
-        private void SelectStorage_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string ID = SelectStorage.SelectedValue.ToString();
-        }
+
 
         private void SelectStorage_Load(object sender, EventArgs e)
         {
@@ -206,7 +198,7 @@ namespace F.A.R.M
             reader = sc.ExecuteReader();
             DataTable dt = new DataTable();
             dt.Columns.Add("SlectStorage", typeof(string));
-            
+
             dt.Load(reader);
             SelectStorage.Items.Add("ccc");
             SelectStorage.Items.Add("ddd");
@@ -223,22 +215,22 @@ namespace F.A.R.M
 
 
 
-        public void FillInStaffJob()
-        {
-     //       DataTable dt = DatabaseConnection.DataConn.GetEmployeeID();
+        /* public void FillInStaffJob()
+         {
+             //       DataTable dt = DatabaseConnection.DataConn.GetEmployeeID();
 
-            //TO DO iterate through the datatable dt and get the items 
-      //      for (int i = 0; i < dt.Rows.Count; i++)
-            {
-      //          SelectCrop.Items.Add(SelectCrop.Items.Add(dt.Rows[i].ItemArray[0]));
+             //TO DO iterate through the datatable dt and get the items 
+             //      for (int i = 0; i < dt.Rows.Count; i++)
+             {
+                 //          SelectCrop.Items.Add(SelectCrop.Items.Add(dt.Rows[i].ItemArray[0]));
 
-            }
+             }
 
-        }
+         }*/
 
         public void SelectStaffJob_Load(object sender, EventArgs e)
         {
-
+            //Theo, try to move this to the connection class, I will help.
             SqlConnection conn = new SqlConnection(@"Data Source=LAPTOP-381U2JOA\sqlexpress;Initial Catalog=Northwind;User ID=sa;Password=xyz");
             conn.Open();
             SqlCommand sc = new SqlCommand("employee-ID", conn);
@@ -247,7 +239,7 @@ namespace F.A.R.M
             reader = sc.ExecuteReader();
             DataTable dt = new DataTable();
             dt.Columns.Add("SlectStaffJob", typeof(string));
-            
+
             dt.Load(reader);
             SelectStaffJob.Items.Add("ccc");
             SelectStaffJob.Items.Add("ddd");
@@ -261,28 +253,24 @@ namespace F.A.R.M
 
 
         }
-        private void SelectStaffJob_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string ID = SelectStaffJob.SelectedValue.ToString();
-        }
 
 
-        public void FillInFieldLocation()
-        {
-           // DataTable dt = DatabaseConnection.DataConn.GetFieldNumber();
 
-            //TO DO iterate through the datatable dt and get the items 
-          //  for (int i = 0; i < dt.Rows.Count; i++)
-            {
-          //      SelectCrop.Items.Add(SelectCrop.Items.Add(dt.Rows[i].ItemArray[0]));
+        /* public void FillInFieldLocation()
+         {
+            // DataTable dt = DatabaseConnection.DataConn.GetFieldNumber();
 
-            }
+             TO DO iterate through the datatable dt and get the items 
+          for (int i = 0; i < dt.Rows.Count; i++)
+             {
+                 SelectCrop.Items.Add(SelectCrop.Items.Add(dt.Rows[i].ItemArray[0]));
 
-        }
+             }
+
+         }*/
 
         private void SelectFieldLocation_Load(object sender, EventArgs e)
         {
-
             SqlConnection conn = new SqlConnection(@"Data Source=LAPTOP-381U2JOA\sqlexpress;Initial Catalog=Northwind;User ID=sa;Password=xyz");
             conn.Open();
             SqlCommand sc = new SqlCommand("Field_number", conn);
@@ -291,7 +279,7 @@ namespace F.A.R.M
             reader = sc.ExecuteReader();
             DataTable dt = new DataTable();
             dt.Columns.Add("SelectFieldLocation", typeof(string));
-           
+
             dt.Load(reader);
             SelectFieldLocation.Items.Add("ccc");
             SelectFieldLocation.Items.Add("ddd");
@@ -302,15 +290,8 @@ namespace F.A.R.M
             SelectFieldLocation.DataSource = dt;
             */
             conn.Close();
-
-
         }
-       private void SlectFieldLocation_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string ID = SelectFieldLocation.SelectedValue.ToString();
-        }
-
     }
-}    
-   
+}
+
 
