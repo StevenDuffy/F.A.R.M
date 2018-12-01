@@ -69,11 +69,9 @@ namespace F.A.R.M
             }
         }
 
-        private void FillUserList()
+        private void cropStorageComboBox_DropDownOpened(object sender, EventArgs e)
         {
-            //Bind each row as a source
-            _dmListGridUser.SetBinding(ItemsControl.ItemsSourceProperty, new Binding { Source = DatabaseConnection.DataConn.GetUserList() });
-            //_dmListGridUser.ItemsSource = DatabaseConnection.DataConn.GetUserList().DefaultView;
+            cropStorageComboBox.ItemsSource = DatabaseConnection.DataConn.GetCropStorage();
         }
 
         private void Logout_Click(object sender, RoutedEventArgs e)
@@ -81,6 +79,17 @@ namespace F.A.R.M
             Login loginWindow = new Login();
             loginWindow.Show();
             this.Close();
+        }
+
+
+
+
+
+        private void FillUserList()
+        {
+            //Bind each row as a source
+            _dmListGridUser.SetBinding(ItemsControl.ItemsSourceProperty, new Binding { Source = DatabaseConnection.DataConn.GetUserList() });
+            //_dmListGridUser.ItemsSource = DatabaseConnection.DataConn.GetUserList().DefaultView;
         }
 
         public void FillInCrops()

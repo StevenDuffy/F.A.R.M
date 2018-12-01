@@ -7,6 +7,7 @@ using System.Data.SqlClient;
 using System.Data;
 using System.Configuration;
 using FarmControl.Properties;
+using System.Collections.ObjectModel;
 
 namespace FarmControl
 {
@@ -158,6 +159,39 @@ namespace FarmControl
             this.Close();
 
             return user;
+        }
+
+        public ObservableCollection<Storage> GetCropStorage()
+        {
+            ObservableCollection<Storage> cropStorage = new ObservableCollection<Storage>();
+
+            Command = new SqlCommand(SQLConstant.getCropStorage, dBconnection);
+            //Command.Parameters.AddWithValue("@username", username);
+            this.Open();
+
+            {
+                {
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    int i = 0;
+
+                    while (reader.Read())
+                    {
+                        cropStorage.Add(new Storage());
+                        cropStorage[i].StorageNumber = (byte)reader["storage_number"];
+                        cropStorage[i].StorageType = (string)reader["storage_type"];
+                        cropStorage[i].CropStored = (string)reader["crop_stored"];
+                        cropStorage[i].MaxCapacity = (short)reader["max_capacity"];
+                        cropStorage[i].UsedCapacity = (short)reader["used_capacity"];
+                        cropStorage[i].StorageTemperature = (byte)reader["storage_temperature"];
+                        i++;
+                    }
+                }
+            }
+
+            this.Close();
+
+            return cropStorage;
         }
 
 

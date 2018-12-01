@@ -52,6 +52,7 @@
     </Compile>
     <Compile Include="CurrentSession.cs" />
     <Compile Include="SQLConstant.cs" />
+    <Compile Include="Storage.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
