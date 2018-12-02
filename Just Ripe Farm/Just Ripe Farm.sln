@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "F.A.R.M", "F.A.R.M\F.A.R.M.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FarmControl", "FarmControl\FarmControl.csproj", "{D1EBE36E-7653-42F0-BA68-E823A9DE8600}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JustRipeFarm.UnitTests", "JustRipeFarm.UnitTests\JustRipeFarm.UnitTests.csproj", "{12685C88-79C4-455B-9763-4488B165572F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{D1EBE36E-7653-42F0-BA68-E823A9DE8600}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D1EBE36E-7653-42F0-BA68-E823A9DE8600}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D1EBE36E-7653-42F0-BA68-E823A9DE8600}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12685C88-79C4-455B-9763-4488B165572F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12685C88-79C4-455B-9763-4488B165572F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12685C88-79C4-455B-9763-4488B165572F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12685C88-79C4-455B-9763-4488B165572F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
