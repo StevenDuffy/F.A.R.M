@@ -51,6 +51,11 @@
                 </StackPanel>
 
             </TabItem>
+            
+            <TabItem Header="Job Assignments" Name="jobAssignments">
+
+            </TabItem>
+            
             <TabItem Header="Stock Control">
                 <TabControl>
                     <TabItem Header="Crops">
@@ -135,7 +140,7 @@
                 </TabControl>
             </TabItem>
 
-            <TabItem Header="Create Job">
+            <TabItem Header="Create Job" x:Name="createJob">
                 <StackPanel Orientation="Horizontal">
                     <StackPanel Grid.Column="1">
                         <Label Content="Select Crop" Margin="0,0,0,5" HorizontalAlignment="Center"/>
@@ -177,7 +182,7 @@
                 </StackPanel>
             </TabItem>
             
-            <TabItem Header="Data Management" Name="DataManagement">
+            <TabItem Header="Data Management" x:Name="dataManagement">
                 <TabControl>
                     <TabItem Header="Users" Name="_dmTabUsers">
                         <StackPanel Orientation="Horizontal">
@@ -219,6 +224,7 @@
                     </TabItem>
                 </TabControl>
             </TabItem>
+           
             <TabItem Header="Logout" >
                 <StackPanel>
                     <Label Content="Are you sure you wish to log out?" HorizontalAlignment="Center" Margin="0,50,0,10"></Label>

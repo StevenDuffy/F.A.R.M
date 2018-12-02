@@ -13,7 +13,7 @@
             <TextBox Width="200" x:Name="usernameBox"></TextBox>
             <Label Content="Password:" FontWeight="bold"></Label>
             <PasswordBox Width="200" x:Name="passwordBox"></PasswordBox>
-            <Button Content=" Submit " HorizontalAlignment="Right" Margin=" 0,10" Click="Button_Click"></Button>
+            <Button Content=" Submit " IsDefault="True" HorizontalAlignment="Right" Margin=" 0,10" Click="Button_Click"></Button>
         </StackPanel>
     </Grid>
 
