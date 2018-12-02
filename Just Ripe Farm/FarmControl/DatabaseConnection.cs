@@ -201,5 +201,36 @@ namespace FarmControl
             adapter.Fill(dtCrops);
             return dtCrops;
         }
+        public DataTable GetCropQuantity()
+        {
+            DataTable dtCropQuantity = new DataTable();
+            SqlDataAdapter adapter = new SqlDataAdapter(SQLConstant.getCropQuantity, dBconnection);
+            adapter.Fill(dtCropQuantity);
+            return dtCropQuantity;
+        }
+
+        public DataTable GetStorageType()
+        {
+            DataTable dtStorageType = new DataTable();
+            SqlDataAdapter adapter = new SqlDataAdapter(SQLConstant.getStorageType, dBconnection);
+            adapter.Fill(dtStorageType);
+            return dtStorageType;
+        }
+
+        public DataTable GetEmployeeID()
+        {
+            DataTable dtEmployeeID = new DataTable();
+            SqlDataAdapter adapter = new SqlDataAdapter(SQLConstant.getEmployeeID, dBconnection);
+            adapter.Fill(dtEmployeeID);
+            return dtEmployeeID;
+        }
+
+        public DataTable GetFieldNumber()
+        {
+            DataTable dtFieldNumber = new DataTable();
+            SqlDataAdapter adapter = new SqlDataAdapter(SQLConstant.getFieldNumber, dBconnection);
+            adapter.Fill(dtFieldNumber);
+            return dtFieldNumber;
+        }
     }
 }
