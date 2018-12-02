@@ -21,6 +21,7 @@ namespace FarmControl
         public static string getUser = "SELECT * FROM dbo.Employee WHERE user_name = @username";
         public static string getCropStorage = "SELECT * FROM Storage WHERE storage_type = 'Crop' ";
         public static string updateCropStorage = "UPDATE Storage SET used_capacity = @usedCapacity WHERE storage_number = @storageNumber";
+        public static string getTotalFertiliserRequired = "SELECT SUM(individual_total) as total, fertiliser_type FROM (SELECT (crop_quantity * amount_per_kilo) AS individual_total, fertiliser_type FROM (SELECT crop_quantity, amount_per_kilo, fertiliser_type FROM job JOIN RequiredFertiliser ON crop_name = assigned_crop WHERE job_type = 'Sow' AND start_date BETWEEN @startDate AND @endDate ) AS a) AS b GROUP BY fertiliser_type";
 
     }
 }

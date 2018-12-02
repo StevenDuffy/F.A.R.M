@@ -51,8 +51,8 @@ namespace F.A.R.M
             FillInCropStorage();
             FillInStaffJob();
             FillInFieldLocation();
-
-
+           
+            
         }
 
         private void CalendarSubmit_Click(object sender, RoutedEventArgs e)
@@ -65,6 +65,9 @@ namespace F.A.R.M
                 upcomingHarvestGrid.ItemsSource = DatabaseConnection.DataConn.GetUpcomingHarvests(startDate, endDate).DefaultView;
                 plannedHarvestGrid.ItemsSource = DatabaseConnection.DataConn.GetPlannedHarvests(startDate, endDate).DefaultView;
                 plannedSowingGrid.ItemsSource = DatabaseConnection.DataConn.GetPlannedSowing(startDate, endDate).DefaultView;
+                totalRequiredFertiliser.ItemsSource = DatabaseConnection.DataConn.GetRequiredFertiliser(startDate, endDate).DefaultView;
+                
+                
 
             }
             else

@@ -132,6 +132,15 @@ namespace FarmControl
             Adapter.Fill(DataTable);
             return DataTable;
         }
+        public DataTable GetRequiredFertiliser(string startDate, string endDate)
+        {
+            DataTable = new DataTable();
+            Adapter = new SqlDataAdapter(SQLConstant.getTotalFertiliserRequired, dBconnection);
+            Adapter.SelectCommand.Parameters.Add("@startDate", SqlDbType.VarChar).Value = startDate;
+            Adapter.SelectCommand.Parameters.Add("@endDate", SqlDbType.VarChar).Value = endDate;
+            Adapter.Fill(DataTable);
+            return DataTable;
+        }
 
         public void UpdateCropStorage(byte storageNumber, short usedCapacity)
         {

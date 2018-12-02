@@ -49,28 +49,46 @@
                         </DataGrid>
                     </StackPanel>
                     <StackPanel>
-                        <StackPanel>
-                            <Label Margin="10,0" Content="Planned Sowing:" FontWeight="Bold"></Label>
-                        </StackPanel>
-                        <DataGrid Height="100" MaxHeight="100" Name="plannedSowingGrid" ItemsSource ="{Binding}" AutoGenerateColumns="false" Margin="10,0" HorizontalAlignment="Left" IsReadOnly="True" VerticalScrollBarVisibility="Visible">
-                            <DataGrid.Columns>
-                                <DataGridTextColumn Binding="{Binding job_ID}"  Header="Job ID" ></DataGridTextColumn>
-                                <DataGridTextColumn Binding="{Binding assigned_field_number}"  Header="Field Number" ></DataGridTextColumn>
-                                <DataGridTextColumn Binding="{Binding assigned_crop}"  Header="Crop"></DataGridTextColumn>
-                                <DataGridTextColumn Binding="{Binding start_date, StringFormat=\{0: dd-MM-yyyy\}}"  Header="Start Date" ></DataGridTextColumn>
-                                <DataGridTextColumn Binding="{Binding status}"  Header="Status" ></DataGridTextColumn>
 
-                            </DataGrid.Columns>
-                        </DataGrid>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="380"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <StackPanel Grid.Column="0">
+                                <Label Grid.Column="0" Margin="10,0" Content="Planned Sowing:" FontWeight="Bold"></Label>
+                                <DataGrid  Height="100" MaxHeight="100" Name="plannedSowingGrid" ItemsSource ="{Binding}" AutoGenerateColumns="false" Margin="10,0" HorizontalAlignment="Left" IsReadOnly="True" VerticalScrollBarVisibility="Visible">
+                                    <DataGrid.Columns>
+                                        <DataGridTextColumn Binding="{Binding job_ID}"  Header="Job ID" ></DataGridTextColumn>
+                                        <DataGridTextColumn Binding="{Binding assigned_field_number}"  Header="Field Number" ></DataGridTextColumn>
+                                        <DataGridTextColumn Binding="{Binding assigned_crop}"  Header="Crop"></DataGridTextColumn>
+                                        <DataGridTextColumn Binding="{Binding start_date, StringFormat=\{0: dd-MM-yyyy\}}"  Header="Start Date" ></DataGridTextColumn>
+                                        <DataGridTextColumn Binding="{Binding status}"  Header="Status" ></DataGridTextColumn>
+                                    </DataGrid.Columns>
+                                </DataGrid>
+                            </StackPanel>
+                            <StackPanel Grid.Column="1">
+                                <Label Margin="10,0" Content="Fertiliser Required:" FontWeight="Bold"></Label>
+                                <DataGrid  Name="totalRequiredFertiliser" Grid.Column="1" Height="83" MaxHeight="100"  AutoGenerateColumns="false" Margin="15,0" HorizontalAlignment="Left" IsReadOnly="True" VerticalAlignment="Top">
+                                    <DataGrid.Columns>
+                                        <DataGridTextColumn Binding="{Binding fertiliser_type}"  Header="Fertiliser Type" ></DataGridTextColumn>
+                                        <DataGridTextColumn Binding="{Binding total}" Header="Total Required(kgs)" ></DataGridTextColumn>
+                                    </DataGrid.Columns>
+                                </DataGrid>
+                            </StackPanel>
+                        </Grid>
+
+
+
                     </StackPanel>
                 </StackPanel>
 
             </TabItem>
-            
+
             <TabItem Header="Job Assignments" Name="jobAssignments">
 
             </TabItem>
-            
+
             <TabItem Header="Stock Control">
                 <TabControl>
                     <TabItem Header="Crops">
@@ -162,25 +180,25 @@
                         <Button x:Name="NewCropButton" Content="New Crop" Width="75"/>
                         <ComboBox x:Name="SelectCrop"></ComboBox>
                     </StackPanel>
-                    
+
                     <StackPanel Grid.Column="2">
                         <Label Content="Select Crop Quantity" Margin="0,0,0,5" HorizontalAlignment="Center"/>
                         <Button x:Name="NewQuantityButton" Content="New quantity" Width="75"/>
                         <ComboBox x:Name="CropQuantity"></ComboBox>
                     </StackPanel>
-                    
+
                     <StackPanel Grid.Column="3">
                         <Label Content="Create storage" Margin="0,0,0,5" HorizontalAlignment="Center"/>
                         <Button x:Name="NewStorageButton" Content="New storage" Width="75"/>
                         <ComboBox x:Name="SelectStorage"></ComboBox>
                     </StackPanel>
-                    
+
                     <StackPanel Grid.Column="4">
                         <Label Content="Create Staff Job" Margin="0,0,0,5" HorizontalAlignment="Center"/>
                         <Button x:Name="NewStaffButton" Content="New Staff" Width="75"/>
                         <ComboBox x:Name="SelectStaffJob"></ComboBox>
                     </StackPanel>
-                    
+
                     <StackPanel Grid.Column="5">
                         <Label Content="Create Field Location" Margin="0,0,0,5" HorizontalAlignment="Center"/>
                         <Button x:Name="NewFieldButton" Content="New Field" Width="75"/>
@@ -191,12 +209,12 @@
                     <StackPanel Grid.Column="1">
                         <Label Content="Add all" Margin="0,0,0,5" HorizontalAlignment="Center"/>
                         <Button x:Name="CreateJobButton" Content="Create" Width="75"/>
-                        </StackPanel>
+                    </StackPanel>
 
 
                 </StackPanel>
             </TabItem>
-            
+
             <TabItem Header="Data Management" x:Name="dataManagement">
                 <TabControl>
                     <TabItem Header="Users" Name="_dmTabUsers">
@@ -239,7 +257,7 @@
                     </TabItem>
                 </TabControl>
             </TabItem>
-           
+
             <TabItem Header="Logout" >
                 <StackPanel>
                     <Label Content="Are you sure you wish to log out?" HorizontalAlignment="Center" Margin="0,50,0,10"></Label>
