@@ -64,6 +64,8 @@ namespace F.A.R.M
 
                 upcomingHarvestGrid.ItemsSource = DatabaseConnection.DataConn.GetUpcomingHarvests(startDate, endDate).DefaultView;
                 plannedHarvestGrid.ItemsSource = DatabaseConnection.DataConn.GetPlannedHarvests(startDate, endDate).DefaultView;
+                plannedSowingGrid.ItemsSource = DatabaseConnection.DataConn.GetPlannedSowing(startDate, endDate).DefaultView;
+
             }
             else
             {

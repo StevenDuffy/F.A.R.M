@@ -123,6 +123,16 @@ namespace FarmControl
             return DataTable;
         }
 
+        public DataTable GetPlannedSowing(string startDate, string endDate)
+        {
+            DataTable = new DataTable();
+            Adapter = new SqlDataAdapter(SQLConstant.getPlannedSowing, dBconnection);
+            Adapter.SelectCommand.Parameters.Add("@startDate", SqlDbType.VarChar).Value = startDate;
+            Adapter.SelectCommand.Parameters.Add("@endDate", SqlDbType.VarChar).Value = endDate;
+            Adapter.Fill(DataTable);
+            return DataTable;
+        }
+
         public void UpdateCropStorage(byte storageNumber, short usedCapacity)
         {
             Command = new SqlCommand(SQLConstant.updateCropStorage, dBconnection);

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:F.A.R.M"
         mc:Ignorable="d"
-        Title="Farming and Agricultural Resource Management" Height="455" Width="780" MinHeight="400" MinWidth="780" Icon="Icon.png">
+        Title="Farming and Agricultural Resource Management" Height="570" Width="780" MinHeight="400" MinWidth="780" Icon="Icon.png">
     <Grid>
         <TabControl TabStripPlacement="Left" Name="MainMenu" Margin="0,3,0.4,-3.2">
 
@@ -42,6 +42,21 @@
                                 <DataGridTextColumn Binding="{Binding job_ID}"  Header="Job ID" ></DataGridTextColumn>
                                 <DataGridTextColumn Binding="{Binding assigned_field_number}"  Header="Field Number" ></DataGridTextColumn>
                                 <DataGridTextColumn Binding="{Binding assigned_storage_number}"  Header="Storage Number"></DataGridTextColumn>
+                                <DataGridTextColumn Binding="{Binding start_date, StringFormat=\{0: dd-MM-yyyy\}}"  Header="Start Date" ></DataGridTextColumn>
+                                <DataGridTextColumn Binding="{Binding status}"  Header="Status" ></DataGridTextColumn>
+
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </StackPanel>
+                    <StackPanel>
+                        <StackPanel>
+                            <Label Margin="10,0" Content="Planned Sowing:" FontWeight="Bold"></Label>
+                        </StackPanel>
+                        <DataGrid Height="100" MaxHeight="100" Name="plannedSowingGrid" ItemsSource ="{Binding}" AutoGenerateColumns="false" Margin="10,0" HorizontalAlignment="Left" IsReadOnly="True" VerticalScrollBarVisibility="Visible">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Binding="{Binding job_ID}"  Header="Job ID" ></DataGridTextColumn>
+                                <DataGridTextColumn Binding="{Binding assigned_field_number}"  Header="Field Number" ></DataGridTextColumn>
+                                <DataGridTextColumn Binding="{Binding assigned_crop}"  Header="Crop"></DataGridTextColumn>
                                 <DataGridTextColumn Binding="{Binding start_date, StringFormat=\{0: dd-MM-yyyy\}}"  Header="Start Date" ></DataGridTextColumn>
                                 <DataGridTextColumn Binding="{Binding status}"  Header="Status" ></DataGridTextColumn>
 
