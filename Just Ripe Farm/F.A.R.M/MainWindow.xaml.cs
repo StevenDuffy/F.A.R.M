@@ -47,8 +47,8 @@ namespace F.A.R.M
             FillInCrops();
             FillInCropQuantity();
             FillInCropStorage();
-             FillInStaffJob();
-             FillInFieldLocation();
+            FillInStaffJob();
+            FillInFieldLocation();
 
 
         }
@@ -175,12 +175,12 @@ namespace F.A.R.M
 
         public void FillInCropQuantity()
         {
-                  DataTable dt = DatabaseConnection.DataConn.GetCropQuantity();
+            DataTable dt = DatabaseConnection.DataConn.GetCropQuantity();
 
             //TO DO iterate through the datatable dt and get the items 
-                  for (int i = 0; i < dt.Rows.Count; i++)
+            for (int i = 0; i < dt.Rows.Count; i++)
             {
-                          SelectCrop.Items.Add(SelectCrop.Items.Add(dt.Rows[i].ItemArray[0]));
+                SelectCrop.Items.Add(SelectCrop.Items.Add(dt.Rows[i].ItemArray[0]));
 
             }
         }
@@ -220,12 +220,12 @@ namespace F.A.R.M
 
         public void FillInCropStorage()
         {
-                    DataTable dt = DatabaseConnection.DataConn.GetStorageType();
+            DataTable dt = DatabaseConnection.DataConn.GetStorageType();
 
             //TO DO iterate through the datatable dt and get the items 
-                  for (int i = 0; i < dt.Rows.Count; i++)
+            for (int i = 0; i < dt.Rows.Count; i++)
             {
-                          SelectCrop.Items.Add(SelectCrop.Items.Add(dt.Rows[i].ItemArray[0]));
+                SelectCrop.Items.Add(SelectCrop.Items.Add(dt.Rows[i].ItemArray[0]));
 
             }
 
@@ -261,18 +261,18 @@ namespace F.A.R.M
 
 
 
-         public void FillInStaffJob()
-         {
-                    DataTable dt = DatabaseConnection.DataConn.GetEmployeeID();
+        public void FillInStaffJob()
+        {
+            DataTable dt = DatabaseConnection.DataConn.GetEmployeeID();
 
-             //TO DO iterate through the datatable dt and get the items 
-                   for (int i = 0; i < dt.Rows.Count; i++)
-             {
-                           SelectCrop.Items.Add(SelectCrop.Items.Add(dt.Rows[i].ItemArray[0]));
+            //TO DO iterate through the datatable dt and get the items 
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                SelectCrop.Items.Add(SelectCrop.Items.Add(dt.Rows[i].ItemArray[0]));
 
-             }
+            }
 
-         }
+        }
 
         public void SelectStaffJob_Load(object sender, EventArgs e)
         {
@@ -336,7 +336,7 @@ namespace F.A.R.M
             SelectFieldLocation.DataSource = dt;
             */
             conn.Close();
-        }        
+        }
     }
 }
 
