@@ -80,7 +80,44 @@ namespace F.A.R.M
             loginWindow.Show();
             this.Close();
         }
+        private void cropStorageAdd_Click(object sender, RoutedEventArgs e)
+        {
 
+            if (!short.TryParse(addRemoveCropStorageValue.Text, out short amountToAdd))
+            {
+                MessageBox.Show("Please enter a valid number.", "Invalid data");
+            }
+
+
+            else if (!CurrentSession.CurrentUser.addCropStock((Storage)cropStorageComboBox.SelectedItem, amountToAdd))
+            {
+                MessageBox.Show("The amount you have entered exceeds the storage capacity.", "Maximum Storage Limit Exceeded");
+            }
+            else if (MessageBox.Show("Are you sure you wish to add " + amountToAdd + "kgs?", "Add Stock", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {
+                DatabaseConnection.DataConn.UpdateCropStorage(((Storage)cropStorageComboBox.SelectedItem).StorageNumber, ((Storage)cropStorageComboBox.SelectedItem).UsedCapacity += amountToAdd);
+            }
+        }
+
+
+
+        private void cropStorageRemove_Click(object sender, RoutedEventArgs e)
+        {
+            if (!short.TryParse(addRemoveCropStorageValue.Text, out short amountToRemove))
+            {
+                MessageBox.Show("Please enter a valid number.", "Invalid data");
+            }
+
+
+            else if (!CurrentSession.CurrentUser.removeCropStock((Storage)cropStorageComboBox.SelectedItem, amountToRemove))
+            {
+                MessageBox.Show("The amount you have entered exceeds the remaining stock level", "Remaining Stock Level Exceeded");
+            }
+            else if (MessageBox.Show("Are you sure you wish to remove " + amountToRemove + "kgs?", "Add Stock", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {
+                DatabaseConnection.DataConn.UpdateCropStorage(((Storage)cropStorageComboBox.SelectedItem).StorageNumber, ((Storage)cropStorageComboBox.SelectedItem).UsedCapacity -= amountToRemove);
+            }
+        }
 
 
 
@@ -299,7 +336,7 @@ namespace F.A.R.M
             SelectFieldLocation.DataSource = dt;
             */
             conn.Close();
-        }
+        }        
     }
 }
 

@@ -123,15 +123,15 @@ namespace FarmControl
             return DataTable;
         }
 
-
-        public DataTable GetCrops()
+        public void UpdateCropStorage(byte storageNumber, short usedCapacity)
         {
-            DataTable dtCrops= new DataTable();
-            SqlDataAdapter adapter = new SqlDataAdapter(SQLConstant.getCrops, dBconnection);
-            adapter.Fill(dtCrops);
-            return dtCrops;
+            Command = new SqlCommand(SQLConstant.updateCropStorage, dBconnection);
+            Command.Parameters.AddWithValue("@usedCapacity", usedCapacity);
+            Command.Parameters.AddWithValue("@storageNumber", storageNumber);
+            this.Open();
+            command.ExecuteNonQuery();
+            this.Close();
         }
-
         public Employee GetUser(string username)
         {
             user = new Employee();
@@ -166,7 +166,7 @@ namespace FarmControl
             ObservableCollection<Storage> cropStorage = new ObservableCollection<Storage>();
 
             Command = new SqlCommand(SQLConstant.getCropStorage, dBconnection);
-            //Command.Parameters.AddWithValue("@username", username);
+
             this.Open();
 
             {
@@ -194,6 +194,12 @@ namespace FarmControl
             return cropStorage;
         }
 
-
+        public DataTable GetCrops()
+        {
+            DataTable dtCrops = new DataTable();
+            SqlDataAdapter adapter = new SqlDataAdapter(SQLConstant.getCrops, dBconnection);
+            adapter.Fill(dtCrops);
+            return dtCrops;
+        }
     }
 }
