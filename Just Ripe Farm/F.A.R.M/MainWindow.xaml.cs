@@ -29,7 +29,6 @@ namespace F.A.R.M
         {
             InitializeComponent();
 
-
             if (CurrentSession.CurrentUser.PrivilegeLevel == 1)
             {
                 // Remove features unsuitable for a manager here.
@@ -40,7 +39,6 @@ namespace F.A.R.M
             {
                 // Remove features unsuitable for an Employee here.
                 MessageBox.Show("You are logged in as a labourer. Welcome back " + CurrentSession.CurrentUser.FirstName + " " + CurrentSession.CurrentUser.SecondName + ".");
-
                 MainMenu.Items.Remove(dataManagement);
                 MainMenu.Items.Remove(createJob);
             }
@@ -51,8 +49,11 @@ namespace F.A.R.M
             FillInCropStorage();
             FillInStaffJob();
             FillInFieldLocation();
-           
-            
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            cropStorageComboBox.ItemsSource = DatabaseConnection.DataConn.GetCropStorage();
         }
 
         private void CalendarSubmit_Click(object sender, RoutedEventArgs e)
@@ -66,9 +67,6 @@ namespace F.A.R.M
                 plannedHarvestGrid.ItemsSource = DatabaseConnection.DataConn.GetPlannedHarvests(startDate, endDate).DefaultView;
                 plannedSowingGrid.ItemsSource = DatabaseConnection.DataConn.GetPlannedSowing(startDate, endDate).DefaultView;
                 totalRequiredFertiliser.ItemsSource = DatabaseConnection.DataConn.GetRequiredFertiliser(startDate, endDate).DefaultView;
-                
-                
-
             }
             else
             {
@@ -78,7 +76,9 @@ namespace F.A.R.M
 
         private void cropStorageComboBox_DropDownOpened(object sender, EventArgs e)
         {
-            cropStorageComboBox.ItemsSource = DatabaseConnection.DataConn.GetCropStorage();
+            // Kept in for testing - ignore this method
+            //cropStorageComboBox.ItemsSource = DatabaseConnection.DataConn.GetCropStorage();
+
         }
 
         private void Logout_Click(object sender, RoutedEventArgs e)
@@ -94,7 +94,6 @@ namespace F.A.R.M
             {
                 MessageBox.Show("Please enter a valid number.", "Invalid data");
             }
-
 
             else if (!CurrentSession.CurrentUser.addCropStock((Storage)cropStorageComboBox.SelectedItem, amountToAdd))
             {
@@ -125,6 +124,12 @@ namespace F.A.R.M
                 DatabaseConnection.DataConn.UpdateCropStorage(((Storage)cropStorageComboBox.SelectedItem).StorageNumber, ((Storage)cropStorageComboBox.SelectedItem).UsedCapacity -= amountToRemove);
             }
         }
+
+
+
+
+
+
 
 
 
@@ -344,6 +349,8 @@ namespace F.A.R.M
             */
             conn.Close();
         }
+
+
     }
 }
 

@@ -8,9 +8,9 @@ namespace JustRipeFarm.UnitTests
     public class LoginVerifierTests
     {
         [TestMethod]
-        public void PasswordMatches()
+        public void PasswordMatch()
         {
-            //Arrange 
+
             string[] hashes = new string[] {
             "185f8db32271fe25f561a6fc938b2e264306ec304eda518007d1764826381969",
             "33b93476cf597a3330653b66a658983d892ac264b5d6029a2dc642b9b1f30870",
@@ -22,11 +22,18 @@ namespace JustRipeFarm.UnitTests
             {
                 Assert.IsTrue(LoginVerifier.Verifier.GetPasswordHashValue(nonHashes[i]) == hashes[i]);
             }
-            //Act
+        }
 
-            //Assert
+        [TestMethod]
+        public void PasswordNoMatch()
+        {
+            string hash = "185f8db32271fe25f561a6fc938b2e264306ec304eda518007d1764826381969";
 
+            string nonHash = "Hello World";
+
+            Assert.IsFalse(LoginVerifier.Verifier.GetPasswordHashValue(nonHash) == hash);
 
         }
     }
 }
+
