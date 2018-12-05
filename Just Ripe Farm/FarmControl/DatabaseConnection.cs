@@ -103,6 +103,30 @@ namespace FarmControl
 
         }
 
+        public DataTable GetVehicleList()
+        {
+            DataTable vehicleList = new DataTable();
+            SqlDataAdapter adapter = new SqlDataAdapter(SQLConstant.getVehicleList, dBconnection);
+            adapter.Fill(vehicleList);
+            return vehicleList;
+        }
+
+        public DataTable GetCropList()
+        {
+            DataTable cropList = new DataTable();
+            SqlDataAdapter adapter = new SqlDataAdapter(SQLConstant.getCrops, dBconnection);
+            adapter.Fill(cropList);
+            return cropList;
+        }
+
+        public DataTable GetStorageList()
+        {
+            DataTable storageList = new DataTable();
+            SqlDataAdapter adapter = new SqlDataAdapter(SQLConstant.getCropStorage, dBconnection);
+            adapter.Fill(storageList);
+            return storageList;
+        }
+
         public DataTable GetUpcomingHarvests(string startDate, string endDate)
         {
             DataTable = new DataTable();

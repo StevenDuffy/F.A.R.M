@@ -10,7 +10,10 @@ namespace FarmControl
     {
         public static string getUserDetails = "SELECT password, privilege_Level FROM dbo.Employee WHERE user_name = @username";
         public static string getUpcomingHarvests = "SELECT * FROM Field WHERE harvest_date BETWEEN @startDate AND @endDate";
+        // DATA MANAGEMENT PAGE STATEMENTS BELOW
         public static string getUserList = "SELECT employee_ID, first_Name, second_Name, user_Name, privilege_Level FROM dbo.Employee";
+        public static string getVehicleList = "SELECT registration_number, type, carry_capacity FROM dbo.Vehicle";
+        // DATA MANAGEMENT PAGE STATEMENTS ABOVE
         public static string getPlannedHarvests = "SELECT * FROM Job WHERE job_Type = 'Harvest' AND start_date BETWEEN @startDate AND @endDate AND status = 'PENDING'";
         public static string getPlannedSowing = "SELECT * FROM Job WHERE job_type = 'Sow' AND start_date BETWEEN @startDate AND @endDate AND status = 'PENDING'";
         public static string getCrops = "SELECT * FROM Crop";

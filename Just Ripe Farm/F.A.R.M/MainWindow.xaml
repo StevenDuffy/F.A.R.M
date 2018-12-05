@@ -220,39 +220,66 @@
                     <TabItem Header="Users" Name="_dmTabUsers">
                         <StackPanel Orientation="Horizontal">
                             <StackPanel Grid.Column="0" Name="_dmListGridUserPanel">
-                                <DataGrid Name="_dmListGridUser" Height="230" Width="500"/>
+                                <DataGrid Name="_dmListGridUser" Height="230" Width="500" Margin="10,10,0,0"/>
                                 <StackPanel Orientation="Horizontal">
-                                    <TextBlock Name="_dmSearchBlockUser" Text="Search:" Height="20" Margin="0,0,5,0"></TextBlock>
-                                    <TextBox Name="_dmSearchBarUser" Width="250" Height="18"></TextBox>
+                                    <TextBlock Name="_dmSearchBlockUser" Text="Search:" Height="20" Margin="10,5,5,0"></TextBlock>
+                                    <TextBox Name="_dmSearchBarUser" Width="250" Height="18" Margin="0,5,0,0"></TextBox>
                                 </StackPanel>
                             </StackPanel>
-                            <StackPanel Grid.Column="1" Name="_dmButtonsPanelUser">
-                                <Button Name="_dmButtonOneUser" Content="Add"></Button>
-                                <Button Name="_dmButtonTwoUser" Content="Modify"></Button>
-                                <Button Name="_dmButtonThreeUser" Content="Delete"></Button>
+                            <StackPanel Grid.Column="1" Name="_dmButtonsPanelUser" Margin="10,0,0,0">
+                                <Button Name="_dmButtonOneUser" Content="Add" Width="100" Margin="0,10,0,3"></Button>
+                                <Button Name="_dmButtonTwoUser" Content="Modify" Margin="0,3,0,3"></Button>
+                                <Button Name="_dmButtonThreeUser" Content="Delete" Margin="0,3,0,0"></Button>
                             </StackPanel>
                         </StackPanel>
                     </TabItem>
                     <TabItem Header="Vehicles" Name="_dmTabVehicle">
                         <StackPanel Orientation="Horizontal">
                             <StackPanel Grid.Column="0" Name="_dmListBoxPanelVehicle">
-                                <DataGrid Name="_dmListGridVehicle" Height="230" Width="500"/>
+                                <DataGrid Name="_dmListGridVehicle" Height="230" Width="500" Margin="10,10,0,0"/>
                                 <StackPanel Orientation="Horizontal">
-                                    <TextBlock Name="_dmSearchBlockVehicle" Text="Search:" Height="20" Margin="0,5,5,0"></TextBlock>
+                                    <TextBlock Name="_dmSearchBlockVehicle" Text="Search:" Height="20" Margin="10,5,5,0"></TextBlock>
                                     <TextBox Name="_dmSearchBarVehicle" Width="250" Height="18" Margin="0,5,0,0"></TextBox>
                                 </StackPanel>
                             </StackPanel>
                             <StackPanel Grid.Column="1" Name="_dmButtonsPanelVehicle" Margin="10,0,0,0">
-                                <Button Name="_dmButtonOneVehicle" Content="Add" Width="100"></Button>
-                                <Button Name="_dmButtonTwoVehicle" Content="Modify"></Button>
-                                <Button Name="_dmButtonThreeVehicle" Content="Delete"></Button>
+                                <Button Name="_dmButtonOneVehicle" Content="Add" Width="100" Margin="0,10,0,3"></Button>
+                                <Button Name="_dmButtonTwoVehicle" Content="Modify" Margin="0,3,0,3"></Button>
+                                <Button Name="_dmButtonThreeVehicle" Content="Delete" Margin="0,3,0,0"></Button>
                             </StackPanel>
                         </StackPanel>
                     </TabItem>
                     <TabItem Header="Crops" Name="_dmTabCrops">
-
+                        <StackPanel Orientation="Horizontal">
+                            <StackPanel Grid.Column="0" Name="_dmListBoxPanelCrop">
+                                <DataGrid Name="_dmListGridCrop" Height="230" Width="500" Margin="10,10,0,0"/>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Name="_dmSearchBlockCrop" Text="Search:" Height="20" Margin="10,5,5,0"></TextBlock>
+                                    <TextBox Name="_dmSearchBarCrop" Width="250" Height="18" Margin="0,5,0,0"></TextBox>
+                                </StackPanel>
+                            </StackPanel>
+                            <StackPanel Grid.Column="1" Name="_dmButtonsPanelCrop" Margin="10,0,0,0">
+                                <Button Name="_dmButtonOneCrop" Content="Add" Width="100" Margin="0,10,0,3"></Button>
+                                <Button Name="_dmButtonTwoCrop" Content="Modify" Margin="0,3,0,3"></Button>
+                                <Button Name="_dmButtonThreeCrop" Content="Delete" Margin="0,3,0,0"></Button>
+                            </StackPanel>
+                        </StackPanel>
                     </TabItem>
                     <TabItem Header="Storage" Name="_dmTabStorage">
+                        <StackPanel Orientation="Horizontal">
+                            <StackPanel Grid.Column="0" Name="_dmListBoxPanelStorage">
+                                <DataGrid Name="_dmListGridStorage" Height="230" Width="500" Margin="10,10,0,0"/>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Name="_dmSearchBlockStorage" Text="Search:" Height="20" Margin="10,5,5,0"></TextBlock>
+                                    <TextBox Name="_dmSearchBarStorage" Width="250" Height="18" Margin="0,5,0,0"></TextBox>
+                                </StackPanel>
+                            </StackPanel>
+                            <StackPanel Grid.Column="1" Name="_dmButtonsPanelStorage" Margin="10,0,0,0">
+                                <Button Name="_dmButtonOneStorage" Content="Add" Width="100" Margin="0,10,0,3"></Button>
+                                <Button Name="_dmButtonTwoStorage" Content="Modify" Margin="0,3,0,3"></Button>
+                                <Button Name="_dmButtonThreeStorage" Content="Delete" Margin="0,3,0,0"></Button>
+                            </StackPanel>
+                        </StackPanel>
 
                     </TabItem>
                 </TabControl>

@@ -44,6 +44,9 @@ namespace F.A.R.M
             }
 
             FillUserList();
+            FillVehicleList();
+            FillCropList();
+            FillStorageList();
             FillInCrops();
             FillInCropQuantity();
             FillInCropStorage();
@@ -138,7 +141,22 @@ namespace F.A.R.M
         {
             //Bind each row as a source
             _dmListGridUser.SetBinding(ItemsControl.ItemsSourceProperty, new Binding { Source = DatabaseConnection.DataConn.GetUserList() });
-            _dmListGridUser.ItemsSource = DatabaseConnection.DataConn.GetUserList().DefaultView;
+            //_dmListGridUser.ItemsSource = DatabaseConnection.DataConn.GetUserList().DefaultView;
+        }
+
+        private void FillVehicleList()
+        {
+            _dmListGridVehicle.SetBinding(ItemsControl.ItemsSourceProperty, new Binding { Source = DatabaseConnection.DataConn.GetVehicleList() });
+        }
+
+        private void FillCropList()
+        {
+            _dmListGridCrop.SetBinding(ItemsControl.ItemsSourceProperty, new Binding { Source = DatabaseConnection.DataConn.GetCropList() });
+        }
+
+        private void FillStorageList()
+        {
+            _dmListGridStorage.SetBinding(ItemsControl.ItemsSourceProperty, new Binding { Source = DatabaseConnection.DataConn.GetStorageList() });
         }
 
         public void FillInCrops()
