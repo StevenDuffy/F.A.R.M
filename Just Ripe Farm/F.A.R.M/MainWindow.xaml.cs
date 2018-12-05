@@ -16,6 +16,7 @@ using F.A.R.M.Properties;
 using System.Data.SqlClient;
 using System.Data;
 using FarmControl;
+using F.A.R.M.ChildWindows;
 
 namespace F.A.R.M
 {
@@ -29,6 +30,7 @@ namespace F.A.R.M
         {
             InitializeComponent();
 
+#if debug
             if (CurrentSession.CurrentUser.PrivilegeLevel == 1)
             {
                 // Remove features unsuitable for a manager here.
@@ -43,10 +45,13 @@ namespace F.A.R.M
                 MainMenu.Items.Remove(createJob);
             }
 
+#endif
+            //Fill Data Grids on Data Management
             FillUserList();
             FillVehicleList();
             FillCropList();
             FillStorageList();
+
             FillInCrops();
             FillInCropQuantity();
             FillInCropStorage();
@@ -368,7 +373,12 @@ namespace F.A.R.M
             conn.Close();
         }
 
-
+        private void AddUserClick(object sender, RoutedEventArgs e)
+        {
+            AddUser addUser = new AddUser();
+            addUser.Show();
+            this.Close();
+        }
     }
 }
 

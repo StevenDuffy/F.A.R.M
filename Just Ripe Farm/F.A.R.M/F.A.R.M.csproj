@@ -72,6 +72,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="ChildWindows\DeleteUser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ChildWindows\ModifyUser.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -90,6 +94,9 @@
     </Compile>
     <Compile Include="ChildWindows\AddUser.xaml.cs">
       <DependentUpon>AddUser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ChildWindows\DeleteUser.xaml.cs">
+      <DependentUpon>DeleteUser.xaml</DependentUpon>
     </Compile>
     <Compile Include="ChildWindows\ModifyUser.xaml.cs">
       <DependentUpon>ModifyUser.xaml</DependentUpon>

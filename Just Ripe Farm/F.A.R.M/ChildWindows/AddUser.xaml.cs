@@ -11,6 +11,10 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Data.Sql;
+using F.A.R.M.Properties;
+using System.Data;
+using FarmControl;
 
 namespace F.A.R.M.ChildWindows
 {
@@ -22,6 +26,23 @@ namespace F.A.R.M.ChildWindows
         public AddUser()
         {
             InitializeComponent();
+
+            //Call Method for filling user data grid
+            FillUserList();
+        }
+
+        private void DataManagementClick(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            this.Close();
+        }
+
+        private void FillUserList()
+        {
+            //Bind each row as a source
+            _addUserGrid.SetBinding(ItemsControl.ItemsSourceProperty, new Binding { Source = DatabaseConnection.DataConn.GetUserList() });
+            //_dmListGridUser.ItemsSource = DatabaseConnection.DataConn.GetUserList().DefaultView;
         }
     }
 }
