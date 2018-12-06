@@ -6,7 +6,43 @@
         xmlns:local="clr-namespace:F.A.R.M.ChildWindows"
         mc:Ignorable="d"
         Title="DeleteUser" Height="450" Width="800">
-    <Grid>
-        
+  <Grid>
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition/>
+      <ColumnDefinition/>
+    </Grid.ColumnDefinitions>
+    <Grid.RowDefinitions>
+      <RowDefinition/>
+      <RowDefinition/>
+    </Grid.RowDefinitions>
+    <Grid Grid.Column="0" Grid.Row="0" Grid.RowSpan="1">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="35*"/>
+        <ColumnDefinition Width="97*"/>
+      </Grid.ColumnDefinitions>
+      <Grid.RowDefinitions>
+        <RowDefinition/>
+        <RowDefinition/>
+        <RowDefinition/>
+        <RowDefinition/>
+        <RowDefinition/>
+        <RowDefinition/>
+      </Grid.RowDefinitions>
+      <Label Content="Delete User" HorizontalAlignment="Center" FontSize="16" Grid.Column="1" />
+
+      <TextBlock Text="User ID:" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,8,0" Grid.Row="1" Grid.Column="0"/>
+      <TextBox Height="23" Grid.Row="1" Grid.Column="1"/>
+      
+      <TextBlock Text="User Name:"  VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,8,0" Grid.Row="4" Grid.Column="0"/>
+      <TextBox Height="23" Grid.Row="4" Grid.Column="1"/>
     </Grid>
+    
+    <Grid Grid.Row="1" Grid.Column="0">
+      <Button Content="Submit" Height="25" Width="100" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,5,0"/>
+      <Button Content="Data Management" Height="25" Width="110" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5,5,0,0" Click="DataManagementClick"/>
+    </Grid>
+    <Grid Grid.Row="0" Grid.Column="1" Grid.RowSpan="2">
+      <DataGrid Name="_addUserGrid" Margin="5,0,0,0"></DataGrid>
+    </Grid>
+  </Grid>
 </Window>

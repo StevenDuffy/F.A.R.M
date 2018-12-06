@@ -47,10 +47,10 @@
             <TextBlock Text="Privilege Level"  VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,8,0" Grid.Row="5" Grid.Column="0"/>
             <TextBox Height="23" Grid.Row="5" Grid.Column="1"/>
         </Grid>
-        <Grid Grid.Row="1" Grid.Column="0">
-            <Button Content="Submit" Height="25" Width="100" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,5,0"/>
-            <Button Content="Data Management" Height="25" Width="110" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5,5,0,0" Click="DataManagementClick"/>
-        </Grid>
+      <Grid Grid.Row="1" Grid.Column="0">
+        <Button Content="Submit" Height="25" Width="100" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,5,0"/>
+        <Button Content="Data Management" Height="25" Width="110" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5,5,0,0" Click="DataManagementClick"/>
+      </Grid>
         <Grid Grid.Row="0" Grid.Column="1" Grid.RowSpan="2">
             <DataGrid Name="_addUserGrid" Margin="5,0,0,0"></DataGrid>
         </Grid>

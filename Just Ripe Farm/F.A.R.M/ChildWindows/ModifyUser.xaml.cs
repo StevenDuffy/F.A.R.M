@@ -23,5 +23,12 @@ namespace F.A.R.M.ChildWindows
         {
             InitializeComponent();
         }
+
+          private void DataManagementClick(object sender, RoutedEventArgs e)
+            {
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            this.Close();
+            }
     }
 }
