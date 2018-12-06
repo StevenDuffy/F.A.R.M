@@ -177,31 +177,31 @@
                 <StackPanel Orientation="Horizontal">
                     <StackPanel Grid.Column="1">
                         <Label Content="Select Crop" Margin="0,0,0,5" HorizontalAlignment="Center"/>
-                        <Button x:Name="NewCropButton" Content="New Crop" Width="75"/>
-                        <ComboBox x:Name="SelectCrop"></ComboBox>
+                        
+                      <ComboBox x:Name="SelectCrop"></ComboBox>
                     </StackPanel>
 
                     <StackPanel Grid.Column="2">
                         <Label Content="Select Crop Quantity" Margin="0,0,0,5" HorizontalAlignment="Center"/>
-                        <Button x:Name="NewQuantityButton" Content="New quantity" Width="75"/>
+                       
                         <ComboBox x:Name="CropQuantity"></ComboBox>
                     </StackPanel>
 
                     <StackPanel Grid.Column="3">
                         <Label Content="Create storage" Margin="0,0,0,5" HorizontalAlignment="Center"/>
-                        <Button x:Name="NewStorageButton" Content="New storage" Width="75"/>
+                        
                         <ComboBox x:Name="SelectStorage"></ComboBox>
                     </StackPanel>
 
                     <StackPanel Grid.Column="4">
                         <Label Content="Create Staff Job" Margin="0,0,0,5" HorizontalAlignment="Center"/>
-                        <Button x:Name="NewStaffButton" Content="New Staff" Width="75"/>
+                       
                         <ComboBox x:Name="SelectStaffJob"></ComboBox>
                     </StackPanel>
 
                     <StackPanel Grid.Column="5">
                         <Label Content="Create Field Location" Margin="0,0,0,5" HorizontalAlignment="Center"/>
-                        <Button x:Name="NewFieldButton" Content="New Field" Width="75"/>
+                       
                         <ComboBox x:Name="SelectFieldLocation"/>
                     </StackPanel>
 
