@@ -172,7 +172,7 @@ namespace F.A.R.M
 
             for (int i = 0; i < dt.Rows.Count; i++)
             {
-                SelectCrop.Items.Add(SelectCrop.Items.Add(dt.Rows[i].ItemArray[0]));
+                SelectCrop.Items.Add(dt.Rows[i].ItemArray[0]);
 
             }
 
@@ -215,7 +215,7 @@ namespace F.A.R.M
             //TO DO iterate through the datatable dt and get the items 
             for (int i = 0; i < dt.Rows.Count; i++)
             {
-                SelectCrop.Items.Add(SelectCrop.Items.Add(dt.Rows[i].ItemArray[0]));
+                CropQuantity.Items.Add(dt.Rows[i].ItemArray[0]);
 
             }
         }
@@ -260,7 +260,7 @@ namespace F.A.R.M
             //TO DO iterate through the datatable dt and get the items 
             for (int i = 0; i < dt.Rows.Count; i++)
             {
-                SelectCrop.Items.Add(SelectCrop.Items.Add(dt.Rows[i].ItemArray[0]));
+                SelectStorage.Items.Add(dt.Rows[i].ItemArray[0]);
 
             }
 
@@ -303,7 +303,7 @@ namespace F.A.R.M
             //TO DO iterate through the datatable dt and get the items 
             for (int i = 0; i < dt.Rows.Count; i++)
             {
-                SelectCrop.Items.Add(SelectCrop.Items.Add(dt.Rows[i].ItemArray[0]));
+               SelectStaffJob.Items.Add(dt.Rows[i].ItemArray[0]);
 
             }
 
@@ -344,7 +344,7 @@ namespace F.A.R.M
             // TO DO iterate through the datatable dt and get the items 
             for (int i = 0; i < dt.Rows.Count; i++)
             {
-                SelectCrop.Items.Add(SelectCrop.Items.Add(dt.Rows[i].ItemArray[0]));
+                SelectFieldLocation.Items.Add(dt.Rows[i].ItemArray[0]);
 
             }
 
