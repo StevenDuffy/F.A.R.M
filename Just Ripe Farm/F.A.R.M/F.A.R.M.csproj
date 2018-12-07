@@ -68,6 +68,24 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="ChildWindows\CropLogic\AddCrop.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </Page>
+    <Page Include="ChildWindows\CropLogic\DeleteCrop.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </Page>
+    <Page Include="ChildWindows\CropLogic\ModifyCrop.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </Page>
+    <Page Include="ChildWindows\StorageLogic\AddStorage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </Page>
+    <Page Include="ChildWindows\StorageLogic\DeleteStorage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </Page>
+    <Page Include="ChildWindows\StorageLogic\ModifyStorage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </Page>
     <Page Include="ChildWindows\UserFiles\AddUser.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -100,6 +118,24 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ChildWindows\CropLogic\AddCrop.xaml.cs">
+      <DependentUpon>AddCrop.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ChildWindows\CropLogic\DeleteCrop.xaml.cs">
+      <DependentUpon>DeleteCrop.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ChildWindows\CropLogic\ModifyCrop.xaml.cs">
+      <DependentUpon>ModifyCrop.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ChildWindows\StorageLogic\AddStorage.xaml.cs">
+      <DependentUpon>AddStorage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ChildWindows\StorageLogic\DeleteStorage.xaml.cs">
+      <DependentUpon>DeleteStorage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ChildWindows\StorageLogic\ModifyStorage.xaml.cs">
+      <DependentUpon>ModifyStorage.xaml</DependentUpon>
     </Compile>
     <Compile Include="ChildWindows\UserFiles\AddUser.xaml.cs">
       <DependentUpon>AddUser.xaml</DependentUpon>

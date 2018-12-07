@@ -259,9 +259,9 @@
                                 </StackPanel>
                             </StackPanel>
                             <StackPanel Grid.Column="1" Name="_dmButtonsPanelCrop" Margin="10,0,0,0">
-                                <Button Name="_dmButtonOneCrop" Content="Add" Width="100" Margin="0,10,0,3"></Button>
-                                <Button Name="_dmButtonTwoCrop" Content="Modify" Margin="0,3,0,3"></Button>
-                                <Button Name="_dmButtonThreeCrop" Content="Delete" Margin="0,3,0,0"></Button>
+                                <Button Name="_dmButtonOneCrop" Content="Add" Width="100" Margin="0,10,0,3" Click="AddCropClick"></Button>
+                                <Button Name="_dmButtonTwoCrop" Content="Modify" Margin="0,3,0,3" Click="ModifyCropClick"></Button>
+                                <Button Name="_dmButtonThreeCrop" Content="Delete" Margin="0,3,0,0" Click="DeleteCropClick"></Button>
                             </StackPanel>
                         </StackPanel>
                     </TabItem>
@@ -275,9 +275,9 @@
                                 </StackPanel>
                             </StackPanel>
                             <StackPanel Grid.Column="1" Name="_dmButtonsPanelStorage" Margin="10,0,0,0">
-                                <Button Name="_dmButtonOneStorage" Content="Add" Width="100" Margin="0,10,0,3"></Button>
-                                <Button Name="_dmButtonTwoStorage" Content="Modify" Margin="0,3,0,3"></Button>
-                                <Button Name="_dmButtonThreeStorage" Content="Delete" Margin="0,3,0,0"></Button>
+                                <Button Name="_dmButtonOneStorage" Content="Add" Width="100" Margin="0,10,0,3" Click="AddStorageClick"></Button>
+                                <Button Name="_dmButtonTwoStorage" Content="Modify" Margin="0,3,0,3" Click="ModifyStorageClick"></Button>
+                                <Button Name="_dmButtonThreeStorage" Content="Delete" Margin="0,3,0,0" Click="DeleteStorageClick"></Button>
                             </StackPanel>
                         </StackPanel>
 
