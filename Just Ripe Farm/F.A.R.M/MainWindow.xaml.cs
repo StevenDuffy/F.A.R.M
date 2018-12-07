@@ -104,10 +104,12 @@ namespace F.A.R.M
             else if (!CurrentSession.CurrentUser.AddCropStock((Storage)CropStorageComboBox.SelectedItem, amountToAdd))
             {
                 MessageBox.Show("The amount you have entered exceeds the storage capacity.", "Maximum Storage Limit Exceeded");
+                ActivityLogger.Logger.AddCropStockFailed(amountToAdd);
             }
             else if (MessageBox.Show("Are you sure you wish to add " + amountToAdd + "kgs?", "Add Stock", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
                 DatabaseConnection.DataConn.UpdateCropStorage(((Storage)CropStorageComboBox.SelectedItem).StorageNumber, ((Storage)CropStorageComboBox.SelectedItem).UsedCapacity += amountToAdd);
+                ActivityLogger.Logger.AddCropStockSucceeded(amountToAdd);
             }
         }
 
@@ -124,10 +126,12 @@ namespace F.A.R.M
             else if (!CurrentSession.CurrentUser.RemoveCropStock((Storage)CropStorageComboBox.SelectedItem, amountToRemove))
             {
                 MessageBox.Show("The amount you have entered exceeds the remaining stock level", "Remaining Stock Level Exceeded");
+                ActivityLogger.Logger.RemoveCropStockFailed(amountToRemove);
             }
             else if (MessageBox.Show("Are you sure you wish to remove " + amountToRemove + "kgs?", "Add Stock", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
                 DatabaseConnection.DataConn.UpdateCropStorage(((Storage)CropStorageComboBox.SelectedItem).StorageNumber, ((Storage)CropStorageComboBox.SelectedItem).UsedCapacity -= amountToRemove);
+                ActivityLogger.Logger.RemoveCropStockSucceeded(amountToRemove);
             }
         }
 
