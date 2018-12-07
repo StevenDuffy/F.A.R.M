@@ -30,22 +30,20 @@ namespace F.A.R.M
         {
             InitializeComponent();
 
-#if debug
             if (CurrentSession.CurrentUser.PrivilegeLevel == 1)
             {
                 // Remove features unsuitable for a manager here.
                 MessageBox.Show("You are logged in as a manager. Welcome back " + CurrentSession.CurrentUser.FirstName + " " + CurrentSession.CurrentUser.SecondName + ".");
-                MainMenu.Items.Remove(jobAssignments);
+                MainMenu.Items.Remove(JobAssignments);
             }
             else
             {
                 // Remove features unsuitable for an Employee here.
                 MessageBox.Show("You are logged in as a labourer. Welcome back " + CurrentSession.CurrentUser.FirstName + " " + CurrentSession.CurrentUser.SecondName + ".");
-                MainMenu.Items.Remove(dataManagement);
-                MainMenu.Items.Remove(createJob);
+                MainMenu.Items.Remove(DataManagement);
+                MainMenu.Items.Remove(CreateJob);
             }
 
-#endif
             //Fill Data Grids on Data Management
             FillUserList();
             FillVehicleList();
@@ -61,20 +59,20 @@ namespace F.A.R.M
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            cropStorageComboBox.ItemsSource = DatabaseConnection.DataConn.GetCropStorage();
+            CropStorageComboBox.ItemsSource = DatabaseConnection.DataConn.GetCropStorage();
         }
 
         private void CalendarSubmit_Click(object sender, RoutedEventArgs e)
         {
-            if (datePickerStartDate.SelectedDate != null && datePickerEndDate != null) // Log a test this will fail.
+            if (HarvestCalendarStartDate.SelectedDate != null && HarvestCalendarEndDate != null) // Log a test this will fail.
             {
-                string startDate = datePickerStartDate.SelectedDate.Value.ToString("yyyy-MM-dd");
-                string endDate = datePickerEndDate.SelectedDate.Value.ToString("yyyy-MM-dd");
+                string startDate = HarvestCalendarStartDate.SelectedDate.Value.ToString("yyyy-MM-dd");
+                string endDate = HarvestCalendarEndDate.SelectedDate.Value.ToString("yyyy-MM-dd");
 
-                upcomingHarvestGrid.ItemsSource = DatabaseConnection.DataConn.GetUpcomingHarvests(startDate, endDate).DefaultView;
-                plannedHarvestGrid.ItemsSource = DatabaseConnection.DataConn.GetPlannedHarvests(startDate, endDate).DefaultView;
-                plannedSowingGrid.ItemsSource = DatabaseConnection.DataConn.GetPlannedSowing(startDate, endDate).DefaultView;
-                totalRequiredFertiliser.ItemsSource = DatabaseConnection.DataConn.GetRequiredFertiliser(startDate, endDate).DefaultView;
+                UpcomingHarvestsGrid.ItemsSource = DatabaseConnection.DataConn.GetUpcomingHarvests(startDate, endDate).DefaultView;
+                PlannedHarvestGrid.ItemsSource = DatabaseConnection.DataConn.GetPlannedHarvests(startDate, endDate).DefaultView;
+                PlannedSowingGrid.ItemsSource = DatabaseConnection.DataConn.GetPlannedSowing(startDate, endDate).DefaultView;
+                TotalRequiredFertiliserGrid.ItemsSource = DatabaseConnection.DataConn.GetRequiredFertiliser(startDate, endDate).DefaultView;
             }
             else
             {
@@ -82,7 +80,7 @@ namespace F.A.R.M
             }
         }
 
-        private void cropStorageComboBox_DropDownOpened(object sender, EventArgs e)
+        private void CropStorageComboBox_DropDownOpened(object sender, EventArgs e)
         {
             // Kept in for testing - ignore this method
             //cropStorageComboBox.ItemsSource = DatabaseConnection.DataConn.GetCropStorage();
@@ -95,41 +93,41 @@ namespace F.A.R.M
             loginWindow.Show();
             this.Close();
         }
-        private void cropStorageAdd_Click(object sender, RoutedEventArgs e)
+        private void CropStorageAdd_Click(object sender, RoutedEventArgs e)
         {
 
-            if (!short.TryParse(addRemoveCropStorageValue.Text, out short amountToAdd))
+            if (!short.TryParse(AddRemoveCropStorageValue.Text, out short amountToAdd))
             {
                 MessageBox.Show("Please enter a valid number.", "Invalid data");
             }
 
-            else if (!CurrentSession.CurrentUser.addCropStock((Storage)cropStorageComboBox.SelectedItem, amountToAdd))
+            else if (!CurrentSession.CurrentUser.AddCropStock((Storage)CropStorageComboBox.SelectedItem, amountToAdd))
             {
                 MessageBox.Show("The amount you have entered exceeds the storage capacity.", "Maximum Storage Limit Exceeded");
             }
             else if (MessageBox.Show("Are you sure you wish to add " + amountToAdd + "kgs?", "Add Stock", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
-                DatabaseConnection.DataConn.UpdateCropStorage(((Storage)cropStorageComboBox.SelectedItem).StorageNumber, ((Storage)cropStorageComboBox.SelectedItem).UsedCapacity += amountToAdd);
+                DatabaseConnection.DataConn.UpdateCropStorage(((Storage)CropStorageComboBox.SelectedItem).StorageNumber, ((Storage)CropStorageComboBox.SelectedItem).UsedCapacity += amountToAdd);
             }
         }
 
 
 
-        private void cropStorageRemove_Click(object sender, RoutedEventArgs e)
+        private void CropStorageRemove_Click(object sender, RoutedEventArgs e)
         {
-            if (!short.TryParse(addRemoveCropStorageValue.Text, out short amountToRemove))
+            if (!short.TryParse(AddRemoveCropStorageValue.Text, out short amountToRemove))
             {
                 MessageBox.Show("Please enter a valid number.", "Invalid data");
             }
 
 
-            else if (!CurrentSession.CurrentUser.removeCropStock((Storage)cropStorageComboBox.SelectedItem, amountToRemove))
+            else if (!CurrentSession.CurrentUser.RemoveCropStock((Storage)CropStorageComboBox.SelectedItem, amountToRemove))
             {
                 MessageBox.Show("The amount you have entered exceeds the remaining stock level", "Remaining Stock Level Exceeded");
             }
             else if (MessageBox.Show("Are you sure you wish to remove " + amountToRemove + "kgs?", "Add Stock", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
-                DatabaseConnection.DataConn.UpdateCropStorage(((Storage)cropStorageComboBox.SelectedItem).StorageNumber, ((Storage)cropStorageComboBox.SelectedItem).UsedCapacity -= amountToRemove);
+                DatabaseConnection.DataConn.UpdateCropStorage(((Storage)CropStorageComboBox.SelectedItem).StorageNumber, ((Storage)CropStorageComboBox.SelectedItem).UsedCapacity -= amountToRemove);
             }
         }
 
@@ -303,7 +301,7 @@ namespace F.A.R.M
             //TO DO iterate through the datatable dt and get the items 
             for (int i = 0; i < dt.Rows.Count; i++)
             {
-               SelectStaffJob.Items.Add(dt.Rows[i].ItemArray[0]);
+                SelectStaffJob.Items.Add(dt.Rows[i].ItemArray[0]);
 
             }
 

@@ -20,7 +20,7 @@ namespace FarmControl
 
         public int PrivilegeLevel { get; set; }
 
-        public bool addCropStock(Storage storage, short amountToAdd)
+        public bool AddCropStock(Storage storage, short amountToAdd)
         {
             if ((storage.UsedCapacity + amountToAdd) > (storage.MaxCapacity))
             {
@@ -31,7 +31,8 @@ namespace FarmControl
                 return true;
             }
         }
-        public bool removeCropStock(Storage storage, short amountToRemove)
+
+        public bool RemoveCropStock(Storage storage, short amountToRemove)
         {
             if ((storage.UsedCapacity - amountToRemove) < 0)
             {
@@ -42,6 +43,5 @@ namespace FarmControl
                 return true;
             }
         }
-
     }
 }
