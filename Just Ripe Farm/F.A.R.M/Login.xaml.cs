@@ -48,6 +48,7 @@ namespace F.A.R.M
                 mainWindow.Show();
                 this.Close();
             }
+
             ActivityLogger.Logger.RecordLoginAttempt();
         }       
     }

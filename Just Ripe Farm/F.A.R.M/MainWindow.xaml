@@ -86,7 +86,19 @@
             </TabItem>
 
             <TabItem Header="Job Assignments" x:Name="JobAssignments">
-
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal" Height="40">
+                        <Label Content="Currently Logged in as: " FontWeight="Bold" Margin="10,0,0,0"></Label>
+                        <Label x:Name="YourAccountName"></Label>
+                    </StackPanel>
+                    <Label Content="Your Job Assignments:" FontWeight="Bold" Margin="10,0" ></Label>
+                    <DataGrid  Height="100" MaxHeight="100" x:Name="JobAssignmentsGrid" AutoGenerateColumns="false" Margin="10,0" HorizontalAlignment="Left"  IsReadOnly="True" VerticalScrollBarVisibility="Visible" >                        
+                    </DataGrid>
+                    <ComboBox Margin="10" Width="80" HorizontalAlignment="Left">
+                        <ComboBoxItem>Complete</ComboBoxItem>
+                        <ComboBoxItem>Pending</ComboBoxItem>                        
+                    </ComboBox>
+                </StackPanel>
             </TabItem>
 
             <TabItem Header="Stock Control">
@@ -176,31 +188,31 @@
                 <StackPanel Orientation="Horizontal">
                     <StackPanel Grid.Column="1">
                         <Label Content="Select Crop" Margin="0,0,0,5" HorizontalAlignment="Center"/>
-                        
-                      <ComboBox x:Name="SelectCrop"></ComboBox>
+
+                        <ComboBox x:Name="SelectCrop"></ComboBox>
                     </StackPanel>
 
                     <StackPanel Grid.Column="2">
                         <Label Content="Select Crop Quantity" Margin="0,0,0,5" HorizontalAlignment="Center"/>
-                       
+
                         <ComboBox x:Name="CropQuantity"></ComboBox>
                     </StackPanel>
 
                     <StackPanel Grid.Column="3">
                         <Label Content="Create storage" Margin="0,0,0,5" HorizontalAlignment="Center"/>
-                        
+
                         <ComboBox x:Name="SelectStorage"></ComboBox>
                     </StackPanel>
 
                     <StackPanel Grid.Column="4">
                         <Label Content="Create Staff Job" Margin="0,0,0,5" HorizontalAlignment="Center"/>
-                       
+
                         <ComboBox x:Name="SelectStaffJob"></ComboBox>
                     </StackPanel>
 
                     <StackPanel Grid.Column="5">
                         <Label Content="Create Field Location" Margin="0,0,0,5" HorizontalAlignment="Center"/>
-                       
+
                         <ComboBox x:Name="SelectFieldLocation"/>
                     </StackPanel>
 

@@ -33,15 +33,15 @@ namespace F.A.R.M
             if (CurrentSession.CurrentUser.PrivilegeLevel == 1)
             {
                 // Remove features unsuitable for a manager here.
-                MessageBox.Show("You are logged in as a manager. Welcome back " + CurrentSession.CurrentUser.FirstName + " " + CurrentSession.CurrentUser.SecondName + ".");
                 MainMenu.Items.Remove(JobAssignments);
+                
             }
             else
             {
                 // Remove features unsuitable for an Employee here.
-                MessageBox.Show("You are logged in as a labourer. Welcome back " + CurrentSession.CurrentUser.FirstName + " " + CurrentSession.CurrentUser.SecondName + ".");
                 MainMenu.Items.Remove(DataManagement);
                 MainMenu.Items.Remove(CreateJob);
+                YourAccountName.Content = CurrentSession.CurrentUser.FirstName + " " + CurrentSession.CurrentUser.SecondName;
             }
 
             //Fill Data Grids on Data Management
@@ -49,7 +49,6 @@ namespace F.A.R.M
             FillVehicleList();
             FillCropList();
             FillStorageList();
-
             FillInCrops();
             FillInCropQuantity();
             FillInCropStorage();

@@ -22,23 +22,13 @@ namespace FarmControl
 
         private readonly SqlConnection dBconnection;
 
-        private SqlCommand command;
-
-        private SqlDataAdapter adapter;
-
-        //  private DataSet dataSet;
-
-        private DataTable dataTable;
-
         private Employee user;
 
-        private SqlCommand Command { get { return command; } set { command = value; } } // Accessors?
+        private SqlCommand Command { get; set; }
 
-        private SqlDataAdapter Adapter { get { return adapter; } set { adapter = value; } }
+        private SqlDataAdapter Adapter { get; set; }
 
-        //  private DataSet DataSet { get { return dataSet; } set { dataSet = value; } }
-
-        private DataTable DataTable { get { return dataTable; } set { dataTable = value; } }
+        private DataTable DataTable { get; set; }
 
         public static DatabaseConnection DataConn
         {
@@ -80,27 +70,12 @@ namespace FarmControl
             this.dBconnection.Close();
         }
 
-        /// <summary>
-        /// Get a single users username, password and privilege level for the login credentials.
-        /// </summary>
-        /// <param name="username"></param>
-        /// <returns></returns>
-        public DataTable GetUserDetail(string username)
-        {
-            DataTable = new DataTable();
-            Adapter = new SqlDataAdapter(SQLConstant.getUserDetails, dBconnection);
-            Adapter.SelectCommand.Parameters.Add("@username", SqlDbType.NVarChar).Value = username;
-            Adapter.Fill(DataTable);
-            return DataTable;
-        }
-
         public DataTable GetUserList()
         {
             DataTable userList = new DataTable();
             SqlDataAdapter adapter = new SqlDataAdapter(SQLConstant.getUserList, dBconnection);
             adapter.Fill(userList);
             return userList;
-
         }
 
         public DataTable GetVehicleList()
@@ -172,9 +147,10 @@ namespace FarmControl
             Command.Parameters.AddWithValue("@usedCapacity", usedCapacity);
             Command.Parameters.AddWithValue("@storageNumber", storageNumber);
             this.Open();
-            command.ExecuteNonQuery();
+            Command.ExecuteNonQuery();
             this.Close();
         }
+
         public Employee GetUser(string username)
         {
             user = new Employee();
@@ -185,7 +161,7 @@ namespace FarmControl
 
             {
                 {
-                    SqlDataReader reader = command.ExecuteReader();
+                    SqlDataReader reader = Command.ExecuteReader();
 
                     while (reader.Read())
                     {
@@ -214,7 +190,7 @@ namespace FarmControl
 
             {
                 {
-                    SqlDataReader reader = command.ExecuteReader();
+                    SqlDataReader reader = Command.ExecuteReader();
 
                     int i = 0;
 
