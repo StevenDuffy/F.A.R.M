@@ -32,10 +32,15 @@ namespace F.A.R.M.ChildWindows
         }
 
 
-
         private void SubmitUserClick(object sender, RoutedEventArgs e)
         {
-            DatabaseConnection.DataConn.AddUserToDB(10,"bob", "dylan", "bDylan", "password", 1);
+            int _userID = Convert.ToInt32(userIDInput.Text);
+            string _userFirstName = userFirstNameInput.Text;
+            string _userSurname = userSurnameInput.Text;
+            string _userUname = userUnameInput.Text;
+            string _userPword = userPassowrdInput.Text;
+            int _userPriv = Convert.ToInt32(userPrivInput.Text);
+            DatabaseConnection.DataConn.AddUserToDB(_userID, _userFirstName, _userSurname, _userUname, _userPword, _userPriv);
         }
 
 

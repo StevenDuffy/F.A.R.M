@@ -27,25 +27,28 @@
                 <RowDefinition/>
                 <RowDefinition/>
                 <RowDefinition/>
+                <RowDefinition/>
             </Grid.RowDefinitions>
             <Label Content="Add User Account" HorizontalAlignment="Center" FontSize="16" Grid.Column="1" />
 
             <TextBlock Text="User ID:" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,8,0" Grid.Row="1" Grid.Column="0"/>
-            <TextBox Height="23" Grid.Row="1" Grid.Column="1"/>
+            <TextBox Height="23" Grid.Row="1" Grid.Column="1" Name="userIDInput"/>
 
             <TextBlock Text="First Name:"  VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,8,0" Grid.Row="2" Grid.Column="0"/>
-            <TextBox Height="23" Grid.Row="2" Grid.Column="1"/>
+            <TextBox Height="23" Grid.Row="2" Grid.Column="1" Name="userFirstNameInput"/>
 
             <TextBlock Text="Surname:"  VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,8,0" Grid.Row="3" Grid.Column="0"/>
-            <TextBox Height="23" Grid.Row="3" Grid.Column="1"/>
+            <TextBox Height="23" Grid.Row="3" Grid.Column="1" Name="userSurnameInput"/>
 
 
             <TextBlock Text="User Name:"  VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,8,0" Grid.Row="4" Grid.Column="0"/>
-            <TextBox Height="23" Grid.Row="4" Grid.Column="1"/>
+            <TextBox Height="23" Grid.Row="4" Grid.Column="1" Name="userUnameInput"/>
 
+            <TextBlock Text="Password:"  VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,8,0" Grid.Row="5" Grid.Column="0"/>
+            <TextBox Height="23" Grid.Row="5" Grid.Column="1" Name="userPassowrdInput"/>
 
-            <TextBlock Text="Privilege Level"  VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,8,0" Grid.Row="5" Grid.Column="0"/>
-            <TextBox Height="23" Grid.Row="5" Grid.Column="1"/>
+            <TextBlock Text="Privilege Level"  VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,8,0" Grid.Row="6" Grid.Column="0"/>
+            <TextBox Height="23" Grid.Row="6" Grid.Column="1" Name="userPrivInput"/>
         </Grid>
       <Grid Grid.Row="1" Grid.Column="0">
         <Button Content="Submit" Height="25" Width="100" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,5,0" Click="SubmitUserClick"/>
