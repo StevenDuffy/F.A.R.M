@@ -131,6 +131,7 @@ namespace FarmControl
             Adapter.Fill(DataTable);
             return DataTable;
         }
+
         public DataTable GetRequiredFertiliser(string startDate, string endDate)
         {
             DataTable = new DataTable();
@@ -220,6 +221,7 @@ namespace FarmControl
             adapter.Fill(dtCrops);
             return dtCrops;
         }
+
         public DataTable GetCropQuantity()
         {
             DataTable dtCropQuantity = new DataTable();
@@ -250,6 +252,20 @@ namespace FarmControl
             SqlDataAdapter adapter = new SqlDataAdapter(SQLConstant.getFieldNumber, dBconnection);
             adapter.Fill(dtFieldNumber);
             return dtFieldNumber;
+        }
+
+        public void AddUserToDB(int _userID, string _firstName, string _lastName, string _uName, string _pWord, int _priv)
+        {
+            Command = new SqlCommand(SQLConstant.addUserToDB, dBconnection);
+            Command.Parameters.AddWithValue("@employee_ID", _userID);
+            Command.Parameters.AddWithValue("@first_Name", _firstName);
+            Command.Parameters.AddWithValue("@second_Name", _lastName);
+            Command.Parameters.AddWithValue("@user_Name", _uName);
+            Command.Parameters.AddWithValue("@password", _pWord);
+            Command.Parameters.AddWithValue("@privilege_Level", _priv);
+            this.Open();
+            Command.ExecuteNonQuery();
+            this.Close();
         }
     }
 }

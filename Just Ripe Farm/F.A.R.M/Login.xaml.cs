@@ -35,6 +35,7 @@ namespace F.A.R.M
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            //---Commented out to speed up testing 
           /*  if (!LoginVerifier.Verifier.VerifyUser(usernameBox.Text, passwordBox.Password))
             {
                 MessageBox.Show("Invalid credentials entered. Please try again.", "Invalid Credentials", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -49,8 +50,7 @@ namespace F.A.R.M
                 this.Close();
             }
 
-            ActivityLogger.Logger.RecordLoginAttempt();
+        //ActivityLogger.Logger.RecordLoginAttempt();---Throwing Multiple Errors 
         }       
     }
-}
 

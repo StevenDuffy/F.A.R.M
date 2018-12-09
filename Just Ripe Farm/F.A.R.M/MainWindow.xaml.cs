@@ -31,19 +31,19 @@ namespace F.A.R.M
         {
             InitializeComponent();
 
-            if (CurrentSession.CurrentUser.PrivilegeLevel == 1)
-            {
-                // Remove features unsuitable for a manager here.
-                MainMenu.Items.Remove(JobAssignments);
+            //if (CurrentSession.CurrentUser.PrivilegeLevel == 1)
+            //{
+            //    // Remove features unsuitable for a manager here.
+            //    MainMenu.Items.Remove(JobAssignments);
                 
-            }
-            else
-            {
-                // Remove features unsuitable for an Employee here.
-                MainMenu.Items.Remove(DataManagement);
-                MainMenu.Items.Remove(CreateJob);
-                YourAccountName.Content = CurrentSession.CurrentUser.FirstName + " " + CurrentSession.CurrentUser.SecondName;
-            }
+            //}
+            //else
+            //{
+            //    // Remove features unsuitable for an Employee here.
+            //    MainMenu.Items.Remove(DataManagement);
+            //    MainMenu.Items.Remove(CreateJob);
+            //    YourAccountName.Content = CurrentSession.CurrentUser.FirstName + " " + CurrentSession.CurrentUser.SecondName;
+            //}
 
             //Fill Data Grids on Data Management
             FillUserList();

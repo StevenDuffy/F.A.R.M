@@ -31,6 +31,14 @@ namespace F.A.R.M.ChildWindows
             FillUserList();
         }
 
+
+
+        private void SubmitUserClick(object sender, RoutedEventArgs e)
+        {
+            DatabaseConnection.DataConn.AddUserToDB(10,"bob", "dylan", "bDylan", "password", 1);
+        }
+
+
         private void DataManagementClick(object sender, RoutedEventArgs e)
         {
             MainWindow mainWindow = new MainWindow();
