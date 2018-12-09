@@ -265,6 +265,15 @@ namespace FarmControl
             Command.Parameters.AddWithValue("@privilege_Level", _priv);
             this.Open();
             Command.ExecuteNonQuery();
+        }
+
+        public void DeleteUserFromDB( string _uName, string _pWord)
+        {
+            Command = new SqlCommand(SQLConstant.deleteUserFromDB, dBconnection);
+            Command.Parameters.AddWithValue("@user_Name", _uName);
+            Command.Parameters.AddWithValue("@password", _pWord);
+            this.Open();
+            Command.ExecuteNonQuery();
             this.Close();
         }
     }

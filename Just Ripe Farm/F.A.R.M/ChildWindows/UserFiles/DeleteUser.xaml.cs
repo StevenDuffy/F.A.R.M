@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FarmControl;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,7 +25,16 @@ namespace F.A.R.M.ChildWindows
             InitializeComponent();
         }
 
-         private void DataManagementClick(object sender, RoutedEventArgs e)
+        private void DeleteUserClick(object sender, RoutedEventArgs e)
+        {
+            //    string _userID = deleteUserIdInput.Text;
+            string _userUname = deleteUserNameInput.Text;
+            string _userPword = DeleteUserPasswordInput.Text;
+            DatabaseConnection.DataConn.DeleteUserFromDB(_userUname, _userPword);
+            this.Close();
+        }
+
+        private void DataManagementClick(object sender, RoutedEventArgs e)
          {
             MainWindow mainWindow = new MainWindow();
             mainWindow.Show();

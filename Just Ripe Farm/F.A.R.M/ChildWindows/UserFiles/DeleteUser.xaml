@@ -25,20 +25,20 @@
         <RowDefinition/>
         <RowDefinition/>
         <RowDefinition/>
-        <RowDefinition/>
-        <RowDefinition/>
       </Grid.RowDefinitions>
       <Label Content="Delete User" HorizontalAlignment="Center" FontSize="16" Grid.Column="1" />
 
-      <TextBlock Text="User ID:" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,8,0" Grid.Row="1" Grid.Column="0"/>
-      <TextBox Height="23" Grid.Row="1" Grid.Column="1"/>
-      
-      <TextBlock Text="User Name:"  VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,8,0" Grid.Row="4" Grid.Column="0"/>
-      <TextBox Height="23" Grid.Row="4" Grid.Column="1"/>
+     
+
+      <TextBlock Text="User Name:" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,8,0" Grid.Row="2" Grid.Column="0"/>
+      <TextBox Height="23" Grid.Row="2" Grid.Column="1" Name="deleteUserNameInput"/>
+        
+      <TextBlock Text="Password:"  VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,8,0" Grid.Row="3" Grid.Column="0"/>
+      <TextBox Height="23" Grid.Row="3" Grid.Column="1" Name="DeleteUserPasswordInput"/>
     </Grid>
     
     <Grid Grid.Row="1" Grid.Column="0">
-      <Button Content="Submit" Height="25" Width="100" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,5,0"/>
+      <Button Content="Delete" Height="25" Width="100" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,5,0" Click="DeleteUserClick"/>
       <Button Content="Data Management" Height="25" Width="110" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5,5,0,0" Click="DataManagementClick"/>
     </Grid>
     <Grid Grid.Row="0" Grid.Column="1" Grid.RowSpan="2">
