@@ -18,6 +18,7 @@ using System.Data;
 using FarmControl;
 using F.A.R.M.ChildWindows;
 
+
 namespace F.A.R.M
 {
     /// <summary>
@@ -374,12 +375,95 @@ namespace F.A.R.M
             conn.Close();
         }
 
+
+        //User buttons logic
         private void AddUserClick(object sender, RoutedEventArgs e)
         {
             AddUser addUser = new AddUser();
             addUser.Show();
             this.Close();
         }
+        
+        private void ModifyUserClick(object sender, RoutedEventArgs e)
+        {
+            ModifyUser _ModifyUser = new ModifyUser();
+            _ModifyUser.Show();
+            this.Close();
+        }
+
+        private void DeleteUserClick(object sender, RoutedEventArgs e)
+        {
+            DeleteUser _deleteUser = new DeleteUser();
+            _deleteUser.Show();
+            this.Close();
+        }
+
+        //Vehicle Logic Buttons
+        private void AddVehicleClick(object sender, RoutedEventArgs e)
+        {
+            AddVehicle addVehicle = new AddVehicle();
+            addVehicle.Show();
+            this.Close();
+        }
+
+        private void ModifyVehicleClick(object sender, RoutedEventArgs e)
+        {
+            ModifyVehicle _ModifyVehicle = new ModifyVehicle();
+            _ModifyVehicle.Show();
+            this.Close();
+        }
+
+        private void DeleteVehicleClick(object sender, RoutedEventArgs e)
+        {
+            DeleteVehicle _deleteVehicle = new DeleteVehicle();
+            _deleteVehicle.Show();
+            this.Close();
+        }
+
+        //Crop Buttons Logic
+        private void AddCropClick(object sender, RoutedEventArgs e)
+        {
+            AddCrop _addCrop = new AddCrop();
+            _addCrop.Show();
+            this.Close();
+        }
+
+        private void ModifyCropClick(object sender, RoutedEventArgs e)
+        {
+            ModifyCrop _ModifyCrop = new ModifyCrop();
+            _ModifyCrop.Show();
+            this.Close();
+        }
+
+        private void DeleteCropClick(object sender, RoutedEventArgs e)
+        {
+            DeleteCrop _deleteCrop = new DeleteCrop();
+            _deleteCrop.Show();
+            this.Close();
+        }
+
+        //Storage Buttons Logic
+        private void AddStorageClick(object sender, RoutedEventArgs e)
+        {
+            AddStorage _addStorage = new AddStorage();
+            _addStorage.Show();
+            this.Close();
+        }
+
+        private void ModifyStorageClick(object sender, RoutedEventArgs e)
+        {
+            ModifyStorage _ModifyStorage = new ModifyStorage();
+            _ModifyStorage.Show();
+            this.Close();
+        }
+
+        private void DeleteStorageClick(object sender, RoutedEventArgs e)
+        {
+            DeleteStorage _deleteStorage = new DeleteStorage();
+            _deleteStorage.Show();
+            this.Close();
+        }
+
     }
 }
 

@@ -15,13 +15,20 @@ using System.Windows.Shapes;
 namespace F.A.R.M.ChildWindows
 {
     /// <summary>
-    /// Interaction logic for ModifyUser.xaml
+    /// Interaction logic for DeleteStorage.xaml
     /// </summary>
-    public partial class ModifyUser : Window
+    public partial class DeleteStorage : Window
     {
-        public ModifyUser()
+        public DeleteStorage()
         {
             InitializeComponent();
+        }
+
+        private void DataManagementClick(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            this.Close();
         }
     }
 }

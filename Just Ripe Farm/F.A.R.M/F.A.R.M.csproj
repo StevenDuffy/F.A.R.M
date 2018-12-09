@@ -68,17 +68,44 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="ChildWindows\AddUser.xaml">
+    <Page Include="ChildWindows\CropLogic\AddCrop.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </Page>
+    <Page Include="ChildWindows\CropLogic\DeleteCrop.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </Page>
+    <Page Include="ChildWindows\CropLogic\ModifyCrop.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </Page>
+    <Page Include="ChildWindows\StorageLogic\AddStorage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </Page>
+    <Page Include="ChildWindows\StorageLogic\DeleteStorage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </Page>
+    <Page Include="ChildWindows\StorageLogic\ModifyStorage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </Page>
+    <Page Include="ChildWindows\UserFiles\AddUser.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ChildWindows\DeleteUser.xaml">
+    <Page Include="ChildWindows\UserFiles\DeleteUser.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ChildWindows\ModifyUser.xaml">
+    <Page Include="ChildWindows\UserFiles\ModifyUser.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ChildWindows\VehicleFiles\AddVehicle.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </Page>
+    <Page Include="ChildWindows\VehicleFiles\DeleteVehicle.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </Page>
+    <Page Include="ChildWindows\VehicleFiles\ModifyVehicle.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </Page>
     <Page Include="Login.xaml">
       <SubType>Designer</SubType>
@@ -92,14 +119,41 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="ChildWindows\AddUser.xaml.cs">
+    <Compile Include="ChildWindows\CropLogic\AddCrop.xaml.cs">
+      <DependentUpon>AddCrop.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ChildWindows\CropLogic\DeleteCrop.xaml.cs">
+      <DependentUpon>DeleteCrop.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ChildWindows\CropLogic\ModifyCrop.xaml.cs">
+      <DependentUpon>ModifyCrop.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ChildWindows\StorageLogic\AddStorage.xaml.cs">
+      <DependentUpon>AddStorage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ChildWindows\StorageLogic\DeleteStorage.xaml.cs">
+      <DependentUpon>DeleteStorage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ChildWindows\StorageLogic\ModifyStorage.xaml.cs">
+      <DependentUpon>ModifyStorage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ChildWindows\UserFiles\AddUser.xaml.cs">
       <DependentUpon>AddUser.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ChildWindows\DeleteUser.xaml.cs">
+    <Compile Include="ChildWindows\UserFiles\DeleteUser.xaml.cs">
       <DependentUpon>DeleteUser.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ChildWindows\ModifyUser.xaml.cs">
+    <Compile Include="ChildWindows\UserFiles\ModifyUser.xaml.cs">
       <DependentUpon>ModifyUser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ChildWindows\VehicleFiles\AddVehicle.xaml.cs">
+      <DependentUpon>AddVehicle.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ChildWindows\VehicleFiles\DeleteVehicle.xaml.cs">
+      <DependentUpon>DeleteVehicle.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ChildWindows\VehicleFiles\ModifyVehicle.xaml.cs">
+      <DependentUpon>ModifyVehicle.xaml</DependentUpon>
     </Compile>
     <Compile Include="Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
@@ -165,5 +219,6 @@
       <Name>FarmControl</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
