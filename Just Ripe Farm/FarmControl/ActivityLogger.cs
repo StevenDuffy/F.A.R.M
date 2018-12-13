@@ -29,8 +29,6 @@ namespace FarmControl
             }
         }
 
-
-
         public void RemoveCropStockFailed(short amount)
         {
             using (activityRecorder = new StreamWriter(activityLogFile, true))
@@ -38,6 +36,7 @@ namespace FarmControl
                 activityRecorder.WriteLine("Attempt to remove {0}kgs from crop stock failed: {1}", amount, DateTime.Now);
             }
         }
+
         public void RemoveCropStockSucceeded(short amount)
         {
             using (activityRecorder = new StreamWriter(activityLogFile, true))
@@ -62,8 +61,6 @@ namespace FarmControl
             }
         }
 
-
-
         public void RecordLoginAttempt()
         {
             using (activityRecorder = new StreamWriter(activityLogFile, true))
@@ -71,13 +68,6 @@ namespace FarmControl
                 activityRecorder.WriteLine("Login Attempted: {0}", DateTime.Now);
             }
         }
-       
-
-
-
-
-
-
     }
 }
 

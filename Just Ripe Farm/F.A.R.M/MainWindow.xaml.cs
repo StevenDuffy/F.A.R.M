@@ -31,19 +31,19 @@ namespace F.A.R.M
         {
             InitializeComponent();
 
-            //if (CurrentSession.CurrentUser.PrivilegeLevel == 1)
-            //{
-            //    // Remove features unsuitable for a manager here.
-            //    MainMenu.Items.Remove(JobAssignments);
+            if (CurrentSession.CurrentUser.PrivilegeLevel == 1)
+            {
+                // Remove features unsuitable for a manager here.
+                MainMenu.Items.Remove(JobAssignments);
                 
-            //}
-            //else
-            //{
-            //    // Remove features unsuitable for an Employee here.
-            //    MainMenu.Items.Remove(DataManagement);
-            //    MainMenu.Items.Remove(CreateJob);
-            //    YourAccountName.Content = CurrentSession.CurrentUser.FirstName + " " + CurrentSession.CurrentUser.SecondName;
-            //}
+            }
+            else
+            {
+                // Remove features unsuitable for an Employee here.
+                MainMenu.Items.Remove(DataManagement);
+                MainMenu.Items.Remove(CreateJob);
+                YourAccountName.Content = CurrentSession.CurrentUser.FirstName + " " + CurrentSession.CurrentUser.SecondName;
+            }
 
             //Fill Data Grids on Data Management
             FillUserList();
@@ -80,12 +80,13 @@ namespace F.A.R.M
             }
         }
 
+        /* Kept in for testing - ignore this method
         private void CropStorageComboBox_DropDownOpened(object sender, EventArgs e)
         {
-            // Kept in for testing - ignore this method
+            
             //cropStorageComboBox.ItemsSource = DatabaseConnection.DataConn.GetCropStorage();
 
-        }
+        }*/
 
         private void Logout_Click(object sender, RoutedEventArgs e)
         {

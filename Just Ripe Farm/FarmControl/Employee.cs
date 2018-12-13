@@ -18,7 +18,7 @@ namespace FarmControl
 
         public string Password { get; set; }
 
-        public int PrivilegeLevel { get; set; }
+        public byte PrivilegeLevel { get; set; }
 
         public bool AddCropStock(Storage storage, short amountToAdd)
         {

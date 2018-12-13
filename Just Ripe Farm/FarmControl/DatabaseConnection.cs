@@ -169,9 +169,9 @@ namespace FarmControl
                         user.EmployeeID = (int)reader["employee_ID"];
                         user.FirstName = (string)reader["first_name"];
                         user.SecondName = (string)reader["second_name"];
-                        user.Username = (string)reader["user_name"];
+                        user.Username = (string)reader["username"];
                         user.Password = (string)reader["password"];
-                        user.PrivilegeLevel = (int)reader["privilege_level"];
+                        user.PrivilegeLevel = (byte)reader["privilege_level"];
                     }
                 }
             }
