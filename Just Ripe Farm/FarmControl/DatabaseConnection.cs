@@ -267,6 +267,21 @@ namespace FarmControl
             Command.ExecuteNonQuery();
         }
 
+        public void AddNewJob(string _Crops, string _CropQuantity, string _CropStorage, string _StaffMember, string _FieldLocation)
+        {
+            Command = new SqlCommand(SQLConstant.AddNewJob, dBconnection);
+            Command.Parameters.AddWithValue("@Crop_name", _Crops);
+            Command.Parameters.AddWithValue("@sowing_method", _CropQuantity);          
+            Command.Parameters.AddWithValue("@harvest_method", _CropStorage);       
+            Command.Parameters.AddWithValue("@cultivation_legnth", _StaffMember);          
+            Command.Parameters.AddWithValue("@storage_max_length", _FieldLocation);
+            Command.Parameters.AddWithValue("@storage_min_length", _FieldLocation);
+            Command.Parameters.AddWithValue("@price_per_kilo", _FieldLocation);
+
+            this.Open();                                                     
+            Command.ExecuteNonQuery();
+        }
+
         public void DeleteUserFromDB( string _uName, string _pWord)
         {
             Command = new SqlCommand(SQLConstant.deleteUserFromDB, dBconnection);

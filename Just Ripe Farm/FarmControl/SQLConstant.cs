@@ -27,6 +27,7 @@ namespace FarmControl
         public static string getTotalFertiliserRequired = "SELECT SUM(individual_total) as total, fertiliser_type FROM (SELECT (crop_quantity * amount_per_kilo) AS individual_total, fertiliser_type FROM (SELECT crop_quantity, amount_per_kilo, fertiliser_type FROM job JOIN RequiredFertiliser ON crop_name = assigned_crop WHERE job_type = 'Sow' AND start_date BETWEEN @startDate AND @endDate ) AS a) AS b GROUP BY fertiliser_type";
         //Add to DB below
         public static string addUserToDB = "SET IDENTITY_INSERT dbo.Employee ON; INSERT INTO dbo.Employee(employee_ID, first_Name, second_Name, user_Name, password, privilege_Level) VALUES(@employee_ID, @first_Name, @second_Name, @user_Name, @password, @privilege_Level) SET IDENTITY_INSERT dbo.Employee OFF;";
+        public static string AddNewJob = "SET IDENTITY_INSERT dbo.Crop ON; INSERT INTO dbo.Crop(Crop_name, sowing_method, harvest_method, cultivation_length, storage_max_length, storage_min_length, price_per_kilo) VALUES(@Crop_name, @sowing_method, @harvest_method, @cultivation_length, @storage_max_length, @storage_min_length, @price_per_kilo) SET IDENTITY_INSERT dbo.Crop OFF;";
         public static string deleteUserFromDB = "DELETE FROM dbo.Employee WHERE username=@user_Name AND password=@password";
     }
 }
