@@ -43,5 +43,30 @@ namespace FarmControl
                 return true;
             }
         }
+
+        public bool AddFertiliserStock(Storage storage, short amountToAdd)
+        {
+            if ((storage.UsedCapacity + amountToAdd) > (storage.MaxCapacity))
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        public bool RemoveFertiliserStock(Storage storage, short amountToRemove)
+        {
+            if ((storage.UsedCapacity - amountToRemove) < 0)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
     }
+
 }

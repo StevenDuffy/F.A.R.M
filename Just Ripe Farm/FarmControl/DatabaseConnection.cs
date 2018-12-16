@@ -94,6 +94,14 @@ namespace FarmControl
             return cropList;
         }
 
+        public DataTable GetFertiliserList()
+        {
+            DataTable _fertiliserList = new DataTable();
+            SqlDataAdapter adapter = new SqlDataAdapter(SQLConstant.getFertiliser, dBconnection);
+            adapter.Fill(_fertiliserList);
+            return _fertiliserList;
+        }
+
         public DataTable GetStorageList()
         {
             DataTable storageList = new DataTable();
@@ -141,10 +149,20 @@ namespace FarmControl
             Adapter.Fill(DataTable);
             return DataTable;
         }
-
+        
         public void UpdateCropStorage(byte storageNumber, short usedCapacity)
         {
             Command = new SqlCommand(SQLConstant.updateCropStorage, dBconnection);
+            Command.Parameters.AddWithValue("@usedCapacity", usedCapacity);
+            Command.Parameters.AddWithValue("@storageNumber", storageNumber);
+            this.Open();
+            Command.ExecuteNonQuery();
+            this.Close();
+        }
+
+        public void UpdateFertiliserStorage(byte storageNumber, short usedCapacity)
+        {
+            Command = new SqlCommand(SQLConstant.updateFertiliserStorage, dBconnection);
             Command.Parameters.AddWithValue("@usedCapacity", usedCapacity);
             Command.Parameters.AddWithValue("@storageNumber", storageNumber);
             this.Open();
@@ -214,6 +232,40 @@ namespace FarmControl
             return cropStorage;
         }
 
+        public ObservableCollection<Storage> GetFertiliserStorage()
+        {
+            ObservableCollection<Storage> fertiliserStorage = new ObservableCollection<Storage>();
+
+            Command = new SqlCommand(SQLConstant.getFertiliserStorage, dBconnection);
+
+            this.Open();
+
+            {
+                {
+                    SqlDataReader reader = Command.ExecuteReader();
+
+                    int i = 0;
+
+                    while (reader.Read())
+                    {
+                        fertiliserStorage.Add(new Storage());
+                        fertiliserStorage[i].StorageNumber = (byte)reader["storage_number"];
+                        fertiliserStorage[i].StorageType = (string)reader["storage_type"];
+                        fertiliserStorage[i].CropStored = (string)reader["crop_stored"];
+                        fertiliserStorage[i].MaxCapacity = (short)reader["max_capacity"];
+                        fertiliserStorage[i].UsedCapacity = (short)reader["used_capacity"];
+                        fertiliserStorage[i].StorageTemperature = (byte)reader["storage_temperature"];
+                        i++;
+                    }
+                }
+            }
+
+            this.Close();
+
+            return fertiliserStorage;
+        }
+
+
         public DataTable GetCrops()
         {
             DataTable dtCrops = new DataTable();
@@ -266,6 +318,19 @@ namespace FarmControl
             this.Open();
             Command.ExecuteNonQuery();
         }
+
+        public void EditUserInDB(int _userID, string _firstName, string _lastName, string _uName, int _priv)
+        {
+            Command = new SqlCommand(SQLConstant.editUserInDB, dBconnection);
+            Command.Parameters.AddWithValue("@employee_ID", _userID);
+            Command.Parameters.AddWithValue("@first_Name", _firstName);
+            Command.Parameters.AddWithValue("@second_Name", _lastName);
+            Command.Parameters.AddWithValue("@user_Name", _uName);
+            Command.Parameters.AddWithValue("@privilege_Level", _priv);
+            this.Open();
+            Command.ExecuteNonQuery();
+        }
+
 
         public void AddNewJob(string _Crops, string _CropQuantity, string _CropStorage, string _StaffMember, string _FieldLocation)
         {

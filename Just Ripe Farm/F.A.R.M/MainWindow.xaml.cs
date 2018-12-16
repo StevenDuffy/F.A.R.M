@@ -60,6 +60,7 @@ namespace F.A.R.M
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             CropStorageComboBox.ItemsSource = DatabaseConnection.DataConn.GetCropStorage();
+            FertiliserStorageComboBox.ItemsSource = DatabaseConnection.DataConn.GetFertiliserStorage();
         }
 
         private void CalendarSubmit_Click(object sender, RoutedEventArgs e)
@@ -94,6 +95,10 @@ namespace F.A.R.M
             loginWindow.Show();
             this.Close();
         }
+
+
+
+
         private void CropStorageAdd_Click(object sender, RoutedEventArgs e)
         {
 
@@ -113,8 +118,6 @@ namespace F.A.R.M
                 ActivityLogger.Logger.AddCropStockSucceeded(amountToAdd);
             }
         }
-
-
 
         private void CropStorageRemove_Click(object sender, RoutedEventArgs e)
         {
@@ -136,6 +139,48 @@ namespace F.A.R.M
             }
         }
 
+
+
+
+        private void FertiliserStorageAdd_Click(object sender, RoutedEventArgs e)
+        {
+
+            if (!short.TryParse(AddRemoveFertiliserStorageValue.Text, out short amountToAdd))
+            {
+                MessageBox.Show("Please enter a valid number.", "Invalid data");
+            }
+
+            else if (!CurrentSession.CurrentUser.AddFertiliserStock((Storage)FertiliserStorageComboBox.SelectedItem, amountToAdd))
+            {
+                MessageBox.Show("The amount you have entered exceeds the storage capacity.", "Maximum Storage Limit Exceeded");
+                ActivityLogger.Logger.AddFertiliserStockFailed(amountToAdd);
+            }
+            else if (MessageBox.Show("Are you sure you wish to add " + amountToAdd + "kgs?", "Add Stock", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {
+                DatabaseConnection.DataConn.UpdateFertiliserStorage(((Storage)FertiliserStorageComboBox.SelectedItem).StorageNumber, ((Storage)FertiliserStorageComboBox.SelectedItem).UsedCapacity += amountToAdd);
+                ActivityLogger.Logger.AddFertiliserStockSucceeded(amountToAdd);
+            }
+        }
+
+        private void FertiliserStorageRemove_Click(object sender, RoutedEventArgs e)
+        {
+            if (!short.TryParse(AddRemoveFertiliserStorageValue.Text, out short amountToRemove))
+            {
+                MessageBox.Show("Please enter a valid number.", "Invalid data");
+            }
+
+
+            else if (!CurrentSession.CurrentUser.RemoveFertiliserStock((Storage)FertiliserStorageComboBox.SelectedItem, amountToRemove))
+            {
+                MessageBox.Show("The amount you have entered exceeds the remaining stock level", "Remaining Stock Level Exceeded");
+                ActivityLogger.Logger.RemoveFertiliserStockFailed(amountToRemove);
+            }
+            else if (MessageBox.Show("Are you sure you wish to remove " + amountToRemove + "kgs?", "Add Stock", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {
+                DatabaseConnection.DataConn.UpdateFertiliserStorage(((Storage)FertiliserStorageComboBox.SelectedItem).StorageNumber, ((Storage)FertiliserStorageComboBox.SelectedItem).UsedCapacity -= amountToRemove);
+                ActivityLogger.Logger.RemoveFertiliserStockSucceeded(amountToRemove);
+            }
+        }
 
 
 
@@ -161,6 +206,8 @@ namespace F.A.R.M
         {
             _dmListGridCrop.SetBinding(ItemsControl.ItemsSourceProperty, new Binding { Source = DatabaseConnection.DataConn.GetCropList() });
         }
+
+
 
         private void FillStorageList()
         {
@@ -223,9 +270,8 @@ namespace F.A.R.M
             }
         }
 
+
         private void SelectCropQuantiy_SelectedIndexChanged(object sender, EventArgs e)
-
-
         {
             string ID = CropQuantity.SelectedValue.ToString();
         }
@@ -256,6 +302,7 @@ namespace F.A.R.M
 
         }
 
+
         public void FillInCropStorage()
         {
             DataTable dt = DatabaseConnection.DataConn.GetStorageType();
@@ -268,8 +315,6 @@ namespace F.A.R.M
             }
 
         }
-
-
 
         private void SelectStorage_Load(object sender, EventArgs e)
         {
