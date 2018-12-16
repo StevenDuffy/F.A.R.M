@@ -3,6 +3,7 @@ using System.Text;
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using FarmControl;
+using System.Data;
 
 namespace JustRipeFarm.UnitTests
 {
@@ -68,6 +69,23 @@ namespace JustRipeFarm.UnitTests
                 result = employee.RemoveCropStock(storage, amountsToRemove[i]);
                 Assert.IsFalse(result);
             }
+        }
+
+        [TestMethod]
+        public void AddUserReturnsTrue()
+        {
+            DatabaseConnection.DataConn.Open();
+            Assert.AreEqual(DatabaseConnection.DataConn.isOpen, true);
+            DataTable _test = new DataTable();
+            _test = DatabaseConnection.DataConn.GetUserList();
+            int uListSizeBefore = _test.Rows.Count;
+            uListSizeBefore += _test.Columns.Count;
+            DatabaseConnection.DataConn.AddUserToDB(0, "test", "test", "test", "password", 1);
+            _test = DatabaseConnection.DataConn.GetUserList();
+            int uListSizeAfter = _test.Rows.Count;
+            uListSizeAfter += _test.Columns.Count;
+
+            Assert.AreEqual(uListSizeAfter, uListSizeBefore);
         }
     }
 }

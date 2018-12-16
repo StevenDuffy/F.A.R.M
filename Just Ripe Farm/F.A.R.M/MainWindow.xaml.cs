@@ -62,7 +62,7 @@ namespace F.A.R.M
             CropStorageComboBox.ItemsSource = DatabaseConnection.DataConn.GetCropStorage();
             FertiliserStorageComboBox.ItemsSource = DatabaseConnection.DataConn.GetFertiliserStorage();
         }
-
+       
         private void CalendarSubmit_Click(object sender, RoutedEventArgs e)
         {
             if (HarvestCalendarStartDate.SelectedDate != null && HarvestCalendarEndDate != null) // Log a test this will fail.

@@ -13,6 +13,7 @@ namespace FarmControl
 {
     public class DatabaseConnection
     {
+        public bool isOpen = false;
         private static DatabaseConnection dataConn;
 
         /// <summary>
@@ -60,6 +61,7 @@ namespace FarmControl
         public void Open()
         {
             this.dBconnection.Open();
+            isOpen = true;
         }
 
         /// <summary>
@@ -68,6 +70,7 @@ namespace FarmControl
         public void Close()
         {
             this.dBconnection.Close();
+            isOpen = false;
         }
 
         public DataTable GetUserList()
@@ -251,7 +254,7 @@ namespace FarmControl
                         fertiliserStorage.Add(new Storage());
                         fertiliserStorage[i].StorageNumber = (byte)reader["storage_number"];
                         fertiliserStorage[i].StorageType = (string)reader["storage_type"];
-                        fertiliserStorage[i].CropStored = (string)reader["crop_stored"];
+                        fertiliserStorage[i].FertiliserStored = (string)reader["Fertiliser_stored"];
                         fertiliserStorage[i].MaxCapacity = (short)reader["max_capacity"];
                         fertiliserStorage[i].UsedCapacity = (short)reader["used_capacity"];
                         fertiliserStorage[i].StorageTemperature = (byte)reader["storage_temperature"];

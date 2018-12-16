@@ -52,7 +52,7 @@
     <Compile Include="LoginVerifierTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="EmployeeTests.cs" />
-    <Compile Include="DBTests.cs" />
+    <Compile Include="dbTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
