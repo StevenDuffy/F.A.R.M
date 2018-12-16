@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FarmControl;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,11 +25,21 @@ namespace F.A.R.M.ChildWindows
             InitializeComponent();
         }
 
-          private void DataManagementClick(object sender, RoutedEventArgs e)
-            {
+        private void ModifyUserClick(object sender, RoutedEventArgs e)
+        {
+            int _userID = Convert.ToInt32(userIDInput.Text);
+            string _userFirstName = userFirstNameInput.Text;
+            string _userSurname = userSurnameInput.Text;
+            string _userUname = userUnameInput.Text;
+            //string _userPword = userPassowrdInput.Text;
+            int _userPriv = Convert.ToInt32(userPrivInput.Text);
+            DatabaseConnection.DataConn.EditUserInDB(_userID, _userFirstName, _userSurname, _userUname, _userPriv);
+        }
+        private void DataManagementClick(object sender, RoutedEventArgs e)
+        {
             MainWindow mainWindow = new MainWindow();
             mainWindow.Show();
             this.Close();
-            }
+        }
     }
 }
